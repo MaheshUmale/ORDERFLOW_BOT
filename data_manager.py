@@ -135,11 +135,11 @@ def change_instrument(opt_key, idx_name='NIFTY'):
 
         # Populate aggregated_ohlc
         for c in hist_idx:
-            ts = pd.to_datetime(c[0]).tz_localize(None)
+            ts = pd.to_datetime(c[0]).replace(tzinfo=None)
             aggregated_ohlc['idx'][ts] = {'open': c[1], 'high': c[2], 'low': c[3], 'close': c[4], 'volume': c[5]}
 
         for c in hist_opt:
-            ts = pd.to_datetime(c[0]).tz_localize(None)
+            ts = pd.to_datetime(c[0]).replace(tzinfo=None)
             aggregated_ohlc['opt'][ts] = {'open': c[1], 'high': c[2], 'low': c[3], 'close': c[4], 'volume': c[5]}
 
             # Create FootprintCandles from OHLC (approximate since we don't have ticks for history)
