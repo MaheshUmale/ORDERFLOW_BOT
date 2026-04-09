@@ -1,0 +1,21 @@
+# TASK LIST
+
+- [x] Implement Core Pivot Algorithm in `pivot_algorithm.py`
+    - [x] `PivotPoint` class
+    - [x] `AutoTrendSupportResistance` class with tested/broken logic
+- [x] Implement Order Flow Data Model in `footprint_candle.py`
+    - [x] `FootprintCandle` class with tick aggregation and price level tracking
+- [x] Implement Battle Engine in `order_flow_engine.py`
+    - [x] `OrderFlowEngine` class with imbalance, absorption, and exhaustion detection
+- [x] Implement Data Manager and Simulation in `data_manager.py`
+    - [x] Thread-safe rolling window
+    - [x] `simulate_wss_feed` function
+- [x] Revamp Dash UI in `app.py`
+    - [x] Subplots for Candlesticks/Order Flow and Cumulative Delta
+    - [x] Integration with all engines
+- [x] Verification and Testing
+    - [x] Create `backtest_simulation.py`
+    - [x] Run simulation and verify correctness
+- [x] Finalize Project
+    - [x] Complete pre-commit steps
+    - [x] Submit changes
