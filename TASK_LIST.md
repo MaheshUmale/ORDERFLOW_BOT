@@ -16,6 +16,11 @@
 - [x] Verification and Testing
     - [x] Create `backtest_simulation.py`
     - [x] Run simulation and verify correctness
+- [x] Upstox Integration
+    - [x] Implement `upstox_helper.py` for API interaction and instrument search
+    - [x] Implement `upstox_wss.py` for WebSocket data feed
+    - [x] Integrate Upstox feed into `data_manager.py`
+    - [x] Update `app.py` for dynamic instrument selection and real-time updates
 - [x] Finalize Project
     - [x] Complete pre-commit steps
     - [x] Submit changes

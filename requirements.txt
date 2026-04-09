@@ -1,4 +1,7 @@
 dash
 plotly
 pandas
-threading
+upstox-python-sdk
+python-dotenv
+websockets
+protobuf
