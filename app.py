@@ -29,7 +29,7 @@ app.layout = html.Div([
                              options=[{'label': 'NIFTY', 'value': 'NIFTY'},
                                       {'label': 'BANKNIFTY', 'value': 'BANKNIFTY'}],
                              value='NIFTY', style={'width': '120px', 'color': 'black'})
-            ], style={'display': 'inline-block', 'padding': '10px'}),
+            ], style={'display': 'inlineBlock', 'padding': '10px'}),
 
             html.Div([
                 html.Label("Option Instrument:", style={'color': 'white'}),
@@ -37,7 +37,7 @@ app.layout = html.Div([
                              placeholder="Example: NIFTY 23800 CE",
                              searchable=True,
                              style={'width': '450px', 'color': 'black'})
-            ], style={'display': 'inline-block', 'padding': '10px'}),
+            ], style={'display': 'inlineBlock', 'padding': '10px'}),
 
             html.Div([
                 html.Label("Terminal Mode:", style={'color': 'white'}),
@@ -45,12 +45,12 @@ app.layout = html.Div([
                                options=[{'label': 'Order Flow', 'value': 'OF'},
                                         {'label': 'Rel. Strength', 'value': 'RS'}],
                                value='OF', style={'color': 'white'},
-                               labelStyle={'display': 'inline-block', 'marginRight': '10px'})
-            ], style={'display': 'inline-block', 'padding': '10px'}),
+                               labelStyle={'display': 'inlineBlock', 'marginRight': '10px'})
+            ], style={'display': 'inlineBlock', 'padding': '10px'}),
 
             html.Button('Connect & Start', id='connect-button', n_clicks=0,
-                        style={'margin-top': '30px', 'backgroundColor': '#00ff00', 'fontWeight': 'bold', 'padding':'5px 15px', 'borderRadius':'5px'})
-        ], style={'backgroundColor': '#222', 'borderRadius': '5px', 'margin-bottom': '10px', 'padding':'10px'}),
+                        style={'marginTop': '30px', 'backgroundColor': '#00ff00', 'fontWeight': 'bold', 'padding':'5px 15px', 'borderRadius':'5px'})
+        ], style={'backgroundColor': '#222', 'borderRadius': '5px', 'marginBottom': '10px', 'padding':'10px'}),
 
         html.Div(id='status-line', style={'color': '#00ff00', 'padding': '5px', 'fontWeight': 'bold'}),
         html.Div(id='trap-alerts', style={'color': '#ffcc00', 'fontWeight': 'bold', 'height': '30px'}),
@@ -58,11 +58,11 @@ app.layout = html.Div([
     ]),
 
     html.Div([
-        dcc.Graph(id='main-chart', style={'height': '75vh', 'width': '78%', 'display': 'inline-block'}),
+        dcc.Graph(id='main-chart', style={'height': '75vh', 'width': '78%', 'display': 'inlineBlock'}),
         html.Div([
             html.H3("Signal Log", style={'color': 'white', 'textAlign': 'center'}),
             html.Div(id='signal-log', style={'height': '65vh', 'overflowY': 'scroll', 'color': '#00ff00', 'backgroundColor': '#000', 'padding': '5px', 'fontFamily': 'Courier New', 'fontSize': '12px', 'border':'1px solid #444'})
-        ], style={'width': '20%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '10px'})
+        ], style={'width': '20%', 'display': 'inlineBlock', 'verticalAlign': 'top', 'padding': '10px'})
     ]),
 
     dcc.Interval(id='update-interval', interval=1000, n_intervals=0),
@@ -216,7 +216,5 @@ def update_chart(n, mode, history, active_instrument):
     return fig, alert_text, [html.Div(e) for e in reversed(history)], signal_alert_div, history
 
 if __name__ == '__main__':
-    # Default to simulation mode if no credentials provided or specifically requested
-    # For live usage, the 'Connect & Start' button will initialize the Upstox WSS feed.
-    start_simulation()
+    # Terminal defaults to Live Mode. Use "Connect & Start" to initialize feed.
     app.run(debug=True, port=8050)

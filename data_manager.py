@@ -77,31 +77,9 @@ def get_synced_df():
     return df
 
 upstox_wss = UpstoxWSS(callback=on_tick_received)
-_simulation_active = False
-
-def start_simulation():
-    global _simulation_active
-    if _simulation_active: return
-    _simulation_active = True
-    def run():
-        price_opt = 200
-        price_idx = 22000
-        while _simulation_active:
-            try:
-                # Generate ticks more frequently for smoother update
-                if active_opt_key:
-                    on_tick_received(active_opt_key, price_opt + random.uniform(-2, 2), random.randint(1, 10), random.choice([True, False]))
-                on_tick_received(active_idx_key, price_idx + random.uniform(-5, 5), 0, True)
-            except Exception as e:
-                print(f"Simulation error: {e}")
-            time.sleep(0.5)
-
-    threading.Thread(target=run, daemon=True).start()
 
 def start_live_feed():
-    # Simulation continues in background to provide visual feedback if live data is slow/inactive
-    # global _simulation_active
-    # _simulation_active = False
+    """Starts the real-time Upstox WebSocket feed."""
     upstox_wss.start()
 
 def change_instrument(opt_key, idx_name='NIFTY'):
@@ -114,5 +92,40 @@ def change_instrument(opt_key, idx_name='NIFTY'):
     aggregated_ohlc['idx'].clear()
     aggregated_ohlc['opt'].clear()
     current_opt_candle = None
+    engine.cumulative_delta = 0
+
+    # Bootstrap historical candles
+    try:
+        hist_opt = helper.get_historical_candles(active_opt_key)
+        hist_idx = helper.get_historical_candles(active_idx_key)
+
+        # Upstox returns newest first; reverse for chronological order
+        hist_opt.reverse()
+        hist_idx.reverse()
+
+        # Populate aggregated_ohlc
+        for c in hist_idx:
+            ts = pd.to_datetime(c[0]).tz_localize(None)
+            aggregated_ohlc['idx'][ts] = {'open': c[1], 'high': c[2], 'low': c[3], 'close': c[4], 'volume': c[5]}
+
+        for c in hist_opt:
+            ts = pd.to_datetime(c[0]).tz_localize(None)
+            aggregated_ohlc['opt'][ts] = {'open': c[1], 'high': c[2], 'low': c[3], 'close': c[4], 'volume': c[5]}
+
+            # Create FootprintCandles from OHLC (approximate since we don't have ticks for history)
+            f_candle = FootprintCandle(c[1], ts)
+            f_candle.high = c[2]
+            f_candle.low = c[3]
+            f_candle.close = c[4]
+            f_candle.volume = c[5]
+            # Heuristic delta
+            f_candle.delta = (c[4] - c[1]) * (c[5] / (c[2] - c[3] + 0.001))
+
+            candles_deque.append(f_candle)
+            engine.cumulative_delta += f_candle.delta
+            analysis_deque.append(engine.analyze_candle(f_candle, engine.cumulative_delta - f_candle.delta))
+
+    except Exception as e:
+        print(f"Error bootstrapping: {e}")
 
     upstox_wss.update_subscriptions([active_opt_key, active_idx_key])
