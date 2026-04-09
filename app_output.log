@@ -1,6 +1,0 @@
-Historical API Error 400: {"status":"error","errors":[{"errorCode":"UDAPI1021","message":"Instrument key is of invalid format","propertyPath":"getIntraDayCandleData.instrumentKey","invalidValue":"SIMULATED_INSTRUMENT","error_code":"UDAPI1021","property_path":"getIntraDayCandleData.instrumentKey","invalid_value":"SIMULATED_INSTRUMENT"}]}
-Dash is running on http://127.0.0.1:8050/
-
- * Serving Flask app 'app'
- * Debug mode: on
-Historical API Error 400: {"status":"error","errors":[{"errorCode":"UDAPI1021","message":"Instrument key is of invalid format","propertyPath":"getIntraDayCandleData.instrumentKey","invalidValue":"SIMULATED_INSTRUMENT","error_code":"UDAPI1021","property_path":"getIntraDayCandleData.instrumentKey","invalid_value":"SIMULATED_INSTRUMENT"}]}
