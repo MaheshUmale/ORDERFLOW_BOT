@@ -8,7 +8,7 @@ load_dotenv()
 
 class UpstoxHelper:
     def __init__(self):
-        self.api_key = os.getenv('UPSTOX_API_KEY')
+        # Access Token is the primary authentication for the provided environment
         self.access_token = os.getenv('UPSTOX_ACCESS_TOKEN')
         self.base_url = "https://api.upstox.com/v2"
         self.base_url_v3 = "https://api.upstox.com/v3"
@@ -76,17 +76,19 @@ class UpstoxHelper:
 
     def get_historical_candles(self, instrument_key, interval='1minute'):
         """Fetch intraday candles for bootstrapping."""
-        url = f"{self.base_url}/market-quote/ohlc/interval/{instrument_key}/{interval}"
+        # Correct Upstox V2 Historical Intraday endpoint
+        url = f"{self.base_url}/historical-candle/intraday/{instrument_key}/{interval}"
         headers = {
             'Authorization': f"Bearer {self.access_token}",
             'Accept': 'application/json'
         }
-        # In reality V3 might have a different structure, but usually OHLC is V2.
-        # If user insisted on V3, we'd use base_url_v3.
         response = requests.get(url, headers=headers)
         if response.status_code == 200:
             data = response.json()
             if data['status'] == 'success':
-                # Upstox returns candles in data[instrument_key][interval]
-                return data['data'][instrument_key][interval]
+                # Upstox returns candles in data['candles'] as list of lists
+                # [timestamp, open, high, low, close, volume, oi]
+                return data['data']['candles']
+        else:
+            print(f"Historical API Error {response.status_code}: {response.text}")
         return []
