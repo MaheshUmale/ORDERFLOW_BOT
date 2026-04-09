@@ -1,35 +1,26 @@
+from collections import defaultdict
+
 class FootprintCandle:
-    def __init__(self):
-        self.data = []  # Initialize data structure
+    def __init__(self, open_price, start_time):
+        self.start_time = start_time
+        self.open = open_price
+        self.high = open_price
+        self.low = open_price
+        self.close = open_price
+        self.volume = 0
+        self.delta = 0
+        # Tracks { price: {'bid_vol': x, 'ask_vol': y} }
+        self.price_levels = defaultdict(lambda: {'bid_vol': 0, 'ask_vol': 0})
 
-    def add_tick(self, tick):
-        self.data.append(tick)  # Add tick data
+    def add_tick(self, price, volume, is_buy_trade):
+        self.high = max(self.high, price)
+        self.low = min(self.low, price)
+        self.close = price
+        self.volume += volume
 
-    def get_imbalance_ratio(self):
-        # Calculate imbalance ratio based on ticks
-        if not self.data:
-            return 0
-        buyer_volume = sum(tick['buyer_volume'] for tick in self.data)
-        seller_volume = sum(tick['seller_volume'] for tick in self.data)
-        return (buyer_volume - seller_volume) / (buyer_volume + seller_volume)
-
-    def get_level_volume(self, level):
-        # Get volume for a specific level
-        return sum(tick['volume'] for tick in self.data if tick['level'] == level)
-
-    def get_max_volume_level(self):
-        # Get level with maximum volume
-        levels = {}  # Dictionary to hold volume per level
-        for tick in self.data:
-            level = tick['level']
-            levels[level] = levels.get(level, 0) + tick['volume']
-        max_level = max(levels, key=levels.get)
-        return max_level, levels[max_level]
-
-    def to_dict(self):
-        # Convert instance data to dictionary
-        return {
-            'data': self.data,
-            'imbalance_ratio': self.get_imbalance_ratio(),
-            'max_volume_level': self.get_max_volume_level(),
-        }
+        if is_buy_trade:
+            self.price_levels[price]['ask_vol'] += volume
+            self.delta += volume
+        else:
+            self.price_levels[price]['bid_vol'] += volume
+            self.delta -= volume

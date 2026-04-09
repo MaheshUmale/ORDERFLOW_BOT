@@ -1,50 +1,72 @@
-# Pivot Algorithm Implementation
-
 class PivotPoint:
-    def __init__(self, high, low, close):
-        self.high = high
-        self.low = low
+    def __init__(self, bar_number, price, close, is_high):
+        self.bar_number = bar_number
+        self.price = price
         self.close = close
-        self.pivot = (high + low + close) / 3
-        self.support1 = self.pivot * 2 - high
-        self.support2 = self.pivot - (high - low)
-        self.resistance1 = self.pivot * 2 - low
-        self.resistance2 = self.pivot + (high - low)
-
-    def get_levels(self):
-        return {
-            'pivot': self.pivot,
-            'support1': self.support1,
-            'support2': self.support2,
-            'resistance1': self.resistance1,
-            'resistance2': self.resistance2
-        }
+        self.is_high = is_high
+        self.display_level = True
+        self.is_level_tested = False
+        self.is_level_broken = False
 
 class AutoTrendSupportResistance:
-    def __init__(self, price_data):
-        self.price_data = price_data
+    def __init__(self, required_ticks_for_broken=4, tick_size=0.05):
+        self.pivots = []
+        self.current_pivot = None
+        self.is_looking_for_high = True
+        self.has_first_pivot = False
+        self.required_threshold = required_ticks_for_broken * tick_size
 
-    def identify_levels(self):
-        levels = []
-        for i in range(1, len(self.price_data) - 1):
-            if (self.price_data[i] > self.price_data[i - 1] and self.price_data[i] > self.price_data[i + 1]):
-                levels.append(('resistance', self.price_data[i]))
-            elif (self.price_data[i] < self.price_data[i - 1] and self.price_data[i] < self.price_data[i + 1]):
-                levels.append(('support', self.price_data[i]))
-        return levels
+    def update(self, current_bar_idx, prev_open, prev_high, prev_low, prev_close):
+        if not self.has_first_pivot:
+            if prev_open <= prev_close:
+                self.current_pivot = PivotPoint(current_bar_idx, prev_low, prev_close, False)
+                self.pivots.append(self.current_pivot)
+            else:
+                self.current_pivot = PivotPoint(current_bar_idx, prev_high, prev_close, True)
+                self.pivots.append(self.current_pivot)
+                self.is_looking_for_high = False
 
-    def level_testing(self, current_price):
-        for level_type, level_value in self.identify_levels():
-            if current_price >= level_value and level_type == 'resistance':
-                return 'Breaking Resistance'
-            elif current_price <= level_value and level_type == 'support':
-                return 'Breaking Support'
-        return 'No Break'
+            self.has_first_pivot = True
+            return
 
-# Example Usage
-# price_data = [high, low, close]
-# pp = PivotPoint(high, low, close)
-# print(pp.get_levels())
+        # Check if existing levels are tested or broken
+        for pivot in self.pivots:
+            if not pivot.display_level:
+                continue
 
-# auto_trend = AutoTrendSupportResistance(price_data)
-# print(auto_trend.level_testing(current_price))
+            # Resistance Checks
+            if pivot.is_high:
+                if pivot.price <= prev_high <= (pivot.price + self.required_threshold):
+                    pivot.is_level_tested = True
+                elif prev_high > (pivot.price + self.required_threshold):
+                    pivot.is_level_broken = True
+                    pivot.display_level = False
+            # Support Checks
+            else:
+                if pivot.price >= prev_low >= (pivot.price - self.required_threshold):
+                    pivot.is_level_tested = True
+                elif prev_low < (pivot.price - self.required_threshold):
+                    pivot.is_level_broken = True
+                    pivot.display_level = False
+
+        # Find new pivots
+        if self.is_looking_for_high:
+            if prev_high > self.current_pivot.price:
+                self.current_pivot.bar_number = current_bar_idx
+                self.current_pivot.price = prev_high
+                self.current_pivot.close = prev_close
+            elif prev_high < self.current_pivot.price:
+                # Lower high found, lock in the peak and look for low
+                self.pivots.append(PivotPoint(self.current_pivot.bar_number, self.current_pivot.price, self.current_pivot.close, True))
+                self.current_pivot = PivotPoint(current_bar_idx, prev_low, prev_close, False)
+                self.is_looking_for_high = False
+        else:
+            if prev_low < self.current_pivot.price:
+                self.current_pivot.bar_number = current_bar_idx
+                self.current_pivot.price = prev_low
+                self.current_pivot.close = prev_close
+            elif prev_low > self.current_pivot.price:
+                # Higher low found, lock in the trough and look for high
+                self.pivots.append(PivotPoint(self.current_pivot.bar_number, self.current_pivot.price, self.current_pivot.close, False))
+                self.current_pivot = PivotPoint(current_bar_idx, prev_high, prev_close, True)
+                self.is_looking_for_high = True
