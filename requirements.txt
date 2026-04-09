@@ -5,3 +5,4 @@ upstox-python-sdk
 python-dotenv
 websockets
 protobuf
+requests

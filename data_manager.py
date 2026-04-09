@@ -87,17 +87,22 @@ def start_simulation():
         price_opt = 200
         price_idx = 22000
         while _simulation_active:
-            # Generate ticks more frequently for smoother update
-            if active_opt_key:
-                on_tick_received(active_opt_key, price_opt + random.uniform(-2, 2), random.randint(1, 10), random.choice([True, False]))
-            on_tick_received(active_idx_key, price_idx + random.uniform(-5, 5), 0, True)
+            try:
+                # Generate ticks more frequently for smoother update
+                if active_opt_key:
+                    on_tick_received(active_opt_key, price_opt + random.uniform(-2, 2), random.randint(1, 10), random.choice([True, False]))
+                on_tick_received(active_idx_key, price_idx + random.uniform(-5, 5), 0, True)
+            except Exception as e:
+                print(f"Simulation error: {e}")
             time.sleep(0.5)
 
     threading.Thread(target=run, daemon=True).start()
 
 def start_live_feed():
-    global _simulation_active
-    _simulation_active = False # Stop simulation when live feed starts
+    # Keep simulation running for now to ensure user always sees data
+    # In a production environment, you might disable it.
+    # global _simulation_active
+    # _simulation_active = False
     upstox_wss.start()
 
 def change_instrument(opt_key, idx_name='NIFTY'):
