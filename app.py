@@ -206,7 +206,14 @@ def update_chart(n, mode, history, active_instrument):
 
     fig.add_trace(go.Scatter(x=analysis_df['time'], y=analysis_df['cum_delta'], fill='tozeroy', name='Cumulative Delta', line=dict(color='cyan', width=2)), row=2, col=1)
 
-    fig.update_layout(title=f"LIVE: {instrument_label}", template="plotly_dark", margin=dict(l=10, r=10, t=50, b=10), xaxis_rangeslider_visible=False, showlegend=False)
+    fig.update_layout(title=f"LIVE: {instrument_label}", template="plotly_dark",
+                      margin=dict(l=10, r=10, t=50, b=10), xaxis_rangeslider_visible=False, showlegend=False)
+
+    # Auto-scale Y-axis and set X-axis range to last 30 mins for better visibility if data is dense
+    if not df_opt.empty:
+        last_time = df_opt['time'].iloc[-1]
+        start_view = last_time - pd.Timedelta(minutes=30)
+        fig.update_xaxes(range=[start_view, last_time + pd.Timedelta(minutes=1)])
 
     alert_text = "STATUS: MONITORING"
     if not analysis_df.empty:
@@ -216,5 +223,8 @@ def update_chart(n, mode, history, active_instrument):
     return fig, alert_text, [html.Div(e) for e in reversed(history)], signal_alert_div, history
 
 if __name__ == '__main__':
-    # Terminal defaults to Live Mode. Use "Connect & Start" to initialize feed.
+    # Default to simulation mode so user sees movement immediately
+    # Simulation will use a dummy key until user selects a real one
+    change_instrument("SIMULATED_INSTRUMENT", "NIFTY")
+    start_simulation()
     app.run(debug=True, port=8050)

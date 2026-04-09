@@ -77,9 +77,37 @@ def get_synced_df():
     return df
 
 upstox_wss = UpstoxWSS(callback=on_tick_received)
+_simulation_active = False
+
+def start_simulation():
+    global _simulation_active
+    if _simulation_active: return
+    _simulation_active = True
+    def run():
+        price_opt = 200
+        price_idx = 22000
+        while _simulation_active:
+            try:
+                if active_opt_key:
+                    # Simulate ticks every 0.5s
+                    on_tick_received(active_opt_key, price_opt + random.uniform(-2, 2), random.randint(1, 10), random.choice([True, False]))
+                    on_tick_received(active_idx_key, price_idx + random.uniform(-5, 5), 0, True)
+                    # Drift prices slightly
+                    price_opt += random.uniform(-0.5, 0.5)
+                    price_idx += random.uniform(-1, 1)
+            except Exception as e:
+                print(f"Simulation error: {e}")
+            time.sleep(0.5)
+
+    threading.Thread(target=run, daemon=True).start()
+
+def stop_simulation():
+    global _simulation_active
+    _simulation_active = False
 
 def start_live_feed():
     """Starts the real-time Upstox WebSocket feed."""
+    stop_simulation()
     upstox_wss.start()
 
 def change_instrument(opt_key, idx_name='NIFTY'):
@@ -95,6 +123,8 @@ def change_instrument(opt_key, idx_name='NIFTY'):
     engine.cumulative_delta = 0
 
     # Bootstrap historical candles
+    if active_opt_key == "SIMULATED_INSTRUMENT": return
+
     try:
         hist_opt = helper.get_historical_candles(active_opt_key)
         hist_idx = helper.get_historical_candles(active_idx_key)
