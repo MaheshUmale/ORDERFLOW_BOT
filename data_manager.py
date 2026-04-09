@@ -14,8 +14,7 @@ MAX_CANDLES = 100
 candles_deque = deque(maxlen=MAX_CANDLES)
 analysis_deque = deque(maxlen=MAX_CANDLES)
 
-# RS Strategy data: Simplified OHLC aggregation
-# Store { 'idx': {timestamp: {o,h,l,c,v}}, 'opt': {timestamp: {o,h,l,c,v}} }
+# RS Strategy data: OHLC aggregation
 aggregated_ohlc = {'idx': {}, 'opt': {}}
 
 engine = OrderFlowEngine()
@@ -23,9 +22,7 @@ rs_strategy = RelativeStrengthStrategy()
 helper = UpstoxHelper()
 
 current_opt_candle = None
-candle_duration = 60 # 1 minute
-
-active_opt_key = "NSE_FO|53265" # Example default
+active_opt_key = None
 active_idx_key = helper.get_spot_keys()['NIFTY']
 
 def on_tick_received(instrument_key, price, volume, is_buy):
@@ -39,11 +36,11 @@ def on_tick_received(instrument_key, price, volume, is_buy):
         if current_opt_candle is None or current_opt_candle.start_time != ts_min:
             if current_opt_candle is not None:
                 candles_deque.append(current_opt_candle)
-                analysis_deque.append(engine.analyze_candle(current_opt_candle))
+                engine.cumulative_delta += current_opt_candle.delta
+                analysis_deque.append(engine.analyze_candle(current_opt_candle, engine.cumulative_delta - current_opt_candle.delta))
             current_opt_candle = FootprintCandle(price, ts_min)
         current_opt_candle.add_tick(price, volume, is_buy)
 
-        # Aggregated OHLC for Option
         update_ohlc('opt', ts_min, price, volume)
 
     # 2. Index OHLC Aggregation
@@ -60,13 +57,17 @@ def update_ohlc(key, ts, price, vol):
     d['close'] = price
     d['volume'] += vol
 
-    # Prune old data
-    if len(aggregated_ohlc[key]) > MAX_CANDLES + 5:
+    if len(aggregated_ohlc[key]) > MAX_CANDLES + 10:
         oldest = min(aggregated_ohlc[key].keys())
         del aggregated_ohlc[key][oldest]
 
+def get_all_opt_candles():
+    all_c = list(candles_deque)
+    if current_opt_candle:
+        all_c.append(current_opt_candle)
+    return all_c
+
 def get_synced_df():
-    """Build a synced dataframe for Index and Option."""
     idx_df = pd.DataFrame.from_dict(aggregated_ohlc['idx'], orient='index').rename(columns=lambda x: f'idx_{x}')
     opt_df = pd.DataFrame.from_dict(aggregated_ohlc['opt'], orient='index').rename(columns=lambda x: f'opt_{x}')
 
@@ -75,19 +76,29 @@ def get_synced_df():
     df = idx_df.join(opt_df, how='inner').sort_index()
     return df
 
-# Initialize Upstox WSS
 upstox_wss = UpstoxWSS(callback=on_tick_received)
+_simulation_active = False
 
 def start_simulation():
+    global _simulation_active
+    if _simulation_active: return
+    _simulation_active = True
     def run():
         price_opt = 200
         price_idx = 22000
-        while True:
-            on_tick_received(active_opt_key, price_opt + random.uniform(-2, 2), random.randint(1, 10), random.choice([True, False]))
+        while _simulation_active:
+            # Generate ticks more frequently for smoother update
+            if active_opt_key:
+                on_tick_received(active_opt_key, price_opt + random.uniform(-2, 2), random.randint(1, 10), random.choice([True, False]))
             on_tick_received(active_idx_key, price_idx + random.uniform(-5, 5), 0, True)
-            time.sleep(0.1)
+            time.sleep(0.5)
 
     threading.Thread(target=run, daemon=True).start()
+
+def start_live_feed():
+    global _simulation_active
+    _simulation_active = False # Stop simulation when live feed starts
+    upstox_wss.start()
 
 def change_instrument(opt_key, idx_name='NIFTY'):
     global active_opt_key, active_idx_key, current_opt_candle

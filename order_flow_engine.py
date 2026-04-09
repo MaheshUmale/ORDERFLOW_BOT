@@ -5,12 +5,12 @@ class OrderFlowEngine:
         self.imbalance_ratio = imbalance_ratio
         self.cumulative_delta = 0
 
-    def analyze_candle(self, candle: FootprintCandle):
-        self.cumulative_delta += candle.delta
+    def analyze_candle(self, candle: FootprintCandle, current_cum_delta=0):
+        new_cum_delta = current_cum_delta + candle.delta
         analysis = {
             'time': candle.start_time,
             'delta': candle.delta,
-            'cum_delta': self.cumulative_delta,
+            'cum_delta': new_cum_delta,
             'imbalances': [],
             'absorption_zones': [],
             'exhaustion': False,
