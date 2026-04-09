@@ -45,7 +45,7 @@ app.layout = html.Div([
                                options=[{'label': 'Order Flow', 'value': 'OF'},
                                         {'label': 'Rel. Strength', 'value': 'RS'}],
                                value='OF', style={'color': 'white'},
-                               labelStyle={'display': 'inline-block', 'margin-right': '10px'})
+                               labelStyle={'display': 'inline-block', 'marginRight': '10px'})
             ], style={'display': 'inline-block', 'padding': '10px'}),
 
             html.Button('Connect & Start', id='connect-button', n_clicks=0,
@@ -127,7 +127,8 @@ def update_chart(n, mode, history, active_instrument):
     # 1. Prepare Data
     all_opt_candles = get_all_opt_candles()
     if not all_opt_candles:
-        return go.Figure().update_layout(title="Waiting for Data...", template="plotly_dark"), "Waiting for ticks...", "", "", history
+        msg = f"Waiting for ticks for {instrument_label}..." if instrument_label != 'No Instrument Selected' else "Please select an instrument and click Connect."
+        return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, [html.Div(e) for e in reversed(history)], "", history
 
     df_opt = pd.DataFrame([{
         'time': c.start_time, 'open': c.open, 'high': c.high, 'low': c.low, 'close': c.close, 'delta': c.delta

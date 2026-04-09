@@ -11,6 +11,7 @@ class UpstoxWSS:
         self.callback = callback
         self.helper = UpstoxHelper()
         self.websocket = None
+        self.last_volumes = {} # Store last cumulative volume per instrument
         self.loop = None
         self.subscribed_keys = set()
         self._thread = None
@@ -68,12 +69,18 @@ class UpstoxWSS:
                     volume = feed.get('ltpc', {}).get('v', 0)
 
                 if ltp > 0:
+                    # Calculate incremental volume from cumulative volume
+                    last_v = self.last_volumes.get(instrument_key, volume)
+                    incremental_volume = volume - last_v
+                    if incremental_volume < 0: incremental_volume = 0 # Handle new session/reset
+                    self.last_volumes[instrument_key] = volume
+
                     # Side detection: LTP closer to Ask -> Buy, closer to Bid -> Sell
                     is_buy = True
                     if ask > bid > 0:
                         is_buy = abs(ltp - ask) <= abs(ltp - bid)
 
-                    self.callback(instrument_key, ltp, volume, is_buy)
+                    self.callback(instrument_key, ltp, incremental_volume, is_buy)
 
     async def _subscribe(self, instrument_keys):
         if self.websocket:
