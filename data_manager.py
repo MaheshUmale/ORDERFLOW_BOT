@@ -99,8 +99,7 @@ def start_simulation():
     threading.Thread(target=run, daemon=True).start()
 
 def start_live_feed():
-    # Keep simulation running for now to ensure user always sees data
-    # In a production environment, you might disable it.
+    # Simulation continues in background to provide visual feedback if live data is slow/inactive
     # global _simulation_active
     # _simulation_active = False
     upstox_wss.start()
