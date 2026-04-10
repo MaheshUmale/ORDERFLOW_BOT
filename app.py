@@ -29,7 +29,7 @@ app.layout = html.Div([
                              options=[{'label': 'NIFTY', 'value': 'NIFTY'},
                                       {'label': 'BANKNIFTY', 'value': 'BANKNIFTY'}],
                              value='NIFTY', style={'width': '120px', 'color': 'black'})
-            ], style={'display': 'inlineBlock', 'padding': '10px'}),
+            ], style={'display': 'inline-block', 'padding': '10px'}),
 
             html.Div([
                 html.Label("Option Instrument:", style={'color': 'white'}),
@@ -37,7 +37,7 @@ app.layout = html.Div([
                              placeholder="Example: NIFTY 23800 CE",
                              searchable=True,
                              style={'width': '450px', 'color': 'black'})
-            ], style={'display': 'inlineBlock', 'padding': '10px'}),
+            ], style={'display': 'inline-block', 'padding': '10px'}),
 
             html.Div([
                 html.Label("Terminal Mode:", style={'color': 'white'}),
@@ -45,8 +45,8 @@ app.layout = html.Div([
                                options=[{'label': 'Order Flow', 'value': 'OF'},
                                         {'label': 'Rel. Strength', 'value': 'RS'}],
                                value='OF', style={'color': 'white'},
-                               labelStyle={'display': 'inlineBlock', 'marginRight': '10px'})
-            ], style={'display': 'inlineBlock', 'padding': '10px'}),
+                               labelStyle={'display': 'inline-block', 'marginRight': '10px'})
+            ], style={'display': 'inline-block', 'padding': '10px'}),
 
             html.Button('Connect & Start', id='connect-button', n_clicks=0,
                         style={'marginTop': '30px', 'backgroundColor': '#00ff00', 'fontWeight': 'bold', 'padding':'5px 15px', 'borderRadius':'5px'})
@@ -58,11 +58,11 @@ app.layout = html.Div([
     ]),
 
     html.Div([
-        dcc.Graph(id='main-chart', style={'height': '75vh', 'width': '78%', 'display': 'inlineBlock'}),
+        dcc.Graph(id='main-chart', style={'height': '75vh', 'width': '78%', 'display': 'inline-block'}),
         html.Div([
             html.H3("Signal Log", style={'color': 'white', 'textAlign': 'center'}),
             html.Div(id='signal-log', style={'height': '65vh', 'overflowY': 'scroll', 'color': '#00ff00', 'backgroundColor': '#000', 'padding': '5px', 'fontFamily': 'Courier New', 'fontSize': '12px', 'border':'1px solid #444'})
-        ], style={'width': '20%', 'display': 'inlineBlock', 'verticalAlign': 'top', 'padding': '10px'})
+        ], style={'width': '20%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '10px'})
     ]),
 
     dcc.Interval(id='update-interval', interval=1000, n_intervals=0),
@@ -115,13 +115,13 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
      Output('signal-log', 'children'),
      Output('signal-alert', 'children'),
      Output('signal-history', 'data', allow_duplicate=True)],
-    [Input('update-interval', 'n_intervals')],
+    [Input('update-interval', 'n_intervals'),
+     Input('active-instrument-store', 'data')],
     [State('terminal-mode', 'value'),
-     State('signal-history', 'data'),
-     State('active-instrument-store', 'data')],
+     State('signal-history', 'data')],
     prevent_initial_call=True
 )
-def update_chart(n, mode, history, active_instrument):
+def update_chart(n, active_instrument, mode, history):
     instrument_label = active_instrument['label']
 
     # 1. Prepare Data
@@ -153,14 +153,17 @@ def update_chart(n, mode, history, active_instrument):
         df_sync = rs_strategy.detect_signals(df_sync)
 
     # 2. Figure Setup
-    fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.05, row_heights=[0.7, 0.3])
+    fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.05,
+                        row_heights=[0.7, 0.3],
+                        specs=[[{"secondary_y": True}], [{"secondary_y": False}]])
 
     # 3. Main Plot
-    fig.add_trace(go.Candlestick(x=df_opt['time'], open=df_opt['open'], high=df_opt['high'], low=df_opt['low'], close=df_opt['close'], name=instrument_label), row=1, col=1)
+    fig.add_trace(go.Candlestick(x=df_opt['time'], open=df_opt['open'], high=df_opt['high'], low=df_opt['low'], close=df_opt['close'], name=instrument_label), row=1, col=1, secondary_y=False)
 
     if mode == 'RS' and not df_sync.empty:
-        # Overlay Index (Normalized or secondary axis recommended, but overlay for now)
-        fig.add_trace(go.Scatter(x=df_sync.index, y=df_sync['idx_close'], name='NIFTY Index', line=dict(color='orange', width=1, dash='dot')), row=1, col=1)
+        # Overlay Index on secondary Y-axis
+        fig.add_trace(go.Scatter(x=df_sync.index, y=df_sync['idx_close'], name='NIFTY Index', line=dict(color='orange', width=1, dash='dot')), row=1, col=1, secondary_y=True)
+        fig.update_yaxes(title_text="Index Price", secondary_y=True, row=1, col=1)
 
     # 4. Technical Levels
     indicator = AutoTrendSupportResistance(required_ticks_for_broken=4, tick_size=1)
@@ -206,7 +209,14 @@ def update_chart(n, mode, history, active_instrument):
 
     fig.add_trace(go.Scatter(x=analysis_df['time'], y=analysis_df['cum_delta'], fill='tozeroy', name='Cumulative Delta', line=dict(color='cyan', width=2)), row=2, col=1)
 
-    fig.update_layout(title=f"LIVE: {instrument_label}", template="plotly_dark", margin=dict(l=10, r=10, t=50, b=10), xaxis_rangeslider_visible=False, showlegend=False)
+    fig.update_layout(title=f"LIVE: {instrument_label}", template="plotly_dark",
+                      margin=dict(l=10, r=10, t=50, b=10), xaxis_rangeslider_visible=False, showlegend=False)
+
+    # Auto-scale Y-axis and set X-axis range to last 30 mins for better visibility if data is dense
+    if not df_opt.empty:
+        last_time = df_opt['time'].iloc[-1]
+        start_view = last_time - pd.Timedelta(minutes=30)
+        fig.update_xaxes(range=[start_view, last_time + pd.Timedelta(minutes=1)])
 
     alert_text = "STATUS: MONITORING"
     if not analysis_df.empty:
@@ -216,5 +226,5 @@ def update_chart(n, mode, history, active_instrument):
     return fig, alert_text, [html.Div(e) for e in reversed(history)], signal_alert_div, history
 
 if __name__ == '__main__':
-    # Terminal defaults to Live Mode. Use "Connect & Start" to initialize feed.
+    # Initialize with no active instrument as requested (no simulation by default)
     app.run(debug=True, port=8050)
