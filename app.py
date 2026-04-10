@@ -49,7 +49,32 @@ app.layout = html.Div([
             ], style={'display': 'inline-block', 'padding': '10px'}),
 
             html.Button('Connect & Start', id='connect-button', n_clicks=0,
-                        style={'marginTop': '30px', 'backgroundColor': '#00ff00', 'fontWeight': 'bold', 'padding':'5px 15px', 'borderRadius':'5px'})
+                        style={'marginTop': '30px', 'backgroundColor': '#00ff00', 'fontWeight': 'bold', 'padding':'5px 15px', 'borderRadius':'5px'}),
+
+            # Live Stats Panel
+            html.Div([
+                html.Div([
+                    html.Div("Backend LTP", style={'fontSize': '10px', 'color': '#aaa'}),
+                    html.Div(id='stat-ltp', children="0.00", style={'fontSize': '18px', 'color': '#00ff00', 'fontWeight': 'bold'})
+                ], style={'display': 'inline-block', 'marginRight': '20px', 'textAlign': 'center'}),
+                html.Div([
+                    html.Div("Candles", style={'fontSize': '10px', 'color': '#aaa'}),
+                    html.Div(id='stat-candles', children="0", style={'fontSize': '18px', 'color': 'white'})
+                ], style={'display': 'inline-block', 'marginRight': '20px', 'textAlign': 'center'}),
+                html.Div([
+                    html.Div("Last Tick", style={'fontSize': '10px', 'color': '#aaa'}),
+                    html.Div(id='stat-tick-time', children="--:--:--", style={'fontSize': '18px', 'color': 'white'})
+                ], style={'display': 'inline-block', 'marginRight': '20px', 'textAlign': 'center'}),
+                html.Div([
+                    html.Div("UI Refresh", style={'fontSize': '10px', 'color': '#aaa'}),
+                    html.Div(id='stat-refresh-count', children="0", style={'fontSize': '18px', 'color': 'cyan'})
+                ], style={'display': 'inline-block', 'marginRight': '20px', 'textAlign': 'center'}),
+                html.Div([
+                    html.Div("Heartbeat", style={'fontSize': '10px', 'color': '#aaa'}),
+                    html.Div(id='stat-heartbeat', children="●", style={'fontSize': '18px', 'color': 'red'})
+                ], style={'display': 'inline-block', 'textAlign': 'center'})
+            ], style={'display': 'inline-block', 'float': 'right', 'backgroundColor': '#333', 'padding': '10px', 'borderRadius': '5px', 'marginTop': '5px'})
+
         ], style={'backgroundColor': '#222', 'borderRadius': '5px', 'marginBottom': '10px', 'padding':'10px'}),
 
         html.Div(id='status-line', style={'color': '#00ff00', 'padding': '5px', 'fontWeight': 'bold'}),
@@ -82,7 +107,7 @@ def update_instrument_options(index):
             options.append({'label': row['label'], 'value': row['instrument_key']})
         return options
     except Exception as e:
-        print(f"Error loading options: {e}")
+        print(f"Error loading options: {e}", flush=True)
         return []
 
 @app.callback(
@@ -123,7 +148,12 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
      Output('trap-alerts', 'children'),
      Output('signal-log', 'children'),
      Output('signal-alert', 'children'),
-     Output('signal-history', 'data', allow_duplicate=True)],
+     Output('signal-history', 'data', allow_duplicate=True),
+     Output('stat-ltp', 'children'),
+     Output('stat-candles', 'children'),
+     Output('stat-tick-time', 'children'),
+     Output('stat-refresh-count', 'children'),
+     Output('stat-heartbeat', 'style')],
     [Input('update-interval', 'n_intervals'),
      Input('active-instrument-store', 'data')],
     [State('terminal-mode', 'value'),
@@ -131,45 +161,48 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
     prevent_initial_call=True
 )
 def update_chart(n, active_instrument, mode, history):
+    # Common stats
+    refresh_count = str(n)
+    heartbeat_style = {'color': 'red' if n % 2 == 0 else 'lime'}
+
+    print(f"DEBUG: update_chart called. n={n}, active_instrument={active_instrument}", flush=True)
+
     if not active_instrument or not isinstance(active_instrument, dict):
-        return go.Figure().update_layout(template="plotly_dark"), "STATUS: INITIALIZING", [], "", history
+        return go.Figure().update_layout(template="plotly_dark"), "STATUS: INITIALIZING", [], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style
 
     instrument_label = active_instrument.get('label', 'Unknown')
     instrument_key = active_instrument.get('key')
 
     if not instrument_key:
-        return go.Figure().update_layout(title="Please select an instrument and click Connect.", template="plotly_dark"), "STATUS: READY", [html.Div(e) for e in reversed(history)], "", history
+        return go.Figure().update_layout(title="Please select an instrument and click Connect.", template="plotly_dark"), "STATUS: READY", [html.Div(e) for e in reversed(history)], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style
 
     # 1. Prepare Data
     all_opt_candles = get_all_opt_candles(instrument_key)
+    print(f"DEBUG: update_chart called. n={n}, instrument={instrument_key}, candles={len(all_opt_candles)}", flush=True)
+
     if not all_opt_candles:
         msg = f"Waiting for ticks for {instrument_label}..."
-        return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, [html.Div(e) for e in reversed(history)], "", history
+        return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, [html.Div(e) for e in reversed(history)], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style
 
     df_opt = pd.DataFrame([{
         'time': c.start_time, 'open': c.open, 'high': c.high, 'low': c.low, 'close': c.close, 'delta': c.delta
-    } for c in all_opt_candles])
+    } for c in all_opt_candles]).drop_duplicates(subset='time', keep='last')
 
     # Utilize pre-calculated analysis from storage, appending current incomplete candle analysis
     from data_manager import analysis_storage, engines
-    # Use copy to avoid modifying the original deque
     inst_analysis = list(analysis_storage.get(instrument_key, []))
     inst_engine = engines.get(instrument_key, engine)
 
-    # Analyze the current (last) candle which might be incomplete
     if not df_opt.empty:
         last_c = all_opt_candles[-1]
-        # Important: For the live candle, we use the cumulative delta BEFORE this candle started
         prev_cum_delta = inst_analysis[-1]['cum_delta'] if inst_analysis else 0
         current_c_analysis = inst_engine.analyze_candle(last_c, prev_cum_delta)
-
-        # Merge or Append: If the last entry in inst_analysis has the same timestamp as current_c_analysis,
-        # it means it was already added (could happen if on_tick just processed it).
-        # However, analysis_storage only contains COMPLETED candles.
-        # So we always append current_c_analysis as the "live" row.
         inst_analysis.append(current_c_analysis)
 
-    analysis_df = pd.DataFrame(inst_analysis)
+    analysis_df = pd.DataFrame(inst_analysis).drop_duplicates(subset='time', keep='last')
+
+    # Merge data to ensure perfect alignment and avoid index errors
+    df_merged = pd.merge(df_opt, analysis_df, on='time', how='inner', suffixes=('', '_an'))
 
     df_sync = get_synced_df(instrument_key)
     if not df_sync.empty:
@@ -181,7 +214,13 @@ def update_chart(n, active_instrument, mode, history):
                         specs=[[{"secondary_y": True}], [{"secondary_y": False}]])
 
     # 3. Main Plot
-    fig.add_trace(go.Candlestick(x=df_opt['time'], open=df_opt['open'], high=df_opt['high'], low=df_opt['low'], close=df_opt['close'], name=instrument_label), row=1, col=1, secondary_y=False)
+    fig.add_trace(go.Candlestick(x=df_merged['time'], open=df_merged['open'], high=df_merged['high'], low=df_merged['low'], close=df_merged['close'], name=instrument_label), row=1, col=1, secondary_y=False)
+
+    # Current Price Line (Confirmation of real-time update)
+    last_price = df_merged['close'].iloc[-1]
+    fig.add_shape(type="line", x0=df_merged['time'].iloc[0], y0=last_price, x1=df_merged['time'].iloc[-1] + pd.Timedelta(minutes=2), y1=last_price,
+                  line=dict(color="white", width=1, dash="dot"), row=1, col=1)
+    fig.add_annotation(x=df_merged['time'].iloc[-1] + pd.Timedelta(minutes=1), y=last_price, text=f"LTP: {last_price}", showarrow=False, bgcolor="rgba(0,0,0,0.5)", font=dict(color="white"), row=1, col=1)
 
     if mode == 'RS' and not df_sync.empty:
         # Overlay Index on secondary Y-axis
@@ -190,22 +229,22 @@ def update_chart(n, active_instrument, mode, history):
 
     # 4. Technical Levels
     indicator = AutoTrendSupportResistance(required_ticks_for_broken=4, tick_size=1)
-    for i in range(1, len(df_opt)):
-        indicator.update(i, df_opt['open'].iloc[i-1], df_opt['high'].iloc[i-1], df_opt['low'].iloc[i-1], df_opt['close'].iloc[i-1])
+    for i in range(1, len(df_merged)):
+        indicator.update(i, df_merged['open'].iloc[i-1], df_merged['high'].iloc[i-1], df_merged['low'].iloc[i-1], df_merged['close'].iloc[i-1])
 
     for pivot in indicator.pivots:
         if not pivot.display_level: continue
         color = "gold" if pivot.is_level_tested else "cyan"
-        fig.add_shape(type="line", x0=df_opt['time'].iloc[pivot.bar_number], y0=pivot.price, x1=df_opt['time'].iloc[-1], y1=pivot.price,
+        fig.add_shape(type="line", x0=df_merged['time'].iloc[pivot.bar_number], y0=pivot.price, x1=df_merged['time'].iloc[-1], y1=pivot.price,
                       line=dict(color=color, width=1, dash="dash"), row=1, col=1)
 
     # 5. Signal Detection & Display
     signal_alert_div = None
 
-    for i, row in analysis_df.iterrows():
+    for i, row in df_merged.iterrows():
         if row['signal'] and pd.notna(row['signal']):
             color = 'lime' if row['signal'] == 'BUY' else 'red'
-            fig.add_trace(go.Scatter(x=[row['time']], y=[df_opt.iloc[i]['low'] if row['signal'] == 'BUY' else df_opt.iloc[i]['high']],
+            fig.add_trace(go.Scatter(x=[row['time']], y=[row['low'] if row['signal'] == 'BUY' else row['high']],
                                      mode="markers+text", marker=dict(symbol="triangle-up" if row['signal'] == 'BUY' else "triangle-down", size=15, color=color),
                                      text=[row['signal']], textposition="bottom center", name="OF SIGNAL"), row=1, col=1)
 
@@ -225,31 +264,45 @@ def update_chart(n, active_instrument, mode, history):
                 history.append(sig_msg)
                 signal_alert_div = html.Div("🌟 RS BULLISH SIGNAL DETECTED!", style={'backgroundColor': 'cyan', 'color': 'black', 'padding': '15px', 'borderRadius':'5px', 'fontSize':'20px', 'textAlign':'center'})
 
-    # 6. Footprint & Delta
-    for i, row in df_opt.iterrows():
+    # 6. Footprint & Delta (Limit to last 10 candles for performance)
+    start_idx = max(0, len(df_merged) - 10)
+    for i in range(start_idx, len(df_merged)):
+        row = df_merged.iloc[i]
         delta_val = row['delta']
         if pd.isna(delta_val): continue
         color = "lime" if delta_val > 0 else "red"
         fig.add_annotation(x=row['time'], y=row['low'], text=str(int(delta_val)), showarrow=False, yshift=-15, font=dict(color=color, size=10), row=1, col=1)
 
-    if not analysis_df.empty:
-        fig.add_trace(go.Scatter(x=analysis_df['time'], y=analysis_df['cum_delta'], fill='tozeroy', name='Cumulative Delta', line=dict(color='cyan', width=2)), row=2, col=1)
+    if not df_merged.empty:
+        fig.add_trace(go.Scatter(x=df_merged['time'], y=df_merged['cum_delta'], fill='tozeroy', name='Cumulative Delta', line=dict(color='cyan', width=2)), row=2, col=1)
 
-    fig.update_layout(title=f"LIVE: {instrument_label}", template="plotly_dark",
+    now_str = datetime.datetime.now().strftime("%H:%M:%S")
+    fig.update_layout(title=f"LIVE: {instrument_label} | UI Last Update: {now_str}", template="plotly_dark",
                       margin=dict(l=10, r=10, t=50, b=10), xaxis_rangeslider_visible=False, showlegend=False)
 
     # Auto-scale Y-axis and set X-axis range to last 30 mins for better visibility if data is dense
     if not df_opt.empty:
         last_time = df_opt['time'].iloc[-1]
         start_view = last_time - pd.Timedelta(minutes=30)
-        fig.update_xaxes(range=[start_view, last_time + pd.Timedelta(minutes=1)])
+        # Add a 2-minute buffer on the right so the live candle isn't cut off
+        fig.update_xaxes(range=[start_view, last_time + pd.Timedelta(minutes=2)])
+
+    from data_manager import last_wss_tick_time
+    import time
+    time_since_tick = time.time() - last_wss_tick_time
+    last_tick_str = datetime.datetime.fromtimestamp(last_wss_tick_time).strftime("%H:%M:%S") if last_wss_tick_time > 0 else "--:--:--"
 
     alert_text = "STATUS: MONITORING"
-    if not analysis_df.empty:
+    if time_since_tick > 10:
+        alert_text = f"⚠️ NO DATA ({int(time_since_tick)}s)"
+    elif not analysis_df.empty:
         if analysis_df.iloc[-1]['absorption_zones']: alert_text = "⚠️ ABSORPTION ZONE"
         if analysis_df.iloc[-1]['exhaustion']: alert_text += " | 💨 EXHAUSTION"
 
-    return fig, alert_text, [html.Div(e) for e in reversed(history)], signal_alert_div, history
+    current_ltp = f"{df_opt['close'].iloc[-1]:.2f}"
+    candles_count = str(len(df_opt))
+
+    return fig, alert_text, [html.Div(e) for e in reversed(history)], signal_alert_div, history, current_ltp, candles_count, last_tick_str, refresh_count, heartbeat_style
 
 if __name__ == '__main__':
     # Initialize with no active instrument as requested (no simulation by default)
