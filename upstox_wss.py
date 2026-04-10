@@ -59,7 +59,7 @@ class UpstoxWSS:
         if 'feeds' in data:
             for instrument_key, feed in data['feeds'].items():
                 ltp = 0
-                cum_volume = 0
+                tick_volume = 0
                 bid = 0
                 ask = 0
 
@@ -74,19 +74,13 @@ class UpstoxWSS:
                 elif mff:
                     ltpc = mff.get('ltpc', {})
                     ltp = ltpc.get('ltp', 0)
-                    # Use vtt (Volume Traded Today) as cumulative volume
-                    cum_volume = mff.get('vtt', 0)
-                    try:
-                        cum_volume = int(cum_volume)
-                    except:
-                        cum_volume = 0
 
-                    # Fallback to ltq (Last Traded Quantity) if cum_volume is 0
-                    if cum_volume == 0:
-                        try:
-                            cum_volume = int(ltpc.get('ltq', 0))
-                        except:
-                            pass
+                    # ltq is the last traded quantity for THIS tick (TS)
+                    ltq = ltpc.get('ltq', 0)
+                    try:
+                        tick_volume = int(ltq)
+                    except:
+                        tick_volume = 0
 
                     ml = mff.get('marketLevel', {})
                     baq = ml.get('bidAskQuote', [])
@@ -98,25 +92,20 @@ class UpstoxWSS:
                 if ltp == 0 and 'ltpc' in feed:
                     ltpc = feed['ltpc']
                     ltp = ltpc.get('ltp', 0)
-                    v = ltpc.get('v', 0)
+                    ltq = ltpc.get('ltq', 0)
                     try:
-                        cum_volume = int(v)
+                        tick_volume = int(ltq)
                     except:
                         pass
 
                 if ltp > 0:
-                    last_v = self.last_volumes.get(instrument_key, cum_volume)
-                    incremental_volume = cum_volume - last_v
-                    if incremental_volume < 0: incremental_volume = 0
-                    self.last_volumes[instrument_key] = cum_volume
-
                     is_buy = True
                     if ask > bid > 0:
                         is_buy = abs(ltp - ask) <= abs(ltp - bid)
 
                     # REQUIRED LOGS FOR THE USER
-                    print(f"WSS TICK: {instrument_key} LTP={ltp} Vol={incremental_volume} Buy={is_buy}")
-                    self.callback(instrument_key, ltp, incremental_volume, is_buy)
+                    print(f"WSS TICK: {instrument_key} LTP={ltp} Vol={tick_volume} Buy={is_buy}")
+                    self.callback(instrument_key, ltp, tick_volume, is_buy)
 
     async def _subscribe(self, instrument_keys):
         if self.websocket:
