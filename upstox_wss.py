@@ -74,7 +74,19 @@ class UpstoxWSS:
                 elif mff:
                     ltpc = mff.get('ltpc', {})
                     ltp = ltpc.get('ltp', 0)
-                    cum_volume = ltpc.get('v', 0)
+                    # Use vtt (Volume Traded Today) as cumulative volume
+                    cum_volume = mff.get('vtt') or mff.get('v') or ltpc.get('v', 0)
+                    try:
+                        cum_volume = int(cum_volume)
+                    except:
+                        cum_volume = 0
+
+                    # Fallback to ltq (Last Traded Quantity) if cum_volume is 0 (or for indices if needed)
+                    if cum_volume == 0:
+                        try:
+                            cum_volume = int(ltpc.get('ltq', 0))
+                        except:
+                            pass
 
                     ml = mff.get('marketLevel') or mff.get('market_level') or {}
                     baq = ml.get('bidAskQuote') or ml.get('bid_ask_quote') or []
