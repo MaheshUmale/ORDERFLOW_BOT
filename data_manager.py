@@ -9,153 +9,139 @@ from strategy_logic import RelativeStrengthStrategy
 from upstox_wss import UpstoxWSS
 from upstox_helper import UpstoxHelper
 
-# Thread-safe rolling window for Option Footprint
+# Global Storage for Multiple Instruments
 MAX_CANDLES = 100
-candles_deque = deque(maxlen=MAX_CANDLES)
-analysis_deque = deque(maxlen=MAX_CANDLES)
 
-# RS Strategy data: OHLC aggregation
-aggregated_ohlc = {'idx': {}, 'opt': {}}
+# Dictionaries keyed by instrument_key
+candles_storage = {}  # {key: deque(FootprintCandle)}
+analysis_storage = {} # {key: deque(analysis_dict)}
+current_candles = {}  # {key: FootprintCandle}
+engines = {}         # {key: OrderFlowEngine}
+aggregated_ohlc = {'idx': {}, 'opt': {}} # Keep this for RS, but might need keying too if multi-index
+# For simplicity in RS, we map option_key -> index_key
+opt_to_idx_map = {}
 
-engine = OrderFlowEngine()
-rs_strategy = RelativeStrengthStrategy()
 helper = UpstoxHelper()
+rs_strategy = RelativeStrengthStrategy()
 
-current_opt_candle = None
-active_opt_key = None
-active_idx_key = helper.get_spot_keys()['NIFTY']
+# Active set of keys to subscribe to
+subscribed_instruments = set()
 
 def on_tick_received(instrument_key, price, volume, is_buy):
-    global current_opt_candle, active_opt_key, active_idx_key
-
-    now = pd.Timestamp.now()
+    now = pd.Timestamp.now(tz='Asia/Kolkata').replace(tzinfo=None)
     ts_min = now.floor('1min')
 
-    # 1. Footprint Aggregation (Selected Option Only)
-    if instrument_key == active_opt_key:
-        if current_opt_candle is None or current_opt_candle.start_time != ts_min:
-            if current_opt_candle is not None:
-                candles_deque.append(current_opt_candle)
-                engine.cumulative_delta += current_opt_candle.delta
-                analysis_deque.append(engine.analyze_candle(current_opt_candle, engine.cumulative_delta - current_opt_candle.delta))
-            current_opt_candle = FootprintCandle(price, ts_min)
-        current_opt_candle.add_tick(price, volume, is_buy)
+    # 1. Footprint Aggregation
+    if instrument_key in candles_storage:
+        if instrument_key not in current_candles or current_candles[instrument_key] is None or current_candles[instrument_key].start_time != ts_min:
+            if instrument_key in current_candles and current_candles[instrument_key] is not None:
+                old_candle = current_candles[instrument_key]
+                candles_storage[instrument_key].append(old_candle)
 
-        update_ohlc('opt', ts_min, price, volume)
+                engine = engines.get(instrument_key)
+                if engine:
+                    engine.cumulative_delta += old_candle.delta
+                    analysis_storage[instrument_key].append(engine.analyze_candle(old_candle, engine.cumulative_delta - old_candle.delta))
 
-    # 2. Index OHLC Aggregation
-    elif instrument_key == active_idx_key:
-        update_ohlc('idx', ts_min, price, 0)
+            current_candles[instrument_key] = FootprintCandle(price, ts_min)
 
-def update_ohlc(key, ts, price, vol):
-    if ts not in aggregated_ohlc[key]:
-        aggregated_ohlc[key][ts] = {'open': price, 'high': price, 'low': price, 'close': price, 'volume': 0}
+        current_candles[instrument_key].add_tick(price, volume, is_buy)
+        update_ohlc('opt', instrument_key, ts_min, price, volume)
 
-    d = aggregated_ohlc[key][ts]
-    d['high'] = max(d['high'], price)
-    d['low'] = min(d['low'], price)
-    d['close'] = price
+    # 2. Index OHLC Aggregation (if it's an index being tracked)
+    spot_keys = helper.get_spot_keys().values()
+    if instrument_key in spot_keys:
+        update_ohlc('idx', instrument_key, ts_min, price, 0)
+
+def update_ohlc(type_key, instrument_key, ts, price, vol, high=None, low=None, close=None):
+    if instrument_key not in aggregated_ohlc[type_key]:
+        aggregated_ohlc[type_key][instrument_key] = {}
+
+    storage = aggregated_ohlc[type_key][instrument_key]
+
+    if ts not in storage:
+        storage[ts] = {'open': price, 'high': price, 'low': price, 'close': price, 'volume': 0}
+
+    d = storage[ts]
+    if high is not None:
+        d['high'] = high
+        d['low'] = low
+        d['close'] = close
+    else:
+        d['high'] = max(d['high'], price)
+        d['low'] = min(d['low'], price)
+        d['close'] = price
     d['volume'] += vol
 
-    if len(aggregated_ohlc[key]) > MAX_CANDLES + 10:
-        oldest = min(aggregated_ohlc[key].keys())
-        del aggregated_ohlc[key][oldest]
+    if len(storage) > MAX_CANDLES + 10:
+        oldest = min(storage.keys())
+        del storage[oldest]
 
-def get_all_opt_candles():
-    all_c = list(candles_deque)
-    if current_opt_candle:
-        all_c.append(current_opt_candle)
+def get_all_opt_candles(instrument_key):
+    if instrument_key not in candles_storage: return []
+    all_c = list(candles_storage[instrument_key])
+    if instrument_key in current_candles and current_candles[instrument_key]:
+        all_c.append(current_candles[instrument_key])
     return all_c
 
-def get_synced_df():
-    idx_df = pd.DataFrame.from_dict(aggregated_ohlc['idx'], orient='index').rename(columns=lambda x: f'idx_{x}')
-    opt_df = pd.DataFrame.from_dict(aggregated_ohlc['opt'], orient='index').rename(columns=lambda x: f'opt_{x}')
+def get_synced_df(opt_key):
+    idx_key = opt_to_idx_map.get(opt_key)
+    if not idx_key: return pd.DataFrame()
 
-    if idx_df.empty or opt_df.empty: return pd.DataFrame()
+    if idx_key not in aggregated_ohlc['idx'] or opt_key not in aggregated_ohlc['opt']:
+        return pd.DataFrame()
+
+    idx_df = pd.DataFrame.from_dict(aggregated_ohlc['idx'][idx_key], orient='index').rename(columns=lambda x: f'idx_{x}')
+    opt_df = pd.DataFrame.from_dict(aggregated_ohlc['opt'][opt_key], orient='index').rename(columns=lambda x: f'opt_{x}')
 
     df = idx_df.join(opt_df, how='inner').sort_index()
     return df
 
 upstox_wss = UpstoxWSS(callback=on_tick_received)
-_simulation_active = False
-
-def start_simulation():
-    global _simulation_active
-    if _simulation_active: return
-    _simulation_active = True
-    def run():
-        price_opt = 200
-        price_idx = 22000
-        while _simulation_active:
-            try:
-                if active_opt_key:
-                    # Simulate ticks every 0.5s
-                    on_tick_received(active_opt_key, price_opt + random.uniform(-2, 2), random.randint(1, 10), random.choice([True, False]))
-                    on_tick_received(active_idx_key, price_idx + random.uniform(-5, 5), 0, True)
-                    # Drift prices slightly
-                    price_opt += random.uniform(-0.5, 0.5)
-                    price_idx += random.uniform(-1, 1)
-            except Exception as e:
-                print(f"Simulation error: {e}")
-            time.sleep(0.5)
-
-    threading.Thread(target=run, daemon=True).start()
-
-def stop_simulation():
-    global _simulation_active
-    _simulation_active = False
 
 def start_live_feed():
-    """Starts the real-time Upstox WebSocket feed."""
-    stop_simulation()
     upstox_wss.start()
 
 def change_instrument(opt_key, idx_name='NIFTY'):
-    global active_opt_key, active_idx_key, current_opt_candle
-    active_opt_key = opt_key
-    active_idx_key = helper.get_spot_keys().get(idx_name, active_idx_key)
+    global subscribed_instruments
+    idx_key = helper.get_spot_keys().get(idx_name)
 
-    candles_deque.clear()
-    analysis_deque.clear()
-    aggregated_ohlc['idx'].clear()
-    aggregated_ohlc['opt'].clear()
-    current_opt_candle = None
-    engine.cumulative_delta = 0
+    if opt_key not in candles_storage:
+        candles_storage[opt_key] = deque(maxlen=MAX_CANDLES)
+        analysis_storage[opt_key] = deque(maxlen=MAX_CANDLES)
+        engines[opt_key] = OrderFlowEngine()
+        opt_to_idx_map[opt_key] = idx_key
 
-    # Bootstrap historical candles
-    if active_opt_key == "SIMULATED_INSTRUMENT": return
+        # Bootstrap historical
+        try:
+            hist_opt = helper.get_historical_candles(opt_key)
+            hist_idx = helper.get_historical_candles(idx_key)
+            hist_opt.reverse()
+            hist_idx.reverse()
 
-    try:
-        hist_opt = helper.get_historical_candles(active_opt_key)
-        hist_idx = helper.get_historical_candles(active_idx_key)
+            for c in hist_idx:
+                ts = pd.to_datetime(c[0]).replace(tzinfo=None)
+                update_ohlc('idx', idx_key, ts, c[1], c[5], high=c[2], low=c[3], close=c[4])
 
-        # Upstox returns newest first; reverse for chronological order
-        hist_opt.reverse()
-        hist_idx.reverse()
+            engine = engines[opt_key]
+            for c in hist_opt:
+                ts = pd.to_datetime(c[0]).replace(tzinfo=None)
+                update_ohlc('opt', opt_key, ts, c[1], c[5], high=c[2], low=c[3], close=c[4])
 
-        # Populate aggregated_ohlc
-        for c in hist_idx:
-            ts = pd.to_datetime(c[0]).replace(tzinfo=None)
-            aggregated_ohlc['idx'][ts] = {'open': c[1], 'high': c[2], 'low': c[3], 'close': c[4], 'volume': c[5]}
+                f_candle = FootprintCandle(c[1], ts)
+                f_candle.high, f_candle.low, f_candle.close, f_candle.volume = c[2], c[3], c[4], c[5]
+                f_candle.delta = (c[4] - c[1]) * (c[5] / (c[2] - c[3] + 0.001))
 
-        for c in hist_opt:
-            ts = pd.to_datetime(c[0]).replace(tzinfo=None)
-            aggregated_ohlc['opt'][ts] = {'open': c[1], 'high': c[2], 'low': c[3], 'close': c[4], 'volume': c[5]}
+                candles_storage[opt_key].append(f_candle)
+                engine.cumulative_delta += f_candle.delta
+                analysis_storage[opt_key].append(engine.analyze_candle(f_candle, engine.cumulative_delta - f_candle.delta))
 
-            # Create FootprintCandles from OHLC (approximate since we don't have ticks for history)
-            f_candle = FootprintCandle(c[1], ts)
-            f_candle.high = c[2]
-            f_candle.low = c[3]
-            f_candle.close = c[4]
-            f_candle.volume = c[5]
-            # Heuristic delta
-            f_candle.delta = (c[4] - c[1]) * (c[5] / (c[2] - c[3] + 0.001))
+        except Exception as e:
+            print(f"Error bootstrapping {opt_key}: {e}")
 
-            candles_deque.append(f_candle)
-            engine.cumulative_delta += f_candle.delta
-            analysis_deque.append(engine.analyze_candle(f_candle, engine.cumulative_delta - f_candle.delta))
+    subscribed_instruments.add(opt_key)
+    subscribed_instruments.add(idx_key)
+    upstox_wss.update_subscriptions(list(subscribed_instruments))
 
-    except Exception as e:
-        print(f"Error bootstrapping: {e}")
-
-    upstox_wss.update_subscriptions([active_opt_key, active_idx_key])
+# For compatibility with app.py if it still uses the old engine reference
+engine = OrderFlowEngine()

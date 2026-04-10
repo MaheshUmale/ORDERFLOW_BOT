@@ -4,8 +4,8 @@ from dash.dependencies import Input, Output, State
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
-from data_manager import (get_all_opt_candles, analysis_deque, get_synced_df,
-                          start_simulation, start_live_feed, change_instrument, rs_strategy, engine)
+from data_manager import (get_all_opt_candles, get_synced_df,
+                          start_live_feed, change_instrument, rs_strategy, engine)
 from pivot_algorithm import AutoTrendSupportResistance
 from upstox_helper import UpstoxHelper
 import datetime
@@ -123,32 +123,36 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
 )
 def update_chart(n, active_instrument, mode, history):
     instrument_label = active_instrument['label']
+    instrument_key = active_instrument['key']
+
+    if not instrument_key:
+        return go.Figure().update_layout(title="Please select an instrument and click Connect.", template="plotly_dark"), "STATUS: READY", [html.Div(e) for e in reversed(history)], "", history
 
     # 1. Prepare Data
-    all_opt_candles = get_all_opt_candles()
+    all_opt_candles = get_all_opt_candles(instrument_key)
     if not all_opt_candles:
-        msg = f"Waiting for ticks for {instrument_label}..." if instrument_label != 'No Instrument Selected' else "Please select an instrument and click Connect."
+        msg = f"Waiting for ticks for {instrument_label}..."
         return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, [html.Div(e) for e in reversed(history)], "", history
 
     df_opt = pd.DataFrame([{
         'time': c.start_time, 'open': c.open, 'high': c.high, 'low': c.low, 'close': c.close, 'delta': c.delta
     } for c in all_opt_candles])
 
-    # Re-calculate analysis for all candles including current one for real-time signals
-    current_analysis = []
-    temp_cum_delta = engine.cumulative_delta
-    for i, c in enumerate(all_opt_candles):
-        # For historical candles in the deque, we use their stored/calculated cum_delta
-        # Actually it's easier to just re-run from the start of the current session view
-        if i == 0:
-            analysis = engine.analyze_candle(c, 0)
-        else:
-            analysis = engine.analyze_candle(c, current_analysis[-1]['cum_delta'])
-        current_analysis.append(analysis)
+    # Utilize pre-calculated analysis from storage, appending current incomplete candle analysis
+    from data_manager import analysis_storage, engines
+    inst_analysis = list(analysis_storage.get(instrument_key, []))
+    inst_engine = engines.get(instrument_key, engine)
 
-    analysis_df = pd.DataFrame(current_analysis)
+    # Analyze the current (last) candle which might be incomplete
+    if all_opt_candles:
+        last_c = all_opt_candles[-1]
+        prev_cum_delta = inst_analysis[-1]['cum_delta'] if inst_analysis else 0
+        current_c_analysis = inst_engine.analyze_candle(last_c, prev_cum_delta)
+        inst_analysis.append(current_c_analysis)
 
-    df_sync = get_synced_df()
+    analysis_df = pd.DataFrame(inst_analysis)
+
+    df_sync = get_synced_df(instrument_key)
     if not df_sync.empty:
         df_sync = rs_strategy.detect_signals(df_sync)
 
