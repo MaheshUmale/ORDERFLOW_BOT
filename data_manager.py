@@ -31,6 +31,9 @@ def on_tick_received(instrument_key, price, volume, is_buy):
     now = pd.Timestamp.now(tz='Asia/Kolkata').replace(tzinfo=None)
     ts_min = now.floor('1min')
 
+    # LOG FOR THE USER
+    print(f"DM TICK: {instrument_key} Price={price} Vol={volume} @ {ts_min}")
+
     # 1. Footprint Aggregation
     if instrument_key in candles_storage:
         if instrument_key not in current_candles or current_candles[instrument_key] is None or current_candles[instrument_key].start_time != ts_min:
@@ -100,6 +103,7 @@ def get_synced_df(opt_key):
 upstox_wss = UpstoxWSS(callback=on_tick_received)
 
 def start_live_feed():
+    print("STARTING LIVE FEED...")
     upstox_wss.start()
 
 def change_instrument(opt_key, idx_name='NIFTY'):
