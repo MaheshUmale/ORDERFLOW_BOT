@@ -53,8 +53,8 @@ class UpstoxWSS:
     def handle_message(self, message):
         feed_response = pb.FeedResponse()
         feed_response.ParseFromString(message)
-        # Handle both casings just in case
-        data = MessageToDict(feed_response, preserving_proto_field_name=True)
+        # Using default CamelCase to match user provided format
+        data = MessageToDict(feed_response)
 
         if 'feeds' in data:
             for instrument_key, feed in data['feeds'].items():
@@ -63,10 +63,10 @@ class UpstoxWSS:
                 bid = 0
                 ask = 0
 
-                # Robust extraction handling multiple possible Protobuf-to-Dict mappings
-                ff = feed.get('fullFeed') or feed.get('full_feed') or {}
-                iff = ff.get('indexFF') or ff.get('index_ff') or feed.get('indexFF') or feed.get('index_ff') or {}
-                mff = ff.get('marketFF') or ff.get('market_ff') or feed.get('marketFF') or feed.get('market_ff') or {}
+                # Robust extraction handling CamelCase keys
+                ff = feed.get('fullFeed', {})
+                iff = ff.get('indexFF') or feed.get('indexFF', {})
+                mff = ff.get('marketFF') or feed.get('marketFF', {})
 
                 if iff:
                     ltpc = iff.get('ltpc', {})
@@ -75,30 +75,34 @@ class UpstoxWSS:
                     ltpc = mff.get('ltpc', {})
                     ltp = ltpc.get('ltp', 0)
                     # Use vtt (Volume Traded Today) as cumulative volume
-                    cum_volume = mff.get('vtt') or mff.get('v') or ltpc.get('v', 0)
+                    cum_volume = mff.get('vtt', 0)
                     try:
                         cum_volume = int(cum_volume)
                     except:
                         cum_volume = 0
 
-                    # Fallback to ltq (Last Traded Quantity) if cum_volume is 0 (or for indices if needed)
+                    # Fallback to ltq (Last Traded Quantity) if cum_volume is 0
                     if cum_volume == 0:
                         try:
                             cum_volume = int(ltpc.get('ltq', 0))
                         except:
                             pass
 
-                    ml = mff.get('marketLevel') or mff.get('market_level') or {}
-                    baq = ml.get('bidAskQuote') or ml.get('bid_ask_quote') or []
+                    ml = mff.get('marketLevel', {})
+                    baq = ml.get('bidAskQuote', [])
                     if baq:
-                        bid = baq[0].get('bidP') or baq[0].get('bid_p') or 0
-                        ask = baq[0].get('askP') or baq[0].get('ask_p') or 0
+                        bid = baq[0].get('bidP', 0)
+                        ask = baq[0].get('askP', 0)
 
                 # Final fallback to top-level ltpc
                 if ltp == 0 and 'ltpc' in feed:
                     ltpc = feed['ltpc']
                     ltp = ltpc.get('ltp', 0)
-                    cum_volume = ltpc.get('v', 0)
+                    v = ltpc.get('v', 0)
+                    try:
+                        cum_volume = int(v)
+                    except:
+                        pass
 
                 if ltp > 0:
                     last_v = self.last_volumes.get(instrument_key, cum_volume)
