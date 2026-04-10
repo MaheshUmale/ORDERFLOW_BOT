@@ -20,19 +20,19 @@ class UpstoxWSS:
     async def connect(self):
         auth_response = self.helper.get_market_data_feed_authorize()
         if 'status' not in auth_response or auth_response['status'] != 'success':
-            print("Failed to authorize market data feed:", auth_response)
+            print("Failed to authorize market data feed:", auth_response, flush=True)
             return
 
         authorized_url = auth_response['data']['authorized_redirect_uri']
 
         async with websockets.connect(authorized_url) as websocket:
             self.websocket = websocket
-            print("Connected to Upstox WSS")
+            print("Connected to Upstox WSS", flush=True)
 
             # Subscribe to any keys that were requested before connection
             if self.pending_subscriptions:
                 keys_to_sub = list(self.pending_subscriptions)
-                print(f"Subscribing to pending keys: {keys_to_sub}")
+                print(f"Subscribing to pending keys: {keys_to_sub}", flush=True)
                 await self._subscribe(keys_to_sub)
                 self.pending_subscriptions.clear()
 
@@ -45,10 +45,10 @@ class UpstoxWSS:
                     message = await websocket.recv()
                     self.handle_message(message)
                 except websockets.ConnectionClosed:
-                    print("WSS connection closed")
+                    print("WSS connection closed", flush=True)
                     break
                 except Exception as e:
-                    print(f"Error in WSS loop: {e}")
+                    print(f"Error in WSS loop: {e}", flush=True)
 
     def handle_message(self, message):
         feed_response = pb.FeedResponse()
@@ -104,12 +104,12 @@ class UpstoxWSS:
                         is_buy = abs(ltp - ask) <= abs(ltp - bid)
 
                     # REQUIRED LOGS FOR THE USER
-                    print(f"WSS TICK: {instrument_key} LTP={ltp} Vol={tick_volume} Buy={is_buy}")
+                    print(f"WSS TICK: {instrument_key} LTP={ltp} Vol={tick_volume} Buy={is_buy}", flush=True)
                     self.callback(instrument_key, ltp, tick_volume, is_buy)
 
     async def _subscribe(self, instrument_keys):
         if self.websocket:
-            print(f"Subscribing to: {instrument_keys}")
+            print(f"Subscribing to: {instrument_keys}", flush=True)
             data = {
                 "guid": "someguid",
                 "method": "sub",
@@ -145,7 +145,7 @@ class UpstoxWSS:
         try:
             self.loop.run_until_complete(self.connect())
         except Exception as e:
-            print(f"WSS Thread Error: {e}")
+            print(f"WSS Thread Error: {e}", flush=True)
 
     def update_subscriptions(self, instrument_keys):
         if not self.loop:

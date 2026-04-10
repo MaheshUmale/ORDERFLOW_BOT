@@ -82,7 +82,7 @@ def update_instrument_options(index):
             options.append({'label': row['label'], 'value': row['instrument_key']})
         return options
     except Exception as e:
-        print(f"Error loading options: {e}")
+        print(f"Error loading options: {e}", flush=True)
         return []
 
 @app.callback(
@@ -142,6 +142,8 @@ def update_chart(n, active_instrument, mode, history):
 
     # 1. Prepare Data
     all_opt_candles = get_all_opt_candles(instrument_key)
+    print(f"DEBUG: update_chart called for {instrument_label}. Candles count: {len(all_opt_candles)}", flush=True)
+
     if not all_opt_candles:
         msg = f"Waiting for ticks for {instrument_label}..."
         return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, [html.Div(e) for e in reversed(history)], "", history
@@ -235,7 +237,8 @@ def update_chart(n, active_instrument, mode, history):
     if not analysis_df.empty:
         fig.add_trace(go.Scatter(x=analysis_df['time'], y=analysis_df['cum_delta'], fill='tozeroy', name='Cumulative Delta', line=dict(color='cyan', width=2)), row=2, col=1)
 
-    fig.update_layout(title=f"LIVE: {instrument_label}", template="plotly_dark",
+    now_str = datetime.datetime.now().strftime("%H:%M:%S")
+    fig.update_layout(title=f"LIVE: {instrument_label} | UI Last Update: {now_str}", template="plotly_dark",
                       margin=dict(l=10, r=10, t=50, b=10), xaxis_rangeslider_visible=False, showlegend=False)
 
     # Auto-scale Y-axis and set X-axis range to last 30 mins for better visibility if data is dense
@@ -244,8 +247,14 @@ def update_chart(n, active_instrument, mode, history):
         start_view = last_time - pd.Timedelta(minutes=30)
         fig.update_xaxes(range=[start_view, last_time + pd.Timedelta(minutes=1)])
 
+    from data_manager import last_wss_tick_time
+    import time
+    time_since_tick = time.time() - last_wss_tick_time
+
     alert_text = "STATUS: MONITORING"
-    if not analysis_df.empty:
+    if time_since_tick > 10:
+        alert_text = f"⚠️ NO DATA ({int(time_since_tick)}s)"
+    elif not analysis_df.empty:
         if analysis_df.iloc[-1]['absorption_zones']: alert_text = "⚠️ ABSORPTION ZONE"
         if analysis_df.iloc[-1]['exhaustion']: alert_text += " | 💨 EXHAUSTION"
 
