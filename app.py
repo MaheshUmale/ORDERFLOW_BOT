@@ -94,6 +94,20 @@ app.layout = html.Div([
     dcc.Interval(id='slow-update-interval', interval=30000, n_intervals=0)
 ], style={'backgroundColor': '#111111', 'padding': '10px', 'minHeight': '100vh'})
 
+app.clientside_callback(
+    """
+    function(n) {
+        return [
+            n,
+            {color: n % 2 === 0 ? 'red' : 'lime'}
+        ];
+    }
+    """,
+    [Output('stat-refresh-count', 'children'),
+     Output('stat-heartbeat', 'style')],
+    [Input('update-interval', 'n_intervals')]
+)
+
 @app.callback(
     Output('instrument-selector', 'options'),
     [Input('base-index', 'value')]
@@ -151,9 +165,7 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
      Output('signal-history', 'data', allow_duplicate=True),
      Output('stat-ltp', 'children'),
      Output('stat-candles', 'children'),
-     Output('stat-tick-time', 'children'),
-     Output('stat-refresh-count', 'children'),
-     Output('stat-heartbeat', 'style')],
+     Output('stat-tick-time', 'children')],
     [Input('update-interval', 'n_intervals'),
      Input('active-instrument-store', 'data')],
     [State('terminal-mode', 'value'),
@@ -161,28 +173,23 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
     prevent_initial_call=True
 )
 def update_chart(n, active_instrument, mode, history):
-    # Common stats
-    refresh_count = str(n)
-    heartbeat_style = {'color': 'red' if n % 2 == 0 else 'lime'}
-
-    print(f"DEBUG: update_chart called. n={n}, active_instrument={active_instrument}", flush=True)
+    print(f"DEBUG: update_chart called. n={n}, instrument={active_instrument.get('key') if isinstance(active_instrument, dict) else None}", flush=True)
 
     if not active_instrument or not isinstance(active_instrument, dict):
-        return go.Figure().update_layout(template="plotly_dark"), "STATUS: INITIALIZING", [], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style
+        return go.Figure().update_layout(template="plotly_dark"), "STATUS: INITIALIZING", [], "", history, "0.00", "0", "--:--:--"
 
     instrument_label = active_instrument.get('label', 'Unknown')
     instrument_key = active_instrument.get('key')
 
     if not instrument_key:
-        return go.Figure().update_layout(title="Please select an instrument and click Connect.", template="plotly_dark"), "STATUS: READY", [html.Div(e) for e in reversed(history)], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style
+        return go.Figure().update_layout(title="Please select an instrument and click Connect.", template="plotly_dark"), "STATUS: READY", [html.Div(e) for e in reversed(history)], "", history, "0.00", "0", "--:--:--"
 
     # 1. Prepare Data
     all_opt_candles = get_all_opt_candles(instrument_key)
-    print(f"DEBUG: update_chart called. n={n}, instrument={instrument_key}, candles={len(all_opt_candles)}", flush=True)
 
     if not all_opt_candles:
         msg = f"Waiting for ticks for {instrument_label}..."
-        return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, [html.Div(e) for e in reversed(history)], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style
+        return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, [html.Div(e) for e in reversed(history)], "", history, "0.00", "0", "--:--:--"
 
     df_opt = pd.DataFrame([{
         'time': c.start_time, 'open': c.open, 'high': c.high, 'low': c.low, 'close': c.close, 'delta': c.delta
@@ -264,8 +271,8 @@ def update_chart(n, active_instrument, mode, history):
                 history.append(sig_msg)
                 signal_alert_div = html.Div("🌟 RS BULLISH SIGNAL DETECTED!", style={'backgroundColor': 'cyan', 'color': 'black', 'padding': '15px', 'borderRadius':'5px', 'fontSize':'20px', 'textAlign':'center'})
 
-    # 6. Footprint & Delta (Limit to last 10 candles for performance)
-    start_idx = max(0, len(df_merged) - 10)
+    # 6. Footprint & Delta (Limit to last 5 candles for maximum performance)
+    start_idx = max(0, len(df_merged) - 5)
     for i in range(start_idx, len(df_merged)):
         row = df_merged.iloc[i]
         delta_val = row['delta']
@@ -302,8 +309,9 @@ def update_chart(n, active_instrument, mode, history):
     current_ltp = f"{df_opt['close'].iloc[-1]:.2f}"
     candles_count = str(len(df_opt))
 
-    return fig, alert_text, [html.Div(e) for e in reversed(history)], signal_alert_div, history, current_ltp, candles_count, last_tick_str, refresh_count, heartbeat_style
+    return fig, alert_text, [html.Div(e) for e in reversed(history)], signal_alert_div, history, current_ltp, candles_count, last_tick_str
 
 if __name__ == '__main__':
     # Initialize with no active instrument as requested (no simulation by default)
-    app.run(debug=True, port=8050)
+    # Enable threaded mode to handle multiple concurrent callbacks from different tabs
+    app.run(debug=False, port=8050, threaded=True)
