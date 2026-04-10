@@ -9,7 +9,7 @@ load_dotenv()
 class UpstoxHelper:
     def __init__(self):
         # Access Token is the primary authentication for the provided environment
-        self.access_token = os.getenv('UPSTOX_ACCESS_TOKEN')
+        self.access_token = 'eyJ0eXAiOiJKV1QiLCJrZXlfaWQiOiJza192MS4wIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiI3NkFGMzUiLCJqdGkiOiI2OWQ4NmNjZjhiZDAzNDY0OGVjODJlYWQiLCJpc011bHRpQ2xpZW50IjpmYWxzZSwiaXNQbHVzUGxhbiI6ZmFsc2UsImlhdCI6MTc3NTc5MTMxMSwiaXNzIjoidWRhcGktZ2F0ZXdheS1zZXJ2aWNlIiwiZXhwIjoxNzc1ODU4NDAwfQ.z523ziIynXatZYrVB6JDr8GpHkaZpnyk9hlULhbnbRs'
         self.base_url = "https://api.upstox.com/v2"
         self.base_url_v3 = "https://api.upstox.com/v3"
         self._instruments_cache = None
