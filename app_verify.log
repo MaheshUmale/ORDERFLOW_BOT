@@ -1,5 +1,0 @@
-Dash is running on http://127.0.0.1:8050/
-
- * Serving Flask app 'app'
- * Debug mode: on
-Failed to authorize market data feed: {'status': 'error', 'errors': [{'errorCode': 'UDAPI100050', 'message': 'Invalid token used to access API', 'propertyPath': None, 'invalidValue': None, 'error_code': 'UDAPI100050', 'property_path': None, 'invalid_value': None}]}

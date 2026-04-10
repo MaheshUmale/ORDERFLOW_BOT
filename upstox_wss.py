@@ -44,38 +44,46 @@ class UpstoxWSS:
     def handle_message(self, message):
         feed_response = pb.FeedResponse()
         feed_response.ParseFromString(message)
-        data = MessageToDict(feed_response)
+        # Standardizing on snake_case (preserving_proto_field_name=True)
+        data = MessageToDict(feed_response, preserving_proto_field_name=True)
 
         if 'feeds' in data:
             for instrument_key, feed in data['feeds'].items():
                 ltp = 0
-                volume = 0
+                cum_volume = 0
                 bid = 0
                 ask = 0
 
-                # Extract data from MarketFullFeed or MarketLTPC
-                if 'ff' in feed and 'marketFF' in feed['ff']:
-                    mff = feed['ff']['marketFF']
-                    ltp = mff.get('ltpc', {}).get('ltp', 0)
-                    volume = mff.get('ltpc', {}).get('v', 0)
-                    # Get top level bid/ask for trade side detection
-                    market_levels = mff.get('marketLevels', {})
-                    bid_levels = market_levels.get('bidBuyDiff', [])
-                    ask_levels = market_levels.get('askSellDiff', [])
-                    if bid_levels: bid = bid_levels[0].get('price', 0)
-                    if ask_levels: ask = ask_levels[0].get('price', 0)
-                elif 'ltpc' in feed:
-                    ltp = feed.get('ltpc', {}).get('ltp', 0)
-                    volume = feed.get('ltpc', {}).get('v', 0)
+                ff = feed.get('full_feed', {})
+                iff = ff.get('index_ff') or feed.get('index_ff', {})
+                mff = ff.get('market_ff') or feed.get('market_ff', {})
+
+                if iff:
+                    ltpc = iff.get('ltpc', {})
+                    ltp = ltpc.get('ltp', 0)
+                elif mff:
+                    ltpc = mff.get('ltpc', {})
+                    ltp = ltpc.get('ltp', 0)
+                    cum_volume = ltpc.get('v', 0)
+
+                    ml = mff.get('market_level', {})
+                    baq = ml.get('bid_ask_quote', [])
+                    if baq:
+                        bid = baq[0].get('bid_p', 0)
+                        ask = baq[0].get('ask_p', 0)
+
+                # Fallback to top-level LTPC
+                if ltp == 0 and 'ltpc' in feed:
+                    ltpc = feed['ltpc']
+                    ltp = ltpc.get('ltp', 0)
+                    cum_volume = ltpc.get('v', 0)
 
                 if ltp > 0:
-                    # Calculate incremental volume from cumulative volume
-                    last_v = self.last_volumes.get(instrument_key, volume)
-                    incremental_volume = volume - last_v
-                    if incremental_volume < 0: incremental_volume = 0 # Handle new session/reset
-                    self.last_volumes[instrument_key] = volume
+                    last_v = self.last_volumes.get(instrument_key, cum_volume)
+                    incremental_volume = cum_volume - last_v
+                    if incremental_volume < 0: incremental_volume = 0
+                    self.last_volumes[instrument_key] = cum_volume
 
-                    # Side detection: LTP closer to Ask -> Buy, closer to Bid -> Sell
                     is_buy = True
                     if ask > bid > 0:
                         is_buy = abs(ltp - ask) <= abs(ltp - bid)
