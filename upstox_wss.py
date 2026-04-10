@@ -53,20 +53,20 @@ class UpstoxWSS:
     def handle_message(self, message):
         feed_response = pb.FeedResponse()
         feed_response.ParseFromString(message)
-        # Handle both casings just in case
-        data = MessageToDict(feed_response, preserving_proto_field_name=True)
+        # Using default CamelCase to match user provided format
+        data = MessageToDict(feed_response)
 
         if 'feeds' in data:
             for instrument_key, feed in data['feeds'].items():
                 ltp = 0
-                cum_volume = 0
+                tick_volume = 0
                 bid = 0
                 ask = 0
 
-                # Robust extraction handling multiple possible Protobuf-to-Dict mappings
-                ff = feed.get('fullFeed') or feed.get('full_feed') or {}
-                iff = ff.get('indexFF') or ff.get('index_ff') or feed.get('indexFF') or feed.get('index_ff') or {}
-                mff = ff.get('marketFF') or ff.get('market_ff') or feed.get('marketFF') or feed.get('market_ff') or {}
+                # Robust extraction handling CamelCase keys
+                ff = feed.get('fullFeed', {})
+                iff = ff.get('indexFF') or feed.get('indexFF', {})
+                mff = ff.get('marketFF') or feed.get('marketFF', {})
 
                 if iff:
                     ltpc = iff.get('ltpc', {})
@@ -74,33 +74,38 @@ class UpstoxWSS:
                 elif mff:
                     ltpc = mff.get('ltpc', {})
                     ltp = ltpc.get('ltp', 0)
-                    cum_volume = ltpc.get('v', 0)
 
-                    ml = mff.get('marketLevel') or mff.get('market_level') or {}
-                    baq = ml.get('bidAskQuote') or ml.get('bid_ask_quote') or []
+                    # ltq is the last traded quantity for THIS tick (TS)
+                    ltq = ltpc.get('ltq', 0)
+                    try:
+                        tick_volume = int(ltq)
+                    except:
+                        tick_volume = 0
+
+                    ml = mff.get('marketLevel', {})
+                    baq = ml.get('bidAskQuote', [])
                     if baq:
-                        bid = baq[0].get('bidP') or baq[0].get('bid_p') or 0
-                        ask = baq[0].get('askP') or baq[0].get('ask_p') or 0
+                        bid = baq[0].get('bidP', 0)
+                        ask = baq[0].get('askP', 0)
 
                 # Final fallback to top-level ltpc
                 if ltp == 0 and 'ltpc' in feed:
                     ltpc = feed['ltpc']
                     ltp = ltpc.get('ltp', 0)
-                    cum_volume = ltpc.get('v', 0)
+                    ltq = ltpc.get('ltq', 0)
+                    try:
+                        tick_volume = int(ltq)
+                    except:
+                        pass
 
                 if ltp > 0:
-                    last_v = self.last_volumes.get(instrument_key, cum_volume)
-                    incremental_volume = cum_volume - last_v
-                    if incremental_volume < 0: incremental_volume = 0
-                    self.last_volumes[instrument_key] = cum_volume
-
                     is_buy = True
                     if ask > bid > 0:
                         is_buy = abs(ltp - ask) <= abs(ltp - bid)
 
                     # REQUIRED LOGS FOR THE USER
-                    print(f"WSS TICK: {instrument_key} LTP={ltp} Vol={incremental_volume} Buy={is_buy}")
-                    self.callback(instrument_key, ltp, incremental_volume, is_buy)
+                    print(f"WSS TICK: {instrument_key} LTP={ltp} Vol={tick_volume} Buy={is_buy}")
+                    self.callback(instrument_key, ltp, tick_volume, is_buy)
 
     async def _subscribe(self, instrument_keys):
         if self.websocket:

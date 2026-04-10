@@ -103,7 +103,6 @@ def get_synced_df(opt_key):
 upstox_wss = UpstoxWSS(callback=on_tick_received)
 
 def start_live_feed():
-    print("STARTING LIVE FEED...")
     upstox_wss.start()
 
 def change_instrument(opt_key, idx_name='NIFTY'):

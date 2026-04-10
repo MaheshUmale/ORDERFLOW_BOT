@@ -93,7 +93,8 @@ def update_instrument_options(index):
     [State('instrument-selector', 'value'),
      State('instrument-selector', 'options'),
      State('base-index', 'value'),
-     State('signal-history', 'data')]
+     State('signal-history', 'data')],
+    prevent_initial_call=True
 )
 def handle_connect(n_clicks, instrument_key, options, index, history):
     if n_clicks > 0 and instrument_key:
@@ -103,10 +104,18 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
                 if opt['value'] == instrument_key:
                     label = opt['label']
                     break
+
+        # Start backend processes
         change_instrument(instrument_key, index)
         start_live_feed()
+
         status = f"CONNECTED: {label}"
+        # Reset history on new connection to avoid confusion between instruments
         return [], {'key': instrument_key, 'label': label}, status
+
+    # On initialization or if no key, keep current state
+    if not instrument_key and n_clicks == 0:
+        return dash.no_update, dash.no_update, dash.no_update
     return history, {'key': None, 'label': 'No Instrument Selected'}, "STATUS: READY"
 
 @app.callback(
@@ -122,8 +131,11 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
     prevent_initial_call=True
 )
 def update_chart(n, active_instrument, mode, history):
-    instrument_label = active_instrument['label']
-    instrument_key = active_instrument['key']
+    if not active_instrument or not isinstance(active_instrument, dict):
+        return go.Figure().update_layout(template="plotly_dark"), "STATUS: INITIALIZING", [], "", history
+
+    instrument_label = active_instrument.get('label', 'Unknown')
+    instrument_key = active_instrument.get('key')
 
     if not instrument_key:
         return go.Figure().update_layout(title="Please select an instrument and click Connect.", template="plotly_dark"), "STATUS: READY", [html.Div(e) for e in reversed(history)], "", history
@@ -140,14 +152,21 @@ def update_chart(n, active_instrument, mode, history):
 
     # Utilize pre-calculated analysis from storage, appending current incomplete candle analysis
     from data_manager import analysis_storage, engines
+    # Use copy to avoid modifying the original deque
     inst_analysis = list(analysis_storage.get(instrument_key, []))
     inst_engine = engines.get(instrument_key, engine)
 
     # Analyze the current (last) candle which might be incomplete
-    if all_opt_candles:
+    if not df_opt.empty:
         last_c = all_opt_candles[-1]
+        # Important: For the live candle, we use the cumulative delta BEFORE this candle started
         prev_cum_delta = inst_analysis[-1]['cum_delta'] if inst_analysis else 0
         current_c_analysis = inst_engine.analyze_candle(last_c, prev_cum_delta)
+
+        # Merge or Append: If the last entry in inst_analysis has the same timestamp as current_c_analysis,
+        # it means it was already added (could happen if on_tick just processed it).
+        # However, analysis_storage only contains COMPLETED candles.
+        # So we always append current_c_analysis as the "live" row.
         inst_analysis.append(current_c_analysis)
 
     analysis_df = pd.DataFrame(inst_analysis)
@@ -208,10 +227,13 @@ def update_chart(n, active_instrument, mode, history):
 
     # 6. Footprint & Delta
     for i, row in df_opt.iterrows():
-        color = "lime" if row['delta'] > 0 else "red"
-        fig.add_annotation(x=row['time'], y=row['low'], text=str(int(row['delta'])), showarrow=False, yshift=-15, font=dict(color=color, size=10), row=1, col=1)
+        delta_val = row['delta']
+        if pd.isna(delta_val): continue
+        color = "lime" if delta_val > 0 else "red"
+        fig.add_annotation(x=row['time'], y=row['low'], text=str(int(delta_val)), showarrow=False, yshift=-15, font=dict(color=color, size=10), row=1, col=1)
 
-    fig.add_trace(go.Scatter(x=analysis_df['time'], y=analysis_df['cum_delta'], fill='tozeroy', name='Cumulative Delta', line=dict(color='cyan', width=2)), row=2, col=1)
+    if not analysis_df.empty:
+        fig.add_trace(go.Scatter(x=analysis_df['time'], y=analysis_df['cum_delta'], fill='tozeroy', name='Cumulative Delta', line=dict(color='cyan', width=2)), row=2, col=1)
 
     fig.update_layout(title=f"LIVE: {instrument_label}", template="plotly_dark",
                       margin=dict(l=10, r=10, t=50, b=10), xaxis_rangeslider_visible=False, showlegend=False)
