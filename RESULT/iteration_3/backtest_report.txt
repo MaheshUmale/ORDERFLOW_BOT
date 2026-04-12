@@ -1,0 +1,2888 @@
+Fetching historical data for NSE_FO|54805 from 2026-04-05 to 2026-04-12...
+Running backtest on 1873 candles...
+DEBUG: Found signal BUY at 2026-04-06 09:17:00 @ 1190.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:18:00 @ 1190.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:19:00 @ 1190.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 09:20:00 @ 1130.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:22:00 @ 1170.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:23:00 @ 1160.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:24:00 @ 1165.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:25:00 @ 1179.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:26:00 @ 1176.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:29:00 @ 1200.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:30:00 @ 1203.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:31:00 @ 1196.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:32:00 @ 1183.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:33:00 @ 1162.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:35:00 @ 1130.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 09:38:00 @ 1100.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 09:39:00 @ 1103.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:40:00 @ 1120.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 09:42:00 @ 1190.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:44:00 @ 1179.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:46:00 @ 1175.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:47:00 @ 1199.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 09:48:00 @ 1206.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:49:00 @ 1205.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:52:00 @ 1202.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:53:00 @ 1214.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:54:00 @ 1214.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 09:55:00 @ 1226.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 09:56:00 @ 1233.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 10:00:00 @ 1235.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 10:03:00 @ 1205.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 10:05:00 @ 1210.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 10:08:00 @ 1170.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 10:10:00 @ 1194.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 10:11:00 @ 1179.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 10:15:00 @ 1153.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 10:16:00 @ 1131.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 10:18:00 @ 1175.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 10:22:00 @ 1159.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 10:24:00 @ 1162.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 10:32:00 @ 1170.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 10:33:00 @ 1177.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 10:38:00 @ 1158.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 10:41:00 @ 1159.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 10:47:00 @ 1138.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 10:48:00 @ 1147.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 10:51:00 @ 1156.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 10:52:00 @ 1181.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:16:00 @ 1214.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:17:00 @ 1219.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:18:00 @ 1197.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:22:00 @ 1210.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:23:00 @ 1190.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 11:25:00 @ 1200.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:26:00 @ 1191.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:29:00 @ 1180.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:30:00 @ 1180.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:31:00 @ 1190.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:37:00 @ 1159.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:40:00 @ 1173.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:45:00 @ 1165.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:53:00 @ 1153.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 11:57:00 @ 1119.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 11:58:00 @ 1125.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 12:15:00 @ 1157.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 12:20:00 @ 1100.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 12:21:00 @ 1097.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 12:22:00 @ 1100.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 12:27:00 @ 1098.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 12:34:00 @ 1157.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 12:35:00 @ 1168.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 12:43:00 @ 1137.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:07:00 @ 1020.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:09:00 @ 1012.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:15:00 @ 960.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:16:00 @ 960.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:18:00 @ 956.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:22:00 @ 923.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:24:00 @ 939.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:26:00 @ 941.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:27:00 @ 950.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 13:29:00 @ 959.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:30:00 @ 940.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:31:00 @ 940.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:36:00 @ 940.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:44:00 @ 955.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:47:00 @ 954.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 13:49:00 @ 969.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 13:58:00 @ 958.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 13:59:00 @ 957.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 14:03:00 @ 945.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 14:04:00 @ 946.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 14:13:00 @ 932.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 14:15:00 @ 910.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 14:16:00 @ 914.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 14:18:00 @ 914.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 14:19:00 @ 906.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 14:27:00 @ 922.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 14:34:00 @ 905.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 14:35:00 @ 912.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 14:39:00 @ 913.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 14:43:00 @ 916.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 14:50:00 @ 910.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 14:59:00 @ 914.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 15:01:00 @ 885.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 15:05:00 @ 865.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 15:13:00 @ 850.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 15:15:00 @ 854.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 15:18:00 @ 868.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 15:19:00 @ 870.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 15:22:00 @ 875.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-06 15:24:00 @ 880.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 15:25:00 @ 886.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-06 15:26:00 @ 880.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 09:15:00 @ 1053.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:16:00 @ 1059.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:19:00 @ 1040.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:20:00 @ 1052.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:23:00 @ 1010.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:24:00 @ 1014.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:35:00 @ 975.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:36:00 @ 971.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 09:37:00 @ 989.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:38:00 @ 989.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:42:00 @ 1001.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:48:00 @ 995.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:50:00 @ 1017.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:51:00 @ 993.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:53:00 @ 1007.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 09:55:00 @ 995.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 10:02:00 @ 939.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 10:03:00 @ 952.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 10:12:00 @ 928.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 10:14:00 @ 922.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 10:22:00 @ 915.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 10:23:00 @ 915.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 10:26:00 @ 901.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 10:28:00 @ 897.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 10:50:00 @ 904.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 10:52:00 @ 916.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 10:54:00 @ 964.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 10:55:00 @ 957.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 10:56:00 @ 960.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 10:58:00 @ 985.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 10:59:00 @ 992.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 11:00:00 @ 1000.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:01:00 @ 984.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:04:00 @ 985.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:05:00 @ 984.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:09:00 @ 953.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:15:00 @ 977.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:17:00 @ 950.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:20:00 @ 934.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:21:00 @ 925.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:22:00 @ 913.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:23:00 @ 910.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:27:00 @ 900.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 11:30:00 @ 901.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 11:33:00 @ 900.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:34:00 @ 900.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:35:00 @ 899.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:37:00 @ 911.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 11:39:00 @ 900.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 11:40:00 @ 914.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:43:00 @ 918.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:44:00 @ 923.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:45:00 @ 922.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:47:00 @ 929.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 11:49:00 @ 920.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:55:00 @ 890.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:56:00 @ 868.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:57:00 @ 861.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 11:58:00 @ 854.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 12:00:00 @ 865.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:01:00 @ 876.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:04:00 @ 898.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:05:00 @ 903.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:08:00 @ 908.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 12:11:00 @ 914.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:13:00 @ 899.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:15:00 @ 911.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 12:18:00 @ 921.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:19:00 @ 922.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:21:00 @ 930.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:27:00 @ 937.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:29:00 @ 922.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:37:00 @ 909.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 12:38:00 @ 908.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:39:00 @ 900.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 12:40:00 @ 897.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:41:00 @ 901.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 12:42:00 @ 907.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 12:44:00 @ 895.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:45:00 @ 905.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 12:49:00 @ 904.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 12:50:00 @ 900.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:52:00 @ 912.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 12:57:00 @ 910.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 12:58:00 @ 920.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:00:00 @ 920.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 13:01:00 @ 927.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:02:00 @ 931.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:03:00 @ 902.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:04:00 @ 904.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 13:05:00 @ 911.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 13:06:00 @ 921.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:07:00 @ 913.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:09:00 @ 925.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:10:00 @ 921.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:11:00 @ 921.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:13:00 @ 903.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:15:00 @ 903.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:18:00 @ 881.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:25:00 @ 896.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:32:00 @ 834.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:33:00 @ 818.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 13:34:00 @ 849.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 13:36:00 @ 852.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:38:00 @ 832.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:40:00 @ 830.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:42:00 @ 806.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:44:00 @ 803.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:45:00 @ 801.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:46:00 @ 800.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:47:00 @ 809.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 13:49:00 @ 824.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 13:50:00 @ 849.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 13:51:00 @ 827.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 13:57:00 @ 852.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 13:59:00 @ 878.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:00:00 @ 852.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:01:00 @ 850.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:03:00 @ 840.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:04:00 @ 840.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:05:00 @ 832.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:06:00 @ 840.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:07:00 @ 851.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:08:00 @ 840.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:09:00 @ 838.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:10:00 @ 844.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:11:00 @ 845.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:12:00 @ 840.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:13:00 @ 853.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:14:00 @ 842.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:15:00 @ 841.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:16:00 @ 841.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:17:00 @ 840.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:18:00 @ 844.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:19:00 @ 853.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:20:00 @ 854.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:21:00 @ 847.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:22:00 @ 840.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:23:00 @ 842.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:24:00 @ 846.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:27:00 @ 830.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:28:00 @ 829.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:29:00 @ 835.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:30:00 @ 831.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:33:00 @ 813.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:36:00 @ 850.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:37:00 @ 860.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:38:00 @ 838.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:39:00 @ 841.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:41:00 @ 845.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:42:00 @ 844.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:43:00 @ 841.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:44:00 @ 830.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:45:00 @ 830.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:46:00 @ 831.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:47:00 @ 825.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:48:00 @ 822.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:49:00 @ 817.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:50:00 @ 810.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:51:00 @ 814.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:52:00 @ 812.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:53:00 @ 808.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:54:00 @ 805.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:55:00 @ 787.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:56:00 @ 780.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 14:57:00 @ 778.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:58:00 @ 784.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 14:59:00 @ 780.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:00:00 @ 791.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:01:00 @ 765.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 15:02:00 @ 763.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 15:03:00 @ 764.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:04:00 @ 760.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 15:05:00 @ 761.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:06:00 @ 754.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:07:00 @ 751.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 15:08:00 @ 757.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:09:00 @ 761.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 15:10:00 @ 767.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:11:00 @ 763.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 15:12:00 @ 764.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 15:13:00 @ 770.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:14:00 @ 766.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:15:00 @ 771.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:16:00 @ 773.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:17:00 @ 776.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:18:00 @ 768.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:19:00 @ 768.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:20:00 @ 767.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 15:21:00 @ 769.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:22:00 @ 763.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 15:23:00 @ 763.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:24:00 @ 760.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:25:00 @ 751.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:26:00 @ 750.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-07 15:27:00 @ 744.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 15:28:00 @ 743.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-07 15:29:00 @ 748.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:15:00 @ 241.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:16:00 @ 221.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:17:00 @ 204.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:18:00 @ 204.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:19:00 @ 206.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:20:00 @ 195.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:21:00 @ 192.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:22:00 @ 199.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:23:00 @ 210.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:24:00 @ 213.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:25:00 @ 215.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:26:00 @ 204.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:27:00 @ 203.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:28:00 @ 211.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:29:00 @ 205.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:30:00 @ 196.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:31:00 @ 195.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:32:00 @ 197.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:33:00 @ 198.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:34:00 @ 201.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:35:00 @ 194.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:36:00 @ 194.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:37:00 @ 187.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:38:00 @ 189.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:39:00 @ 182.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:40:00 @ 182.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:41:00 @ 185.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:42:00 @ 186.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:43:00 @ 181.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:44:00 @ 178.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:45:00 @ 174.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:46:00 @ 170.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:47:00 @ 167.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:48:00 @ 163.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:49:00 @ 169.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:50:00 @ 167.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:51:00 @ 168.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:52:00 @ 168.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:53:00 @ 174.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:54:00 @ 176.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:55:00 @ 175.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 09:56:00 @ 174.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:57:00 @ 176.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:58:00 @ 185.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 09:59:00 @ 187.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:00:00 @ 181.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:01:00 @ 182.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:02:00 @ 184.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:03:00 @ 186.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:04:00 @ 187.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:05:00 @ 173.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:06:00 @ 183.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:07:00 @ 189.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:08:00 @ 184.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:09:00 @ 185.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:10:00 @ 188.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:11:00 @ 188.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:12:00 @ 186.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:13:00 @ 189.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:14:00 @ 193.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:15:00 @ 196.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:16:00 @ 195.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:17:00 @ 190.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:18:00 @ 184.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:19:00 @ 181.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:20:00 @ 184.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:21:00 @ 190.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:22:00 @ 191.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:23:00 @ 186.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:24:00 @ 188.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:25:00 @ 188.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:26:00 @ 187.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:27:00 @ 181.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:28:00 @ 176.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:29:00 @ 177.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:30:00 @ 173.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:31:00 @ 172.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:32:00 @ 174.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:33:00 @ 169.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:34:00 @ 171.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:35:00 @ 175.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:36:00 @ 176.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:37:00 @ 168.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:38:00 @ 173.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:39:00 @ 171.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:40:00 @ 176.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:41:00 @ 171.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:42:00 @ 173.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:43:00 @ 161.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:44:00 @ 159.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:45:00 @ 158.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:46:00 @ 156.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:47:00 @ 156.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:48:00 @ 153.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:49:00 @ 157.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:50:00 @ 157.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:51:00 @ 158.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:52:00 @ 154.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:53:00 @ 152.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:54:00 @ 147.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:55:00 @ 148.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:56:00 @ 143.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 10:57:00 @ 144.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:58:00 @ 141.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 10:59:00 @ 140.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:00:00 @ 139.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:01:00 @ 136.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:02:00 @ 139.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:03:00 @ 138.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:04:00 @ 138.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:05:00 @ 135.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:06:00 @ 136.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:07:00 @ 138.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:08:00 @ 136.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:09:00 @ 136.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:10:00 @ 133.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:11:00 @ 133.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:12:00 @ 135.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:13:00 @ 136.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:14:00 @ 136.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:15:00 @ 133.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:16:00 @ 130.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:17:00 @ 134.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:18:00 @ 137.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:19:00 @ 135.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:20:00 @ 130.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:21:00 @ 132.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:22:00 @ 135.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:23:00 @ 130.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:24:00 @ 134.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:25:00 @ 137.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:26:00 @ 139.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:27:00 @ 137.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:28:00 @ 138.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:29:00 @ 138.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:30:00 @ 138.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:31:00 @ 140.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:32:00 @ 138.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:33:00 @ 138.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:34:00 @ 140.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:35:00 @ 139.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:36:00 @ 137.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:37:00 @ 142.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:38:00 @ 145.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:39:00 @ 142.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:40:00 @ 143.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:41:00 @ 143.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:42:00 @ 139.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:43:00 @ 139.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:44:00 @ 139.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:45:00 @ 134.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:46:00 @ 134.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:47:00 @ 136.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:48:00 @ 136.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:49:00 @ 135.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:50:00 @ 141.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:51:00 @ 148.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:52:00 @ 146.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:53:00 @ 149.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:54:00 @ 149.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:55:00 @ 154.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:56:00 @ 150.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:57:00 @ 152.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 11:58:00 @ 153.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 11:59:00 @ 153.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:00:00 @ 152.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:01:00 @ 151.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:02:00 @ 151.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:03:00 @ 149.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:04:00 @ 148.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:05:00 @ 142.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:06:00 @ 145.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:07:00 @ 142.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:08:00 @ 141.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:09:00 @ 140.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:10:00 @ 142.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:11:00 @ 142.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:12:00 @ 141.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:13:00 @ 143.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:14:00 @ 141.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:15:00 @ 142.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:16:00 @ 141.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:17:00 @ 142.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:18:00 @ 142.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:19:00 @ 142.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:20:00 @ 141.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:21:00 @ 141.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:22:00 @ 140.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:23:00 @ 141.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:24:00 @ 140.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:25:00 @ 141.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:26:00 @ 141.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:27:00 @ 144.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:28:00 @ 143.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:29:00 @ 148.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:30:00 @ 153.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:31:00 @ 163.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:32:00 @ 168.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:33:00 @ 170.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:34:00 @ 164.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:35:00 @ 165.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:36:00 @ 161.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:37:00 @ 162.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:38:00 @ 166.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:39:00 @ 162.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:40:00 @ 164.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:41:00 @ 158.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:42:00 @ 157.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:43:00 @ 152.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:44:00 @ 150.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:45:00 @ 153.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:46:00 @ 150.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:47:00 @ 149.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:48:00 @ 149.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:49:00 @ 144.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:50:00 @ 145.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:51:00 @ 148.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:52:00 @ 147.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:53:00 @ 145.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:54:00 @ 143.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:55:00 @ 139.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:56:00 @ 136.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:57:00 @ 136.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 12:58:00 @ 137.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 12:59:00 @ 136.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:00:00 @ 140.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:01:00 @ 141.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:02:00 @ 139.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:03:00 @ 141.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:04:00 @ 140.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:05:00 @ 141.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:06:00 @ 142.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:07:00 @ 144.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:08:00 @ 143.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:09:00 @ 144.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:10:00 @ 141.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:11:00 @ 137.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:12:00 @ 140.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:13:00 @ 141.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:14:00 @ 140.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:15:00 @ 140.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:16:00 @ 139.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:17:00 @ 138.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:18:00 @ 141.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:19:00 @ 140.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:20:00 @ 141.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:21:00 @ 141.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:22:00 @ 139.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:23:00 @ 138.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:24:00 @ 137.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:25:00 @ 134.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:26:00 @ 135.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:27:00 @ 135.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:28:00 @ 136.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:29:00 @ 135.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:30:00 @ 136.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:31:00 @ 136.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:32:00 @ 136.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:33:00 @ 138.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:34:00 @ 135.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:35:00 @ 135.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:36:00 @ 132.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:37:00 @ 132.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:38:00 @ 129.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:39:00 @ 130.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:40:00 @ 134.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:41:00 @ 137.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:42:00 @ 133.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:43:00 @ 137.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:44:00 @ 138.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:45:00 @ 137.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:46:00 @ 137.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:47:00 @ 139.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:48:00 @ 137.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:49:00 @ 137.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:50:00 @ 135.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:51:00 @ 137.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:52:00 @ 140.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:53:00 @ 140.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:54:00 @ 142.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:55:00 @ 140.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:56:00 @ 136.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 13:57:00 @ 138.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:58:00 @ 137.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 13:59:00 @ 136.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:00:00 @ 138.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:01:00 @ 137.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:02:00 @ 138.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:03:00 @ 138.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:04:00 @ 140.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:05:00 @ 139.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:06:00 @ 147.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:07:00 @ 146.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:08:00 @ 144.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:09:00 @ 142.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:10:00 @ 145.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:11:00 @ 143.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:12:00 @ 142.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:13:00 @ 149.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:14:00 @ 148.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:15:00 @ 146.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:16:00 @ 147.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:17:00 @ 148.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:18:00 @ 145.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:19:00 @ 142.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:20:00 @ 137.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:21:00 @ 138.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:22:00 @ 138.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:23:00 @ 137.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:24:00 @ 137.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:25:00 @ 136.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:26:00 @ 135.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:27:00 @ 137.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:28:00 @ 136.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:29:00 @ 136.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:30:00 @ 135.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:31:00 @ 135.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:32:00 @ 136.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:33:00 @ 136.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:34:00 @ 135.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:35:00 @ 131.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:36:00 @ 134.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:37:00 @ 135.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:38:00 @ 135.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:39:00 @ 136.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:40:00 @ 135.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:41:00 @ 134.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:42:00 @ 130.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:43:00 @ 130.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:44:00 @ 130.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:45:00 @ 129.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:46:00 @ 131.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:47:00 @ 124.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:48:00 @ 125.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:49:00 @ 132.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:50:00 @ 135.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:51:00 @ 136.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:52:00 @ 135.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:53:00 @ 135.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:54:00 @ 133.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:55:00 @ 131.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 14:56:00 @ 133.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:57:00 @ 132.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:58:00 @ 131.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 14:59:00 @ 129.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 15:00:00 @ 139.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:01:00 @ 138.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:02:00 @ 134.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:03:00 @ 134.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:04:00 @ 133.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:05:00 @ 129.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:06:00 @ 128.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:07:00 @ 128.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 15:08:00 @ 130.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 15:09:00 @ 131.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:10:00 @ 130.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:11:00 @ 131.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 15:12:00 @ 131.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 15:13:00 @ 133.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 15:14:00 @ 134.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 15:15:00 @ 135.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 15:16:00 @ 136.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:17:00 @ 135.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 15:18:00 @ 135.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:19:00 @ 133.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:20:00 @ 132.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-08 15:21:00 @ 135.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:22:00 @ 133.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:23:00 @ 131.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:24:00 @ 129.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:25:00 @ 129.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:26:00 @ 128.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:27:00 @ 127.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:28:00 @ 122.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-08 15:29:00 @ 116.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:15:00 @ 172.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:16:00 @ 163.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:17:00 @ 156.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:18:00 @ 149.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:19:00 @ 145.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:20:00 @ 140.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:21:00 @ 137.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:22:00 @ 139.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:23:00 @ 138.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:24:00 @ 130.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:25:00 @ 131.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:26:00 @ 128.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:27:00 @ 128.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:28:00 @ 129.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:29:00 @ 127.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:30:00 @ 137.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:31:00 @ 143.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:32:00 @ 147.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:33:00 @ 152.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:34:00 @ 155.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:35:00 @ 145.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:36:00 @ 142.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:37:00 @ 149.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:38:00 @ 154.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:39:00 @ 153.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:40:00 @ 153.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:41:00 @ 164.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:42:00 @ 164.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:43:00 @ 165.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:44:00 @ 166.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:45:00 @ 169.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:46:00 @ 167.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:47:00 @ 176.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:48:00 @ 181.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:49:00 @ 192.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:50:00 @ 198.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:51:00 @ 203.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:52:00 @ 191.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:53:00 @ 201.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:54:00 @ 202.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:55:00 @ 206.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 09:56:00 @ 206.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:57:00 @ 209.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:58:00 @ 211.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 09:59:00 @ 212.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:00:00 @ 215.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:01:00 @ 209.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:02:00 @ 202.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:03:00 @ 199.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:04:00 @ 198.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:05:00 @ 190.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:06:00 @ 196.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:07:00 @ 200.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:08:00 @ 194.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:09:00 @ 191.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:10:00 @ 185.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:11:00 @ 179.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:12:00 @ 178.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:13:00 @ 180.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:14:00 @ 183.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:15:00 @ 192.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:16:00 @ 189.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:17:00 @ 180.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:18:00 @ 174.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:19:00 @ 171.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:20:00 @ 176.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:21:00 @ 174.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:22:00 @ 180.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:23:00 @ 175.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:24:00 @ 171.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:25:00 @ 178.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:26:00 @ 189.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:27:00 @ 189.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:28:00 @ 189.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:29:00 @ 183.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:30:00 @ 176.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:31:00 @ 185.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:32:00 @ 176.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:33:00 @ 176.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:34:00 @ 175.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:35:00 @ 168.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:36:00 @ 179.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:37:00 @ 177.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:38:00 @ 186.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:39:00 @ 186.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:40:00 @ 191.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:41:00 @ 186.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:42:00 @ 193.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:43:00 @ 196.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:44:00 @ 196.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:45:00 @ 194.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:46:00 @ 189.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:47:00 @ 185.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:48:00 @ 190.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:49:00 @ 189.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:50:00 @ 189.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:51:00 @ 192.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:52:00 @ 191.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:53:00 @ 192.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:54:00 @ 187.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:55:00 @ 182.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:56:00 @ 181.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:57:00 @ 183.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 10:58:00 @ 186.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 10:59:00 @ 185.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:00:00 @ 175.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:01:00 @ 173.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:02:00 @ 173.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:03:00 @ 175.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:04:00 @ 176.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:05:00 @ 176.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:06:00 @ 184.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:07:00 @ 174.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:08:00 @ 169.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:09:00 @ 169.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:10:00 @ 165.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:11:00 @ 169.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:12:00 @ 174.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:13:00 @ 172.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:14:00 @ 172.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:15:00 @ 170.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:16:00 @ 177.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:17:00 @ 184.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:18:00 @ 187.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:19:00 @ 187.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:20:00 @ 189.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:21:00 @ 194.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:22:00 @ 185.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:23:00 @ 185.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:24:00 @ 182.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:25:00 @ 176.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:26:00 @ 175.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:27:00 @ 177.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:28:00 @ 170.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:29:00 @ 171.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:30:00 @ 164.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:31:00 @ 165.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:32:00 @ 164.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:33:00 @ 168.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:34:00 @ 170.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:35:00 @ 171.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:36:00 @ 168.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:37:00 @ 170.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:38:00 @ 166.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:39:00 @ 169.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:40:00 @ 169.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:41:00 @ 163.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:42:00 @ 169.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:43:00 @ 167.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:44:00 @ 165.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:45:00 @ 169.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:46:00 @ 170.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:47:00 @ 166.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:48:00 @ 160.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:49:00 @ 156.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:50:00 @ 161.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:51:00 @ 157.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:52:00 @ 155.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:53:00 @ 153.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:54:00 @ 155.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:55:00 @ 148.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:56:00 @ 153.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:57:00 @ 150.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 11:58:00 @ 158.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 11:59:00 @ 152.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:00:00 @ 148.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:01:00 @ 151.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:02:00 @ 153.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:03:00 @ 155.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:04:00 @ 156.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:05:00 @ 159.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:06:00 @ 157.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:07:00 @ 153.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:08:00 @ 149.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:09:00 @ 147.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:10:00 @ 146.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:11:00 @ 147.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:12:00 @ 149.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:13:00 @ 151.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:14:00 @ 152.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:15:00 @ 153.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:16:00 @ 152.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:17:00 @ 153.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:18:00 @ 155.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:19:00 @ 155.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:20:00 @ 157.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:21:00 @ 154.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:22:00 @ 153.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:23:00 @ 156.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:24:00 @ 159.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:25:00 @ 165.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:26:00 @ 163.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:27:00 @ 159.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:28:00 @ 154.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:29:00 @ 154.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:30:00 @ 153.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:31:00 @ 151.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:32:00 @ 152.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:33:00 @ 159.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:34:00 @ 160.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:35:00 @ 156.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:36:00 @ 162.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:37:00 @ 162.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:38:00 @ 163.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:39:00 @ 163.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:40:00 @ 161.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:41:00 @ 161.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:42:00 @ 164.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:43:00 @ 167.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:44:00 @ 164.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:45:00 @ 169.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:46:00 @ 180.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:47:00 @ 186.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:48:00 @ 192.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:49:00 @ 191.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:50:00 @ 191.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:51:00 @ 187.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:52:00 @ 184.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:53:00 @ 183.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:54:00 @ 179.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:55:00 @ 177.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:56:00 @ 180.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:57:00 @ 179.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 12:58:00 @ 177.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 12:59:00 @ 179.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:00:00 @ 178.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:01:00 @ 173.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:02:00 @ 182.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:03:00 @ 179.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:04:00 @ 180.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:05:00 @ 182.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:06:00 @ 182.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:07:00 @ 179.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:08:00 @ 178.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:09:00 @ 179.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:10:00 @ 183.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:11:00 @ 188.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:12:00 @ 191.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:13:00 @ 184.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:14:00 @ 187.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:15:00 @ 190.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:16:00 @ 195.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:17:00 @ 195.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:18:00 @ 197.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:19:00 @ 196.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:20:00 @ 202.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:21:00 @ 212.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:22:00 @ 201.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:23:00 @ 205.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:24:00 @ 207.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:25:00 @ 207.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:26:00 @ 203.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:27:00 @ 207.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:28:00 @ 211.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:29:00 @ 213.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:30:00 @ 214.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:31:00 @ 218.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:32:00 @ 212.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:33:00 @ 204.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:34:00 @ 205.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:35:00 @ 202.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:36:00 @ 200.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:37:00 @ 210.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:38:00 @ 206.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:39:00 @ 211.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:40:00 @ 213.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:41:00 @ 218.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:42:00 @ 215.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:43:00 @ 218.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:44:00 @ 219.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:45:00 @ 215.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:46:00 @ 221.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:47:00 @ 229.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:48:00 @ 221.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:49:00 @ 219.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:50:00 @ 209.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:51:00 @ 210.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:52:00 @ 214.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:53:00 @ 219.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:54:00 @ 211.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:55:00 @ 210.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:56:00 @ 205.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:57:00 @ 208.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 13:58:00 @ 213.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 13:59:00 @ 212.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:00:00 @ 211.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:01:00 @ 208.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:02:00 @ 210.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:03:00 @ 203.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:04:00 @ 203.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:05:00 @ 209.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:06:00 @ 203.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:07:00 @ 200.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:08:00 @ 195.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:09:00 @ 199.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:10:00 @ 210.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:11:00 @ 212.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:12:00 @ 213.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:13:00 @ 210.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:14:00 @ 216.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:15:00 @ 218.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:16:00 @ 215.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:17:00 @ 213.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:18:00 @ 217.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:19:00 @ 219.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:20:00 @ 217.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:21:00 @ 218.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:22:00 @ 221.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:23:00 @ 229.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:24:00 @ 229.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:25:00 @ 232.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:26:00 @ 239.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:27:00 @ 237.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:28:00 @ 234.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:29:00 @ 233.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:30:00 @ 235.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:31:00 @ 255.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:32:00 @ 246.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:33:00 @ 245.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:34:00 @ 248.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:35:00 @ 244.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:36:00 @ 245.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:37:00 @ 243.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:38:00 @ 245.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:39:00 @ 240.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:40:00 @ 237.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:41:00 @ 231.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:42:00 @ 226.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:43:00 @ 218.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:44:00 @ 224.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:45:00 @ 225.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:46:00 @ 224.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:47:00 @ 219.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:48:00 @ 225.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:49:00 @ 220.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:50:00 @ 225.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:51:00 @ 219.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:52:00 @ 215.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:53:00 @ 213.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:54:00 @ 212.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:55:00 @ 216.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:56:00 @ 215.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:57:00 @ 215.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 14:58:00 @ 218.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 14:59:00 @ 214.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:00:00 @ 216.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:01:00 @ 202.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:02:00 @ 194.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:03:00 @ 192.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:04:00 @ 200.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:05:00 @ 195.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:06:00 @ 192.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:07:00 @ 195.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:08:00 @ 191.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:09:00 @ 188.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:10:00 @ 185.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:11:00 @ 186.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:12:00 @ 180.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:13:00 @ 185.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:14:00 @ 186.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:15:00 @ 191.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:16:00 @ 190.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:17:00 @ 191.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:18:00 @ 192.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:19:00 @ 192.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:20:00 @ 189.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:21:00 @ 186.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:22:00 @ 184.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:23:00 @ 186.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:24:00 @ 187.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:25:00 @ 189.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:26:00 @ 188.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:27:00 @ 187.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-09 15:28:00 @ 187.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-09 15:29:00 @ 190.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:15:00 @ 127.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:16:00 @ 105.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:17:00 @ 105.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:18:00 @ 105.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:19:00 @ 97.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:20:00 @ 96.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:21:00 @ 98.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:22:00 @ 98.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:23:00 @ 102.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:24:00 @ 107.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:25:00 @ 101.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:26:00 @ 113.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:27:00 @ 112.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:28:00 @ 107.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:29:00 @ 102.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:30:00 @ 100.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:31:00 @ 106.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:32:00 @ 100.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:33:00 @ 99.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:34:00 @ 103.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:35:00 @ 108.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:36:00 @ 106.75 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:37:00 @ 104.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:38:00 @ 105.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:39:00 @ 102.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:40:00 @ 102.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:41:00 @ 102.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:42:00 @ 98.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:43:00 @ 96.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:44:00 @ 99.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:45:00 @ 97.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:46:00 @ 91.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:47:00 @ 88.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:48:00 @ 89.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:49:00 @ 90.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:50:00 @ 87.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:51:00 @ 88.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:52:00 @ 87.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:53:00 @ 86.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:54:00 @ 84.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:55:00 @ 86.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:56:00 @ 85.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:57:00 @ 84.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 09:58:00 @ 84.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 09:59:00 @ 84.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:00:00 @ 83.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:01:00 @ 82.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:02:00 @ 85.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:03:00 @ 87.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:04:00 @ 88.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:05:00 @ 96.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:06:00 @ 96.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:07:00 @ 97.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:08:00 @ 96.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:09:00 @ 91.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:10:00 @ 87.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:11:00 @ 86.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:12:00 @ 86.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:13:00 @ 82.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:14:00 @ 80.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:15:00 @ 78.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:16:00 @ 76.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:17:00 @ 75.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:18:00 @ 75.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:19:00 @ 74.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:20:00 @ 74.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:21:00 @ 73.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:22:00 @ 73.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:23:00 @ 71.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:24:00 @ 71.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:25:00 @ 69.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:26:00 @ 71.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:27:00 @ 73.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:28:00 @ 75.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:29:00 @ 72.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:30:00 @ 71.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:31:00 @ 73.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:32:00 @ 73.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:33:00 @ 75.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:34:00 @ 71.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:35:00 @ 73.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:36:00 @ 72.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:37:00 @ 73.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:38:00 @ 74.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:39:00 @ 73.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:40:00 @ 72.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:41:00 @ 74.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:42:00 @ 73.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:43:00 @ 74.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:44:00 @ 74.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:45:00 @ 75.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:46:00 @ 76.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:47:00 @ 73.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:48:00 @ 77.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:49:00 @ 77.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:50:00 @ 77.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:51:00 @ 77.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:52:00 @ 77.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:53:00 @ 77.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:54:00 @ 77.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:55:00 @ 78.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:56:00 @ 80.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 10:57:00 @ 83.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:58:00 @ 78.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 10:59:00 @ 75.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:00:00 @ 75.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:01:00 @ 73.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:02:00 @ 76.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:03:00 @ 76.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:04:00 @ 76.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:05:00 @ 77.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:06:00 @ 76.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:07:00 @ 74.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:08:00 @ 74.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:09:00 @ 72.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:10:00 @ 71.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:11:00 @ 71.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:12:00 @ 70.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:13:00 @ 71.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:14:00 @ 71.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:15:00 @ 72.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:16:00 @ 73.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:17:00 @ 77.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:18:00 @ 78.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:19:00 @ 75.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:20:00 @ 76.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:21:00 @ 76.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:22:00 @ 74.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:23:00 @ 75.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:24:00 @ 76.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:25:00 @ 74.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:26:00 @ 73.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:27:00 @ 75.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:28:00 @ 76.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:29:00 @ 78.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:30:00 @ 75.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:31:00 @ 74.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:32:00 @ 73.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:33:00 @ 73.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:34:00 @ 72.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:35:00 @ 73.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:36:00 @ 77.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:37:00 @ 79.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:38:00 @ 76.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:39:00 @ 78.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:40:00 @ 79.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:41:00 @ 80.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:42:00 @ 81.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:43:00 @ 78.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:44:00 @ 80.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:45:00 @ 78.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:46:00 @ 79.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:47:00 @ 85.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:48:00 @ 85.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:49:00 @ 85.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:50:00 @ 79.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:51:00 @ 79.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:52:00 @ 79.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:53:00 @ 80.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:54:00 @ 78.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 11:55:00 @ 79.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:56:00 @ 78.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:57:00 @ 77.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:58:00 @ 77.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 11:59:00 @ 75.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:00:00 @ 76.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:01:00 @ 74.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:02:00 @ 73.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:03:00 @ 72.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:04:00 @ 70.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:05:00 @ 71.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:06:00 @ 70.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:07:00 @ 70.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:08:00 @ 70.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:09:00 @ 70.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:10:00 @ 71.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:11:00 @ 70.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:12:00 @ 70.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:13:00 @ 69.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:14:00 @ 70.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:15:00 @ 72.9 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:16:00 @ 70.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:17:00 @ 71.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:18:00 @ 71.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:19:00 @ 71.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:20:00 @ 72.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:21:00 @ 72.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:22:00 @ 72.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:23:00 @ 70.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:24:00 @ 67.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:25:00 @ 65.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:26:00 @ 67.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:27:00 @ 68.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:28:00 @ 70.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:29:00 @ 68.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:30:00 @ 67.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:31:00 @ 68.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:32:00 @ 68.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:33:00 @ 69.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:34:00 @ 69.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:35:00 @ 68.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:36:00 @ 67.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:37:00 @ 68.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:38:00 @ 68.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:39:00 @ 67.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:40:00 @ 67.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:41:00 @ 68.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:42:00 @ 68.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:43:00 @ 69.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:44:00 @ 70.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:45:00 @ 70.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:46:00 @ 71.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:47:00 @ 70.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:48:00 @ 68.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:49:00 @ 69.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:50:00 @ 72.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:51:00 @ 71.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:52:00 @ 70.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:53:00 @ 69.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:54:00 @ 70.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:55:00 @ 70.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:56:00 @ 71.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:57:00 @ 70.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 12:58:00 @ 69.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 12:59:00 @ 69.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:00:00 @ 68.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:01:00 @ 68.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:02:00 @ 68.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:03:00 @ 67.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:04:00 @ 67.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:05:00 @ 68.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:06:00 @ 67.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:07:00 @ 67.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:08:00 @ 66.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:09:00 @ 66.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:10:00 @ 67.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:11:00 @ 68.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:12:00 @ 70.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:13:00 @ 71.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:14:00 @ 71.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:15:00 @ 70.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:16:00 @ 70.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:17:00 @ 69.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:18:00 @ 71.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:19:00 @ 71.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:20:00 @ 70.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:21:00 @ 71.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:22:00 @ 70.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:23:00 @ 72.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:24:00 @ 72.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:25:00 @ 70.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:26:00 @ 69.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:27:00 @ 70.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:28:00 @ 69.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:29:00 @ 68.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:30:00 @ 68.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:31:00 @ 67.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:32:00 @ 66.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:33:00 @ 68.6 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:34:00 @ 69.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:35:00 @ 70.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:36:00 @ 68.85 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:37:00 @ 68.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:38:00 @ 68.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:39:00 @ 66.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:40:00 @ 66.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:41:00 @ 66.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:42:00 @ 64.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:43:00 @ 64.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:44:00 @ 64.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:45:00 @ 63.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:46:00 @ 64.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:47:00 @ 64.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:48:00 @ 66.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:49:00 @ 66.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:50:00 @ 66.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:51:00 @ 64.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:52:00 @ 65.1 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:53:00 @ 64.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 13:54:00 @ 64.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:55:00 @ 64.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:56:00 @ 63.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:57:00 @ 62.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:58:00 @ 60.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 13:59:00 @ 59.95 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:00:00 @ 60.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:01:00 @ 58.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:02:00 @ 60.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:03:00 @ 60.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:04:00 @ 59.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:05:00 @ 58.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:06:00 @ 58.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:07:00 @ 59.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:08:00 @ 60.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:09:00 @ 59.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:10:00 @ 60.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:11:00 @ 60.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:12:00 @ 58.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:13:00 @ 58.9 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:14:00 @ 63.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:15:00 @ 76.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:16:00 @ 81.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:17:00 @ 75.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:18:00 @ 73.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:19:00 @ 73.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:20:00 @ 70.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:21:00 @ 68.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:22:00 @ 76.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:23:00 @ 81.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:24:00 @ 86.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:25:00 @ 84.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:26:00 @ 83.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:27:00 @ 87.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:28:00 @ 84.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:29:00 @ 84.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:30:00 @ 82.25 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:31:00 @ 85.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:32:00 @ 85.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:33:00 @ 81.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:34:00 @ 80.8 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:35:00 @ 82.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:36:00 @ 84.85 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:37:00 @ 82.05 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:38:00 @ 80.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:39:00 @ 82.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:40:00 @ 80.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:41:00 @ 78.4 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:42:00 @ 76.4 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:43:00 @ 79.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:44:00 @ 78.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:45:00 @ 81.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:46:00 @ 83.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:47:00 @ 82.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:48:00 @ 80.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:49:00 @ 68.35 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:50:00 @ 73.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:51:00 @ 70.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:52:00 @ 70.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:53:00 @ 67.95 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:54:00 @ 72.45 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:55:00 @ 72.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:56:00 @ 71.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:57:00 @ 72.35 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 14:58:00 @ 69.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 14:59:00 @ 72.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:00:00 @ 68.5 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:01:00 @ 65.6 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:02:00 @ 64.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:03:00 @ 62.15 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:04:00 @ 59.8 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:05:00 @ 58.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:06:00 @ 57.25 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:07:00 @ 55.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:08:00 @ 55.1 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 15:09:00 @ 55.65 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:10:00 @ 54.7 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 15:11:00 @ 55.2 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:12:00 @ 55.15 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 15:13:00 @ 55.75 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 15:14:00 @ 57.3 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 15:15:00 @ 60.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:16:00 @ 60.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:17:00 @ 59.65 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 15:18:00 @ 60.05 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 15:19:00 @ 61.0 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:20:00 @ 60.55 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 15:21:00 @ 61.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 15:22:00 @ 61.7 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:23:00 @ 61.55 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:24:00 @ 61.2 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 15:25:00 @ 61.45 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:26:00 @ 60.3 EV: 8.5
+DEBUG: Found signal SELL at 2026-04-10 15:27:00 @ 59.5 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 15:28:00 @ 60.0 EV: 8.5
+DEBUG: Found signal BUY at 2026-04-10 15:29:00 @ 60.35 EV: 8.5
+
+==============================
+BACKTEST RESULTS
+==============================
+Total Trades: 1425
+Wins: 620
+Losses: 805
+Win Rate: 43.51%
+Realized PnL: 252.45
+------------------------------
+TRADE LOG:
+[CLOSED] BUY @ 1190.00 -> Exit: 1185.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1190.00 -> Exit: 1180.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1190.00 -> Exit: 1180.00 PnL: 10.00 (TP)
+[CLOSED] BUY @ 1130.00 -> Exit: 1140.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1170.20 -> Exit: 1160.20 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1160.00 -> Exit: 1165.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1165.20 -> Exit: 1170.20 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1179.25 -> Exit: 1180.60 PnL: -1.35 (SL)
+[CLOSED] SELL @ 1176.60 -> Exit: 1181.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1200.00 -> Exit: 1190.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1203.40 -> Exit: 1193.40 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1196.25 -> Exit: 1186.25 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1183.50 -> Exit: 1173.50 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1162.20 -> Exit: 1152.20 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1130.60 -> Exit: 1120.60 PnL: 10.00 (TP)
+[CLOSED] BUY @ 1100.00 -> Exit: 1110.00 PnL: 10.00 (TP)
+[CLOSED] BUY @ 1103.00 -> Exit: 1113.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1120.00 -> Exit: 1125.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 1190.00 -> Exit: 1185.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1179.70 -> Exit: 1179.00 PnL: 0.70 (SL)
+[CLOSED] SELL @ 1175.00 -> Exit: 1180.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1199.65 -> Exit: 1204.65 PnL: -5.00 (SL)
+[CLOSED] BUY @ 1206.00 -> Exit: 1216.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1205.00 -> Exit: 1206.60 PnL: -1.60 (SL)
+[CLOSED] SELL @ 1202.60 -> Exit: 1207.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1214.90 -> Exit: 1219.90 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1214.65 -> Exit: 1219.65 PnL: -5.00 (SL)
+[CLOSED] BUY @ 1226.00 -> Exit: 1229.05 PnL: 3.05 (SL)
+[CLOSED] SELL @ 1233.05 -> Exit: 1223.05 PnL: 10.00 (TP)
+[CLOSED] BUY @ 1235.50 -> Exit: 1230.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1205.90 -> Exit: 1195.90 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1210.75 -> Exit: 1200.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1170.00 -> Exit: 1175.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1194.15 -> Exit: 1184.15 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1179.80 -> Exit: 1169.80 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1153.90 -> Exit: 1143.90 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1131.35 -> Exit: 1136.35 PnL: -5.00 (SL)
+[CLOSED] BUY @ 1175.50 -> Exit: 1170.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1159.00 -> Exit: 1158.25 PnL: 0.75 (SL)
+[CLOSED] BUY @ 1162.75 -> Exit: 1172.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1170.40 -> Exit: 1175.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1177.20 -> Exit: 1167.20 PnL: 10.00 (TP)
+[CLOSED] BUY @ 1158.65 -> Exit: 1153.65 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1159.15 -> Exit: 1149.15 PnL: 10.00 (TP)
+[CLOSED] BUY @ 1138.10 -> Exit: 1148.10 PnL: 10.00 (TP)
+[CLOSED] BUY @ 1147.65 -> Exit: 1157.65 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1156.60 -> Exit: 1161.60 PnL: -5.00 (SL)
+[CLOSED] BUY @ 1181.75 -> Exit: 1191.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1214.45 -> Exit: 1219.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1219.90 -> Exit: 1209.90 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1197.65 -> Exit: 1202.65 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1210.60 -> Exit: 1200.60 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1190.30 -> Exit: 1195.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 1200.95 -> Exit: 1195.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1191.00 -> Exit: 1181.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1180.00 -> Exit: 1185.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1180.00 -> Exit: 1185.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1190.00 -> Exit: 1180.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1159.25 -> Exit: 1164.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1173.40 -> Exit: 1163.40 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1165.00 -> Exit: 1155.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1153.00 -> Exit: 1143.00 PnL: 10.00 (TP)
+[CLOSED] BUY @ 1119.95 -> Exit: 1129.95 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1125.60 -> Exit: 1130.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1157.60 -> Exit: 1147.60 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1100.75 -> Exit: 1101.90 PnL: -1.15 (SL)
+[CLOSED] SELL @ 1097.90 -> Exit: 1102.90 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1100.00 -> Exit: 1105.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1098.10 -> Exit: 1103.10 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1157.50 -> Exit: 1162.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1168.10 -> Exit: 1158.10 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1137.10 -> Exit: 1127.10 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1020.35 -> Exit: 1010.35 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1012.00 -> Exit: 1002.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 960.00 -> Exit: 950.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 960.95 -> Exit: 950.95 PnL: 10.00 (TP)
+[CLOSED] SELL @ 956.00 -> Exit: 946.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 923.35 -> Exit: 928.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 939.45 -> Exit: 944.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 941.75 -> Exit: 946.75 PnL: -5.00 (SL)
+[CLOSED] SELL @ 950.00 -> Exit: 955.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 959.40 -> Exit: 954.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 940.70 -> Exit: 945.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 940.00 -> Exit: 945.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 940.75 -> Exit: 945.75 PnL: -5.00 (SL)
+[CLOSED] SELL @ 955.00 -> Exit: 960.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 954.75 -> Exit: 959.75 PnL: -5.00 (SL)
+[CLOSED] BUY @ 969.00 -> Exit: 964.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 958.10 -> Exit: 953.10 PnL: -5.00 (SL)
+[CLOSED] SELL @ 957.60 -> Exit: 947.60 PnL: 10.00 (TP)
+[CLOSED] SELL @ 945.75 -> Exit: 935.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 946.45 -> Exit: 936.45 PnL: 10.00 (TP)
+[CLOSED] SELL @ 932.65 -> Exit: 922.65 PnL: 10.00 (TP)
+[CLOSED] SELL @ 910.05 -> Exit: 907.55 PnL: 2.50 (SL)
+[CLOSED] SELL @ 914.75 -> Exit: 904.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 914.75 -> Exit: 904.75 PnL: 10.00 (TP)
+[CLOSED] BUY @ 906.05 -> Exit: 916.05 PnL: 10.00 (TP)
+[CLOSED] SELL @ 922.10 -> Exit: 912.10 PnL: 10.00 (TP)
+[CLOSED] SELL @ 905.00 -> Exit: 910.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 912.00 -> Exit: 902.00 PnL: 10.00 (TP)
+[CLOSED] BUY @ 913.00 -> Exit: 912.15 PnL: -0.85 (SL)
+[CLOSED] SELL @ 916.15 -> Exit: 914.00 PnL: 2.15 (SL)
+[CLOSED] SELL @ 910.00 -> Exit: 900.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 914.00 -> Exit: 904.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 885.75 -> Exit: 875.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 865.40 -> Exit: 855.40 PnL: 10.00 (TP)
+[CLOSED] BUY @ 850.40 -> Exit: 860.40 PnL: 10.00 (TP)
+[CLOSED] SELL @ 854.75 -> Exit: 859.75 PnL: -5.00 (SL)
+[CLOSED] SELL @ 868.95 -> Exit: 873.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 870.20 -> Exit: 875.20 PnL: -5.00 (SL)
+[CLOSED] BUY @ 875.35 -> Exit: 885.35 PnL: 10.00 (TP)
+[CLOSED] SELL @ 880.15 -> Exit: 885.15 PnL: -5.00 (SL)
+[CLOSED] BUY @ 886.30 -> Exit: 881.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 880.90 -> Exit: 890.90 PnL: 10.00 (TP)
+[CLOSED] BUY @ 1053.00 -> Exit: 1055.00 PnL: 2.00 (SL)
+[CLOSED] SELL @ 1059.00 -> Exit: 1049.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1040.30 -> Exit: 1045.30 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1052.55 -> Exit: 1042.55 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1010.00 -> Exit: 1000.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 1014.05 -> Exit: 1004.05 PnL: 10.00 (TP)
+[CLOSED] SELL @ 975.30 -> Exit: 975.80 PnL: -0.50 (SL)
+[CLOSED] SELL @ 971.80 -> Exit: 976.80 PnL: -5.00 (SL)
+[CLOSED] BUY @ 989.05 -> Exit: 999.05 PnL: 10.00 (TP)
+[CLOSED] SELL @ 989.05 -> Exit: 994.05 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1001.05 -> Exit: 999.00 PnL: 2.05 (SL)
+[CLOSED] SELL @ 995.00 -> Exit: 1000.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1017.00 -> Exit: 1007.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 993.95 -> Exit: 998.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 1007.70 -> Exit: 997.70 PnL: 10.00 (TP)
+[CLOSED] SELL @ 995.15 -> Exit: 985.15 PnL: 10.00 (TP)
+[CLOSED] SELL @ 939.00 -> Exit: 944.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 952.85 -> Exit: 942.85 PnL: 10.00 (TP)
+[CLOSED] SELL @ 928.60 -> Exit: 918.60 PnL: 10.00 (TP)
+[CLOSED] SELL @ 922.85 -> Exit: 912.85 PnL: 10.00 (TP)
+[CLOSED] SELL @ 915.60 -> Exit: 905.60 PnL: 10.00 (TP)
+[CLOSED] SELL @ 915.40 -> Exit: 905.40 PnL: 10.00 (TP)
+[CLOSED] SELL @ 901.00 -> Exit: 901.00 PnL: 0.00 (SL)
+[CLOSED] SELL @ 897.00 -> Exit: 902.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 904.60 -> Exit: 909.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 916.45 -> Exit: 921.45 PnL: -5.00 (SL)
+[CLOSED] BUY @ 964.10 -> Exit: 959.10 PnL: -5.00 (SL)
+[CLOSED] BUY @ 957.80 -> Exit: 967.80 PnL: 10.00 (TP)
+[CLOSED] BUY @ 960.75 -> Exit: 970.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 985.45 -> Exit: 990.45 PnL: -5.00 (SL)
+[CLOSED] BUY @ 992.30 -> Exit: 996.00 PnL: 3.70 (SL)
+[CLOSED] BUY @ 1000.00 -> Exit: 995.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 984.00 -> Exit: 974.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 985.00 -> Exit: 975.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 984.50 -> Exit: 974.50 PnL: 10.00 (TP)
+[CLOSED] SELL @ 953.05 -> Exit: 958.05 PnL: -5.00 (SL)
+[CLOSED] SELL @ 977.00 -> Exit: 967.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 950.00 -> Exit: 940.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 934.90 -> Exit: 924.90 PnL: 10.00 (TP)
+[CLOSED] SELL @ 925.00 -> Exit: 915.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 913.00 -> Exit: 903.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 910.45 -> Exit: 900.45 PnL: 10.00 (TP)
+[CLOSED] SELL @ 900.00 -> Exit: 901.25 PnL: -1.25 (SL)
+[CLOSED] BUY @ 901.10 -> Exit: 899.90 PnL: -1.20 (SL)
+[CLOSED] BUY @ 900.00 -> Exit: 910.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 900.35 -> Exit: 905.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 899.85 -> Exit: 904.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 911.35 -> Exit: 901.35 PnL: 10.00 (TP)
+[CLOSED] BUY @ 900.00 -> Exit: 910.00 PnL: 10.00 (TP)
+[CLOSED] BUY @ 914.00 -> Exit: 924.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 918.60 -> Exit: 923.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 923.20 -> Exit: 928.20 PnL: -5.00 (SL)
+[CLOSED] SELL @ 922.85 -> Exit: 927.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 929.55 -> Exit: 919.55 PnL: 10.00 (TP)
+[CLOSED] BUY @ 920.75 -> Exit: 915.75 PnL: -5.00 (SL)
+[CLOSED] SELL @ 890.70 -> Exit: 880.70 PnL: 10.00 (TP)
+[CLOSED] SELL @ 868.00 -> Exit: 858.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 861.00 -> Exit: 858.05 PnL: 2.95 (SL)
+[CLOSED] SELL @ 854.05 -> Exit: 859.05 PnL: -5.00 (SL)
+[CLOSED] BUY @ 865.70 -> Exit: 875.70 PnL: 10.00 (TP)
+[CLOSED] SELL @ 876.00 -> Exit: 881.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 898.65 -> Exit: 903.65 PnL: -5.00 (SL)
+[CLOSED] SELL @ 903.70 -> Exit: 908.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 908.30 -> Exit: 907.00 PnL: 1.30 (SL)
+[CLOSED] BUY @ 914.10 -> Exit: 909.10 PnL: -5.00 (SL)
+[CLOSED] SELL @ 899.60 -> Exit: 904.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 911.00 -> Exit: 916.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 921.20 -> Exit: 931.20 PnL: 10.00 (TP)
+[CLOSED] SELL @ 922.50 -> Exit: 927.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 930.85 -> Exit: 935.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 937.75 -> Exit: 927.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 922.00 -> Exit: 912.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 909.25 -> Exit: 907.90 PnL: 1.35 (SL)
+[CLOSED] BUY @ 908.95 -> Exit: 903.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 900.00 -> Exit: 899.75 PnL: 0.25 (SL)
+[CLOSED] BUY @ 897.30 -> Exit: 907.30 PnL: 10.00 (TP)
+[CLOSED] SELL @ 901.40 -> Exit: 906.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 907.60 -> Exit: 902.60 PnL: -5.00 (SL)
+[CLOSED] BUY @ 895.15 -> Exit: 905.15 PnL: 10.00 (TP)
+[CLOSED] SELL @ 905.65 -> Exit: 900.80 PnL: 4.85 (SL)
+[CLOSED] BUY @ 904.50 -> Exit: 914.50 PnL: 10.00 (TP)
+[CLOSED] BUY @ 900.75 -> Exit: 910.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 912.25 -> Exit: 909.05 PnL: 3.20 (SL)
+[CLOSED] BUY @ 910.30 -> Exit: 920.30 PnL: 10.00 (TP)
+[CLOSED] SELL @ 920.00 -> Exit: 925.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 920.55 -> Exit: 925.55 PnL: -5.00 (SL)
+[CLOSED] BUY @ 927.55 -> Exit: 927.60 PnL: 0.05 (SL)
+[CLOSED] SELL @ 931.60 -> Exit: 921.60 PnL: 10.00 (TP)
+[CLOSED] SELL @ 902.50 -> Exit: 907.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 904.75 -> Exit: 909.75 PnL: -5.00 (SL)
+[CLOSED] BUY @ 911.65 -> Exit: 917.40 PnL: 5.75 (SL)
+[CLOSED] BUY @ 921.40 -> Exit: 916.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 913.85 -> Exit: 918.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 925.90 -> Exit: 915.90 PnL: 10.00 (TP)
+[CLOSED] SELL @ 921.75 -> Exit: 911.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 921.80 -> Exit: 911.80 PnL: 10.00 (TP)
+[CLOSED] SELL @ 903.00 -> Exit: 893.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 903.00 -> Exit: 893.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 881.00 -> Exit: 886.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 896.90 -> Exit: 886.90 PnL: 10.00 (TP)
+[CLOSED] SELL @ 834.35 -> Exit: 824.35 PnL: 10.00 (TP)
+[CLOSED] SELL @ 818.90 -> Exit: 823.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 849.00 -> Exit: 848.00 PnL: -1.00 (SL)
+[CLOSED] BUY @ 852.00 -> Exit: 847.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 832.45 -> Exit: 822.45 PnL: 10.00 (TP)
+[CLOSED] SELL @ 830.00 -> Exit: 820.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 806.95 -> Exit: 804.00 PnL: 2.95 (SL)
+[CLOSED] SELL @ 803.00 -> Exit: 804.00 PnL: -1.00 (SL)
+[CLOSED] SELL @ 801.00 -> Exit: 806.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 800.00 -> Exit: 805.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 809.90 -> Exit: 814.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 824.80 -> Exit: 834.80 PnL: 10.00 (TP)
+[CLOSED] BUY @ 849.00 -> Exit: 844.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 827.95 -> Exit: 832.95 PnL: -5.00 (SL)
+[CLOSED] BUY @ 852.75 -> Exit: 862.75 PnL: 10.00 (TP)
+[CLOSED] BUY @ 878.95 -> Exit: 873.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 852.40 -> Exit: 854.00 PnL: -1.60 (SL)
+[CLOSED] SELL @ 850.00 -> Exit: 840.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 840.00 -> Exit: 836.05 PnL: 3.95 (SL)
+[CLOSED] BUY @ 840.00 -> Exit: 835.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 832.05 -> Exit: 837.05 PnL: -5.00 (SL)
+[CLOSED] BUY @ 840.00 -> Exit: 850.00 PnL: 10.00 (TP)
+[CLOSED] BUY @ 851.75 -> Exit: 846.75 PnL: -5.00 (SL)
+[CLOSED] SELL @ 840.45 -> Exit: 840.90 PnL: -0.45 (SL)
+[CLOSED] SELL @ 838.55 -> Exit: 843.55 PnL: -5.00 (SL)
+[CLOSED] BUY @ 844.25 -> Exit: 846.60 PnL: 2.35 (SL)
+[CLOSED] SELL @ 845.40 -> Exit: 844.05 PnL: 1.35 (SL)
+[CLOSED] SELL @ 840.05 -> Exit: 845.05 PnL: -5.00 (SL)
+[CLOSED] SELL @ 853.95 -> Exit: 843.95 PnL: 10.00 (TP)
+[CLOSED] SELL @ 842.50 -> Exit: 844.00 PnL: -1.50 (SL)
+[CLOSED] SELL @ 841.40 -> Exit: 846.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 841.40 -> Exit: 846.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 840.00 -> Exit: 839.90 PnL: 0.10 (SL)
+[CLOSED] BUY @ 844.80 -> Exit: 850.40 PnL: 5.60 (SL)
+[CLOSED] BUY @ 853.20 -> Exit: 848.20 PnL: -5.00 (SL)
+[CLOSED] BUY @ 854.30 -> Exit: 849.30 PnL: -5.00 (SL)
+[CLOSED] SELL @ 847.10 -> Exit: 844.00 PnL: 3.10 (SL)
+[CLOSED] SELL @ 840.00 -> Exit: 845.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 842.35 -> Exit: 847.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 846.65 -> Exit: 836.65 PnL: 10.00 (TP)
+[CLOSED] SELL @ 830.45 -> Exit: 835.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 829.70 -> Exit: 834.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 835.75 -> Exit: 835.35 PnL: 0.40 (SL)
+[CLOSED] SELL @ 831.35 -> Exit: 821.35 PnL: 10.00 (TP)
+[CLOSED] SELL @ 813.95 -> Exit: 818.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 850.00 -> Exit: 855.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 860.35 -> Exit: 855.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 838.15 -> Exit: 843.15 PnL: -5.00 (SL)
+[CLOSED] SELL @ 841.25 -> Exit: 846.25 PnL: -5.00 (SL)
+[CLOSED] BUY @ 845.50 -> Exit: 846.00 PnL: 0.50 (SL)
+[CLOSED] BUY @ 844.90 -> Exit: 839.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 841.75 -> Exit: 836.75 PnL: -5.00 (SL)
+[CLOSED] SELL @ 830.00 -> Exit: 830.10 PnL: -0.10 (SL)
+[CLOSED] SELL @ 830.00 -> Exit: 830.10 PnL: -0.10 (SL)
+[CLOSED] BUY @ 831.85 -> Exit: 826.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 825.85 -> Exit: 815.85 PnL: 10.00 (TP)
+[CLOSED] SELL @ 822.65 -> Exit: 812.65 PnL: 10.00 (TP)
+[CLOSED] SELL @ 817.55 -> Exit: 814.80 PnL: 2.75 (SL)
+[CLOSED] SELL @ 810.80 -> Exit: 809.00 PnL: 1.80 (SL)
+[CLOSED] BUY @ 814.80 -> Exit: 814.00 PnL: -0.80 (SL)
+[CLOSED] SELL @ 812.00 -> Exit: 812.00 PnL: 0.00 (SL)
+[CLOSED] SELL @ 808.00 -> Exit: 798.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 805.00 -> Exit: 795.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 787.70 -> Exit: 777.70 PnL: 10.00 (TP)
+[CLOSED] BUY @ 780.30 -> Exit: 780.80 PnL: 0.50 (SL)
+[CLOSED] SELL @ 778.70 -> Exit: 783.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 784.35 -> Exit: 779.35 PnL: -5.00 (SL)
+[CLOSED] BUY @ 780.45 -> Exit: 790.45 PnL: 10.00 (TP)
+[CLOSED] SELL @ 791.90 -> Exit: 781.90 PnL: 10.00 (TP)
+[CLOSED] SELL @ 765.00 -> Exit: 762.65 PnL: 2.35 (SL)
+[CLOSED] BUY @ 763.65 -> Exit: 763.45 PnL: -0.20 (SL)
+[CLOSED] BUY @ 764.25 -> Exit: 759.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 760.00 -> Exit: 761.25 PnL: -1.25 (SL)
+[CLOSED] BUY @ 761.40 -> Exit: 756.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 754.25 -> Exit: 754.60 PnL: -0.35 (SL)
+[CLOSED] SELL @ 751.00 -> Exit: 756.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 757.00 -> Exit: 767.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 761.00 -> Exit: 766.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 767.60 -> Exit: 762.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 763.80 -> Exit: 765.45 PnL: -1.65 (SL)
+[CLOSED] BUY @ 764.20 -> Exit: 774.20 PnL: 10.00 (TP)
+[CLOSED] BUY @ 770.00 -> Exit: 772.00 PnL: 2.00 (SL)
+[CLOSED] SELL @ 766.95 -> Exit: 771.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 771.20 -> Exit: 770.10 PnL: 1.10 (SL)
+[CLOSED] SELL @ 773.80 -> Exit: 770.10 PnL: 3.70 (SL)
+[CLOSED] SELL @ 776.00 -> Exit: 770.10 PnL: 5.90 (SL)
+[CLOSED] SELL @ 768.00 -> Exit: 767.20 PnL: 0.80 (SL)
+[CLOSED] SELL @ 768.85 -> Exit: 767.20 PnL: 1.65 (SL)
+[CLOSED] SELL @ 767.60 -> Exit: 767.20 PnL: 0.40 (SL)
+[CLOSED] BUY @ 769.15 -> Exit: 764.15 PnL: -5.00 (SL)
+[CLOSED] SELL @ 763.20 -> Exit: 764.00 PnL: -0.80 (SL)
+[CLOSED] BUY @ 763.40 -> Exit: 758.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 760.25 -> Exit: 755.50 PnL: 4.75 (SL)
+[CLOSED] SELL @ 751.65 -> Exit: 748.25 PnL: 3.40 (SL)
+[CLOSED] SELL @ 750.80 -> Exit: 748.25 PnL: 2.55 (SL)
+[CLOSED] SELL @ 744.25 -> Exit: 745.00 PnL: -0.75 (SL)
+[CLOSED] BUY @ 743.70 -> Exit: 744.00 PnL: 0.30 (SL)
+[CLOSED] BUY @ 748.00 -> Exit: 743.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 241.85 -> Exit: 236.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 221.75 -> Exit: 211.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 204.85 -> Exit: 205.30 PnL: -0.45 (SL)
+[CLOSED] SELL @ 204.75 -> Exit: 209.75 PnL: -5.00 (SL)
+[CLOSED] BUY @ 206.55 -> Exit: 201.55 PnL: -5.00 (SL)
+[CLOSED] SELL @ 195.80 -> Exit: 192.00 PnL: 3.80 (SL)
+[CLOSED] SELL @ 192.25 -> Exit: 193.75 PnL: -1.50 (SL)
+[CLOSED] BUY @ 199.95 -> Exit: 209.95 PnL: 10.00 (TP)
+[CLOSED] BUY @ 210.00 -> Exit: 210.45 PnL: 0.45 (SL)
+[CLOSED] BUY @ 213.35 -> Exit: 208.35 PnL: -5.00 (SL)
+[CLOSED] BUY @ 215.80 -> Exit: 210.80 PnL: -5.00 (SL)
+[CLOSED] SELL @ 204.15 -> Exit: 204.00 PnL: 0.15 (SL)
+[CLOSED] SELL @ 203.30 -> Exit: 208.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 211.75 -> Exit: 206.75 PnL: -5.00 (SL)
+[CLOSED] SELL @ 205.30 -> Exit: 195.30 PnL: 10.00 (TP)
+[CLOSED] SELL @ 196.10 -> Exit: 191.05 PnL: 5.05 (SL)
+[CLOSED] SELL @ 195.50 -> Exit: 197.00 PnL: -1.50 (SL)
+[CLOSED] BUY @ 197.40 -> Exit: 197.80 PnL: 0.40 (SL)
+[CLOSED] BUY @ 198.75 -> Exit: 197.00 PnL: -1.75 (SL)
+[CLOSED] BUY @ 201.00 -> Exit: 196.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 194.50 -> Exit: 194.00 PnL: 0.50 (SL)
+[CLOSED] BUY @ 194.50 -> Exit: 189.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 187.30 -> Exit: 186.90 PnL: 0.40 (SL)
+[CLOSED] BUY @ 189.15 -> Exit: 184.15 PnL: -5.00 (SL)
+[CLOSED] SELL @ 182.55 -> Exit: 183.05 PnL: -0.50 (SL)
+[CLOSED] SELL @ 182.45 -> Exit: 184.00 PnL: -1.55 (SL)
+[CLOSED] BUY @ 185.70 -> Exit: 184.75 PnL: -0.95 (SL)
+[CLOSED] BUY @ 186.50 -> Exit: 181.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 181.15 -> Exit: 181.00 PnL: 0.15 (SL)
+[CLOSED] SELL @ 178.20 -> Exit: 176.60 PnL: 1.60 (SL)
+[CLOSED] SELL @ 174.00 -> Exit: 172.70 PnL: 1.30 (SL)
+[CLOSED] SELL @ 170.40 -> Exit: 170.70 PnL: -0.30 (SL)
+[CLOSED] SELL @ 167.75 -> Exit: 166.55 PnL: 1.20 (SL)
+[CLOSED] SELL @ 163.65 -> Exit: 168.65 PnL: -5.00 (SL)
+[CLOSED] BUY @ 169.50 -> Exit: 164.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 167.90 -> Exit: 168.25 PnL: -0.35 (SL)
+[CLOSED] BUY @ 168.40 -> Exit: 178.40 PnL: 10.00 (TP)
+[CLOSED] SELL @ 168.05 -> Exit: 173.05 PnL: -5.00 (SL)
+[CLOSED] BUY @ 174.30 -> Exit: 175.00 PnL: 0.70 (SL)
+[CLOSED] BUY @ 176.35 -> Exit: 171.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 175.35 -> Exit: 175.80 PnL: -0.45 (SL)
+[CLOSED] SELL @ 174.90 -> Exit: 179.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 176.25 -> Exit: 186.25 PnL: 10.00 (TP)
+[CLOSED] BUY @ 185.80 -> Exit: 185.50 PnL: -0.30 (SL)
+[CLOSED] BUY @ 187.05 -> Exit: 182.05 PnL: -5.00 (SL)
+[CLOSED] SELL @ 181.60 -> Exit: 182.80 PnL: -1.20 (SL)
+[CLOSED] BUY @ 182.30 -> Exit: 177.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 184.10 -> Exit: 186.00 PnL: 1.90 (SL)
+[CLOSED] BUY @ 186.00 -> Exit: 186.00 PnL: 0.00 (SL)
+[CLOSED] BUY @ 187.05 -> Exit: 182.05 PnL: -5.00 (SL)
+[CLOSED] SELL @ 173.90 -> Exit: 178.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 183.80 -> Exit: 185.90 PnL: 2.10 (SL)
+[CLOSED] BUY @ 189.00 -> Exit: 184.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 184.95 -> Exit: 189.95 PnL: -5.00 (SL)
+[CLOSED] BUY @ 185.95 -> Exit: 189.35 PnL: 3.40 (SL)
+[CLOSED] BUY @ 188.40 -> Exit: 186.65 PnL: -1.75 (SL)
+[CLOSED] SELL @ 188.00 -> Exit: 187.00 PnL: 1.00 (SL)
+[CLOSED] SELL @ 186.15 -> Exit: 191.15 PnL: -5.00 (SL)
+[CLOSED] BUY @ 189.40 -> Exit: 194.70 PnL: 5.30 (SL)
+[CLOSED] BUY @ 193.05 -> Exit: 194.70 PnL: 1.65 (SL)
+[CLOSED] BUY @ 196.90 -> Exit: 191.90 PnL: -5.00 (SL)
+[CLOSED] SELL @ 195.10 -> Exit: 191.80 PnL: 3.30 (SL)
+[CLOSED] SELL @ 190.00 -> Exit: 184.80 PnL: 5.20 (SL)
+[CLOSED] SELL @ 184.95 -> Exit: 185.35 PnL: -0.40 (SL)
+[CLOSED] SELL @ 181.50 -> Exit: 179.90 PnL: 1.60 (SL)
+[CLOSED] BUY @ 184.85 -> Exit: 194.85 PnL: 10.00 (TP)
+[CLOSED] BUY @ 190.00 -> Exit: 192.00 PnL: 2.00 (SL)
+[CLOSED] BUY @ 191.35 -> Exit: 186.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 186.50 -> Exit: 187.45 PnL: -0.95 (SL)
+[CLOSED] BUY @ 188.00 -> Exit: 189.35 PnL: 1.35 (SL)
+[CLOSED] BUY @ 188.65 -> Exit: 189.40 PnL: 0.75 (SL)
+[CLOSED] SELL @ 187.70 -> Exit: 184.60 PnL: 3.10 (SL)
+[CLOSED] SELL @ 181.70 -> Exit: 180.50 PnL: 1.20 (SL)
+[CLOSED] SELL @ 176.80 -> Exit: 177.20 PnL: -0.40 (SL)
+[CLOSED] BUY @ 177.60 -> Exit: 172.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 173.25 -> Exit: 171.00 PnL: 2.25 (SL)
+[CLOSED] SELL @ 172.45 -> Exit: 171.00 PnL: 1.45 (SL)
+[CLOSED] BUY @ 174.80 -> Exit: 169.80 PnL: -5.00 (SL)
+[CLOSED] SELL @ 169.05 -> Exit: 174.05 PnL: -5.00 (SL)
+[CLOSED] BUY @ 171.45 -> Exit: 173.15 PnL: 1.70 (SL)
+[CLOSED] BUY @ 175.00 -> Exit: 175.00 PnL: 0.00 (SL)
+[CLOSED] BUY @ 176.85 -> Exit: 171.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 168.45 -> Exit: 168.45 PnL: 0.00 (SL)
+[CLOSED] BUY @ 173.20 -> Exit: 171.65 PnL: -1.55 (SL)
+[CLOSED] SELL @ 171.05 -> Exit: 176.05 PnL: -5.00 (SL)
+[CLOSED] BUY @ 176.75 -> Exit: 171.75 PnL: -5.00 (SL)
+[CLOSED] SELL @ 171.40 -> Exit: 161.40 PnL: 10.00 (TP)
+[CLOSED] BUY @ 173.70 -> Exit: 168.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 161.90 -> Exit: 161.00 PnL: 0.90 (SL)
+[CLOSED] SELL @ 159.95 -> Exit: 159.45 PnL: 0.50 (SL)
+[CLOSED] SELL @ 158.65 -> Exit: 159.45 PnL: -0.80 (SL)
+[CLOSED] SELL @ 156.75 -> Exit: 156.00 PnL: 0.75 (SL)
+[CLOSED] BUY @ 156.85 -> Exit: 157.70 PnL: 0.85 (SL)
+[CLOSED] SELL @ 153.25 -> Exit: 158.25 PnL: -5.00 (SL)
+[CLOSED] BUY @ 157.40 -> Exit: 156.50 PnL: -0.90 (SL)
+[CLOSED] SELL @ 157.10 -> Exit: 157.00 PnL: 0.10 (SL)
+[CLOSED] BUY @ 158.60 -> Exit: 153.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 154.45 -> Exit: 154.40 PnL: 0.05 (SL)
+[CLOSED] SELL @ 152.40 -> Exit: 150.10 PnL: 2.30 (SL)
+[CLOSED] SELL @ 147.15 -> Exit: 147.65 PnL: -0.50 (SL)
+[CLOSED] BUY @ 148.60 -> Exit: 143.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 143.80 -> Exit: 133.80 PnL: 10.00 (TP)
+[CLOSED] BUY @ 144.00 -> Exit: 139.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 141.60 -> Exit: 137.75 PnL: 3.85 (SL)
+[CLOSED] SELL @ 140.45 -> Exit: 137.75 PnL: 2.70 (SL)
+[CLOSED] SELL @ 139.05 -> Exit: 137.75 PnL: 1.30 (SL)
+[CLOSED] SELL @ 136.95 -> Exit: 137.30 PnL: -0.35 (SL)
+[CLOSED] BUY @ 139.40 -> Exit: 134.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 138.60 -> Exit: 137.30 PnL: 1.30 (SL)
+[CLOSED] BUY @ 138.75 -> Exit: 133.75 PnL: -5.00 (SL)
+[CLOSED] SELL @ 135.25 -> Exit: 134.00 PnL: 1.25 (SL)
+[CLOSED] BUY @ 136.10 -> Exit: 135.40 PnL: -0.70 (SL)
+[CLOSED] BUY @ 138.80 -> Exit: 133.80 PnL: -5.00 (SL)
+[CLOSED] SELL @ 136.50 -> Exit: 134.00 PnL: 2.50 (SL)
+[CLOSED] SELL @ 136.40 -> Exit: 134.00 PnL: 2.40 (SL)
+[CLOSED] SELL @ 133.75 -> Exit: 134.00 PnL: -0.25 (SL)
+[CLOSED] SELL @ 133.50 -> Exit: 133.55 PnL: -0.05 (SL)
+[CLOSED] BUY @ 135.55 -> Exit: 134.20 PnL: -1.35 (SL)
+[CLOSED] BUY @ 136.90 -> Exit: 131.90 PnL: -5.00 (SL)
+[CLOSED] SELL @ 136.70 -> Exit: 133.55 PnL: 3.15 (SL)
+[CLOSED] SELL @ 133.85 -> Exit: 133.55 PnL: 0.30 (SL)
+[CLOSED] SELL @ 130.55 -> Exit: 131.85 PnL: -1.30 (SL)
+[CLOSED] BUY @ 134.95 -> Exit: 134.15 PnL: -0.80 (SL)
+[CLOSED] BUY @ 137.60 -> Exit: 132.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 135.20 -> Exit: 133.85 PnL: 1.35 (SL)
+[CLOSED] SELL @ 130.45 -> Exit: 132.25 PnL: -1.80 (SL)
+[CLOSED] BUY @ 132.45 -> Exit: 131.95 PnL: -0.50 (SL)
+[CLOSED] BUY @ 135.75 -> Exit: 130.75 PnL: -5.00 (SL)
+[CLOSED] SELL @ 130.90 -> Exit: 135.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 134.10 -> Exit: 136.60 PnL: 2.50 (SL)
+[CLOSED] BUY @ 137.95 -> Exit: 136.60 PnL: -1.35 (SL)
+[CLOSED] BUY @ 139.00 -> Exit: 137.35 PnL: -1.65 (SL)
+[CLOSED] SELL @ 137.05 -> Exit: 142.05 PnL: -5.00 (SL)
+[CLOSED] BUY @ 138.00 -> Exit: 137.35 PnL: -0.65 (SL)
+[CLOSED] SELL @ 138.15 -> Exit: 143.15 PnL: -5.00 (SL)
+[CLOSED] BUY @ 138.70 -> Exit: 137.35 PnL: -1.35 (SL)
+[CLOSED] BUY @ 140.60 -> Exit: 142.20 PnL: 1.60 (SL)
+[CLOSED] SELL @ 138.10 -> Exit: 143.10 PnL: -5.00 (SL)
+[CLOSED] BUY @ 138.35 -> Exit: 138.00 PnL: -0.35 (SL)
+[CLOSED] BUY @ 140.45 -> Exit: 142.20 PnL: 1.75 (SL)
+[CLOSED] SELL @ 139.70 -> Exit: 141.45 PnL: -1.75 (SL)
+[CLOSED] SELL @ 137.70 -> Exit: 142.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 142.05 -> Exit: 142.20 PnL: 0.15 (SL)
+[CLOSED] BUY @ 145.85 -> Exit: 140.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 142.80 -> Exit: 142.10 PnL: 0.70 (SL)
+[CLOSED] BUY @ 143.85 -> Exit: 138.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 143.05 -> Exit: 142.10 PnL: 0.95 (SL)
+[CLOSED] SELL @ 139.50 -> Exit: 139.20 PnL: 0.30 (SL)
+[CLOSED] SELL @ 139.00 -> Exit: 138.40 PnL: 0.60 (SL)
+[CLOSED] BUY @ 139.40 -> Exit: 134.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 134.65 -> Exit: 136.15 PnL: -1.50 (SL)
+[CLOSED] SELL @ 134.30 -> Exit: 139.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 136.30 -> Exit: 146.30 PnL: 10.00 (TP)
+[CLOSED] BUY @ 136.75 -> Exit: 146.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 135.40 -> Exit: 140.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 141.80 -> Exit: 151.80 PnL: 10.00 (TP)
+[CLOSED] BUY @ 148.80 -> Exit: 147.30 PnL: -1.50 (SL)
+[CLOSED] SELL @ 146.40 -> Exit: 151.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 149.55 -> Exit: 151.95 PnL: 2.40 (SL)
+[CLOSED] SELL @ 149.30 -> Exit: 154.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 154.25 -> Exit: 149.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 150.40 -> Exit: 155.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 152.75 -> Exit: 152.00 PnL: -0.75 (SL)
+[CLOSED] BUY @ 153.90 -> Exit: 152.00 PnL: -1.90 (SL)
+[CLOSED] SELL @ 153.85 -> Exit: 155.70 PnL: -1.85 (SL)
+[CLOSED] SELL @ 152.30 -> Exit: 153.90 PnL: -1.60 (SL)
+[CLOSED] SELL @ 151.65 -> Exit: 149.80 PnL: 1.85 (SL)
+[CLOSED] BUY @ 151.95 -> Exit: 146.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 149.55 -> Exit: 145.60 PnL: 3.95 (SL)
+[CLOSED] SELL @ 148.00 -> Exit: 145.60 PnL: 2.40 (SL)
+[CLOSED] SELL @ 142.30 -> Exit: 143.50 PnL: -1.20 (SL)
+[CLOSED] BUY @ 145.25 -> Exit: 140.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 142.60 -> Exit: 143.50 PnL: -0.90 (SL)
+[CLOSED] SELL @ 141.70 -> Exit: 142.60 PnL: -0.90 (SL)
+[CLOSED] SELL @ 140.55 -> Exit: 142.10 PnL: -1.55 (SL)
+[CLOSED] BUY @ 142.10 -> Exit: 140.95 PnL: -1.15 (SL)
+[CLOSED] SELL @ 142.25 -> Exit: 142.95 PnL: -0.70 (SL)
+[CLOSED] SELL @ 141.85 -> Exit: 142.95 PnL: -1.10 (SL)
+[CLOSED] BUY @ 143.15 -> Exit: 138.15 PnL: -5.00 (SL)
+[CLOSED] SELL @ 141.90 -> Exit: 142.95 PnL: -1.05 (SL)
+[CLOSED] BUY @ 142.80 -> Exit: 152.80 PnL: 10.00 (TP)
+[CLOSED] SELL @ 141.50 -> Exit: 142.95 PnL: -1.45 (SL)
+[CLOSED] BUY @ 142.00 -> Exit: 152.00 PnL: 10.00 (TP)
+[CLOSED] BUY @ 142.70 -> Exit: 152.70 PnL: 10.00 (TP)
+[CLOSED] SELL @ 142.55 -> Exit: 142.95 PnL: -0.40 (SL)
+[CLOSED] SELL @ 141.70 -> Exit: 142.10 PnL: -0.40 (SL)
+[CLOSED] SELL @ 141.85 -> Exit: 142.10 PnL: -0.25 (SL)
+[CLOSED] SELL @ 140.85 -> Exit: 142.10 PnL: -1.25 (SL)
+[CLOSED] BUY @ 141.30 -> Exit: 151.30 PnL: 10.00 (TP)
+[CLOSED] SELL @ 140.70 -> Exit: 142.10 PnL: -1.40 (SL)
+[CLOSED] BUY @ 141.05 -> Exit: 151.05 PnL: 10.00 (TP)
+[CLOSED] BUY @ 141.95 -> Exit: 151.95 PnL: 10.00 (TP)
+[CLOSED] BUY @ 144.00 -> Exit: 154.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 143.95 -> Exit: 148.95 PnL: -5.00 (SL)
+[CLOSED] BUY @ 148.50 -> Exit: 158.50 PnL: 10.00 (TP)
+[CLOSED] BUY @ 153.10 -> Exit: 163.10 PnL: 10.00 (TP)
+[CLOSED] BUY @ 163.70 -> Exit: 168.75 PnL: 5.05 (SL)
+[CLOSED] BUY @ 168.75 -> Exit: 168.75 PnL: 0.00 (SL)
+[CLOSED] BUY @ 170.60 -> Exit: 165.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 164.20 -> Exit: 163.20 PnL: 1.00 (SL)
+[CLOSED] BUY @ 165.55 -> Exit: 160.55 PnL: -5.00 (SL)
+[CLOSED] SELL @ 161.00 -> Exit: 160.20 PnL: 0.80 (SL)
+[CLOSED] BUY @ 162.65 -> Exit: 164.50 PnL: 1.85 (SL)
+[CLOSED] BUY @ 166.95 -> Exit: 161.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 162.75 -> Exit: 162.70 PnL: 0.05 (SL)
+[CLOSED] BUY @ 164.70 -> Exit: 159.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 158.70 -> Exit: 163.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 157.55 -> Exit: 155.65 PnL: 1.90 (SL)
+[CLOSED] SELL @ 152.85 -> Exit: 151.15 PnL: 1.70 (SL)
+[CLOSED] SELL @ 150.90 -> Exit: 148.00 PnL: 2.90 (SL)
+[CLOSED] BUY @ 153.20 -> Exit: 148.20 PnL: -5.00 (SL)
+[CLOSED] SELL @ 150.35 -> Exit: 148.00 PnL: 2.35 (SL)
+[CLOSED] SELL @ 149.50 -> Exit: 148.00 PnL: 1.50 (SL)
+[CLOSED] SELL @ 149.20 -> Exit: 148.00 PnL: 1.20 (SL)
+[CLOSED] SELL @ 144.80 -> Exit: 145.00 PnL: -0.20 (SL)
+[CLOSED] BUY @ 145.80 -> Exit: 144.80 PnL: -1.00 (SL)
+[CLOSED] BUY @ 148.10 -> Exit: 143.10 PnL: -5.00 (SL)
+[CLOSED] SELL @ 147.65 -> Exit: 142.85 PnL: 4.80 (SL)
+[CLOSED] SELL @ 145.80 -> Exit: 142.85 PnL: 2.95 (SL)
+[CLOSED] SELL @ 143.50 -> Exit: 142.85 PnL: 0.65 (SL)
+[CLOSED] SELL @ 139.45 -> Exit: 138.20 PnL: 1.25 (SL)
+[CLOSED] SELL @ 136.25 -> Exit: 138.20 PnL: -1.95 (SL)
+[CLOSED] BUY @ 136.90 -> Exit: 139.90 PnL: 3.00 (SL)
+[CLOSED] BUY @ 137.55 -> Exit: 139.90 PnL: 2.35 (SL)
+[CLOSED] SELL @ 136.45 -> Exit: 141.45 PnL: -5.00 (SL)
+[CLOSED] BUY @ 140.35 -> Exit: 139.90 PnL: -0.45 (SL)
+[CLOSED] BUY @ 141.45 -> Exit: 143.00 PnL: 1.55 (SL)
+[CLOSED] SELL @ 139.00 -> Exit: 144.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 141.70 -> Exit: 143.00 PnL: 1.30 (SL)
+[CLOSED] SELL @ 140.00 -> Exit: 145.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 141.50 -> Exit: 143.00 PnL: 1.50 (SL)
+[CLOSED] BUY @ 142.30 -> Exit: 143.00 PnL: 0.70 (SL)
+[CLOSED] BUY @ 144.75 -> Exit: 143.00 PnL: -1.75 (SL)
+[CLOSED] SELL @ 143.00 -> Exit: 143.25 PnL: -0.25 (SL)
+[CLOSED] BUY @ 144.50 -> Exit: 139.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 141.05 -> Exit: 141.40 PnL: -0.35 (SL)
+[CLOSED] SELL @ 137.70 -> Exit: 142.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 140.80 -> Exit: 139.60 PnL: -1.20 (SL)
+[CLOSED] BUY @ 141.35 -> Exit: 139.90 PnL: -1.45 (SL)
+[CLOSED] SELL @ 140.40 -> Exit: 140.85 PnL: -0.45 (SL)
+[CLOSED] BUY @ 140.85 -> Exit: 135.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 139.35 -> Exit: 140.35 PnL: -1.00 (SL)
+[CLOSED] SELL @ 138.90 -> Exit: 140.35 PnL: -1.45 (SL)
+[CLOSED] BUY @ 141.05 -> Exit: 136.05 PnL: -5.00 (SL)
+[CLOSED] SELL @ 140.60 -> Exit: 138.10 PnL: 2.50 (SL)
+[CLOSED] BUY @ 141.65 -> Exit: 136.65 PnL: -5.00 (SL)
+[CLOSED] SELL @ 141.10 -> Exit: 138.10 PnL: 3.00 (SL)
+[CLOSED] SELL @ 139.55 -> Exit: 138.10 PnL: 1.45 (SL)
+[CLOSED] SELL @ 138.25 -> Exit: 138.10 PnL: 0.15 (SL)
+[CLOSED] SELL @ 137.95 -> Exit: 138.10 PnL: -0.15 (SL)
+[CLOSED] SELL @ 134.90 -> Exit: 136.80 PnL: -1.90 (SL)
+[CLOSED] BUY @ 135.55 -> Exit: 134.65 PnL: -0.90 (SL)
+[CLOSED] BUY @ 135.80 -> Exit: 134.65 PnL: -1.15 (SL)
+[CLOSED] BUY @ 136.80 -> Exit: 131.80 PnL: -5.00 (SL)
+[CLOSED] SELL @ 135.00 -> Exit: 134.35 PnL: 0.65 (SL)
+[CLOSED] BUY @ 136.55 -> Exit: 134.65 PnL: -1.90 (SL)
+[CLOSED] SELL @ 136.00 -> Exit: 137.40 PnL: -1.40 (SL)
+[CLOSED] BUY @ 136.80 -> Exit: 131.80 PnL: -5.00 (SL)
+[CLOSED] BUY @ 138.45 -> Exit: 133.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 135.10 -> Exit: 134.35 PnL: 0.75 (SL)
+[CLOSED] BUY @ 135.90 -> Exit: 130.90 PnL: -5.00 (SL)
+[CLOSED] SELL @ 132.60 -> Exit: 132.10 PnL: 0.50 (SL)
+[CLOSED] BUY @ 132.80 -> Exit: 127.80 PnL: -5.00 (SL)
+[CLOSED] SELL @ 129.80 -> Exit: 129.75 PnL: 0.05 (SL)
+[CLOSED] BUY @ 130.00 -> Exit: 135.40 PnL: 5.40 (SL)
+[CLOSED] BUY @ 134.70 -> Exit: 135.40 PnL: 0.70 (SL)
+[CLOSED] BUY @ 137.55 -> Exit: 136.35 PnL: -1.20 (SL)
+[CLOSED] SELL @ 133.20 -> Exit: 138.20 PnL: -5.00 (SL)
+[CLOSED] BUY @ 137.30 -> Exit: 135.50 PnL: -1.80 (SL)
+[CLOSED] BUY @ 138.85 -> Exit: 140.40 PnL: 1.55 (SL)
+[CLOSED] SELL @ 137.00 -> Exit: 138.60 PnL: -1.60 (SL)
+[CLOSED] BUY @ 137.40 -> Exit: 136.00 PnL: -1.40 (SL)
+[CLOSED] BUY @ 139.35 -> Exit: 140.40 PnL: 1.05 (SL)
+[CLOSED] SELL @ 137.30 -> Exit: 138.60 PnL: -1.30 (SL)
+[CLOSED] SELL @ 137.00 -> Exit: 138.60 PnL: -1.60 (SL)
+[CLOSED] SELL @ 135.20 -> Exit: 140.20 PnL: -5.00 (SL)
+[CLOSED] BUY @ 137.00 -> Exit: 140.40 PnL: 3.40 (SL)
+[CLOSED] BUY @ 140.25 -> Exit: 140.40 PnL: 0.15 (SL)
+[CLOSED] BUY @ 140.10 -> Exit: 140.40 PnL: 0.30 (SL)
+[CLOSED] BUY @ 142.10 -> Exit: 137.10 PnL: -5.00 (SL)
+[CLOSED] SELL @ 140.55 -> Exit: 140.30 PnL: 0.25 (SL)
+[CLOSED] SELL @ 136.30 -> Exit: 141.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 138.25 -> Exit: 148.25 PnL: 10.00 (TP)
+[CLOSED] SELL @ 137.35 -> Exit: 139.00 PnL: -1.65 (SL)
+[CLOSED] SELL @ 136.15 -> Exit: 141.15 PnL: -5.00 (SL)
+[CLOSED] BUY @ 138.85 -> Exit: 148.85 PnL: 10.00 (TP)
+[CLOSED] SELL @ 137.05 -> Exit: 142.05 PnL: -5.00 (SL)
+[CLOSED] BUY @ 138.55 -> Exit: 148.55 PnL: 10.00 (TP)
+[CLOSED] BUY @ 138.95 -> Exit: 148.95 PnL: 10.00 (TP)
+[CLOSED] BUY @ 140.10 -> Exit: 145.50 PnL: 5.40 (SL)
+[CLOSED] SELL @ 139.45 -> Exit: 144.45 PnL: -5.00 (SL)
+[CLOSED] BUY @ 147.75 -> Exit: 142.75 PnL: -5.00 (SL)
+[CLOSED] SELL @ 146.20 -> Exit: 147.50 PnL: -1.30 (SL)
+[CLOSED] SELL @ 144.40 -> Exit: 146.15 PnL: -1.75 (SL)
+[CLOSED] SELL @ 142.50 -> Exit: 143.60 PnL: -1.10 (SL)
+[CLOSED] BUY @ 145.95 -> Exit: 140.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 143.50 -> Exit: 143.60 PnL: -0.10 (SL)
+[CLOSED] SELL @ 142.60 -> Exit: 147.60 PnL: -5.00 (SL)
+[CLOSED] BUY @ 149.40 -> Exit: 148.00 PnL: -1.40 (SL)
+[CLOSED] SELL @ 148.30 -> Exit: 147.90 PnL: 0.40 (SL)
+[CLOSED] SELL @ 146.70 -> Exit: 148.25 PnL: -1.55 (SL)
+[CLOSED] BUY @ 147.90 -> Exit: 142.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 148.30 -> Exit: 143.30 PnL: -5.00 (SL)
+[CLOSED] SELL @ 145.60 -> Exit: 145.00 PnL: 0.60 (SL)
+[CLOSED] SELL @ 142.15 -> Exit: 140.10 PnL: 2.05 (SL)
+[CLOSED] SELL @ 137.85 -> Exit: 138.65 PnL: -0.80 (SL)
+[CLOSED] BUY @ 138.30 -> Exit: 136.65 PnL: -1.65 (SL)
+[CLOSED] BUY @ 138.50 -> Exit: 136.65 PnL: -1.85 (SL)
+[CLOSED] SELL @ 137.75 -> Exit: 138.60 PnL: -0.85 (SL)
+[CLOSED] BUY @ 137.80 -> Exit: 132.80 PnL: -5.00 (SL)
+[CLOSED] SELL @ 136.05 -> Exit: 136.65 PnL: -0.60 (SL)
+[CLOSED] SELL @ 135.60 -> Exit: 136.65 PnL: -1.05 (SL)
+[CLOSED] BUY @ 137.15 -> Exit: 132.15 PnL: -5.00 (SL)
+[CLOSED] SELL @ 136.00 -> Exit: 136.65 PnL: -0.65 (SL)
+[CLOSED] BUY @ 136.70 -> Exit: 134.90 PnL: -1.80 (SL)
+[CLOSED] SELL @ 135.75 -> Exit: 136.65 PnL: -0.90 (SL)
+[CLOSED] SELL @ 135.00 -> Exit: 135.50 PnL: -0.50 (SL)
+[CLOSED] BUY @ 136.35 -> Exit: 131.35 PnL: -5.00 (SL)
+[CLOSED] BUY @ 136.80 -> Exit: 131.80 PnL: -5.00 (SL)
+[CLOSED] SELL @ 135.15 -> Exit: 135.50 PnL: -0.35 (SL)
+[CLOSED] SELL @ 131.70 -> Exit: 136.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 134.60 -> Exit: 133.60 PnL: -1.00 (SL)
+[CLOSED] BUY @ 135.60 -> Exit: 130.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 135.45 -> Exit: 133.30 PnL: 2.15 (SL)
+[CLOSED] BUY @ 136.90 -> Exit: 131.90 PnL: -5.00 (SL)
+[CLOSED] SELL @ 135.55 -> Exit: 133.30 PnL: 2.25 (SL)
+[CLOSED] SELL @ 134.45 -> Exit: 133.30 PnL: 1.15 (SL)
+[CLOSED] SELL @ 130.55 -> Exit: 131.95 PnL: -1.40 (SL)
+[CLOSED] SELL @ 130.50 -> Exit: 131.40 PnL: -0.90 (SL)
+[CLOSED] SELL @ 130.35 -> Exit: 131.40 PnL: -1.05 (SL)
+[CLOSED] SELL @ 129.10 -> Exit: 127.30 PnL: 1.80 (SL)
+[CLOSED] BUY @ 131.40 -> Exit: 126.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 124.55 -> Exit: 125.70 PnL: -1.15 (SL)
+[CLOSED] BUY @ 125.60 -> Exit: 135.60 PnL: 10.00 (TP)
+[CLOSED] BUY @ 132.95 -> Exit: 133.40 PnL: 0.45 (SL)
+[CLOSED] BUY @ 135.25 -> Exit: 133.40 PnL: -1.85 (SL)
+[CLOSED] BUY @ 136.20 -> Exit: 131.20 PnL: -5.00 (SL)
+[CLOSED] SELL @ 135.15 -> Exit: 136.30 PnL: -1.15 (SL)
+[CLOSED] BUY @ 135.20 -> Exit: 130.20 PnL: -5.00 (SL)
+[CLOSED] SELL @ 133.35 -> Exit: 134.20 PnL: -0.85 (SL)
+[CLOSED] SELL @ 131.00 -> Exit: 132.00 PnL: -1.00 (SL)
+[CLOSED] BUY @ 133.70 -> Exit: 128.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 132.55 -> Exit: 132.00 PnL: 0.55 (SL)
+[CLOSED] SELL @ 131.60 -> Exit: 132.00 PnL: -0.40 (SL)
+[CLOSED] SELL @ 129.40 -> Exit: 134.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 139.40 -> Exit: 140.40 PnL: 1.00 (SL)
+[CLOSED] SELL @ 138.20 -> Exit: 137.50 PnL: 0.70 (SL)
+[CLOSED] SELL @ 134.00 -> Exit: 133.35 PnL: 0.65 (SL)
+[CLOSED] SELL @ 134.15 -> Exit: 131.00 PnL: 3.15 (SL)
+[CLOSED] SELL @ 133.10 -> Exit: 131.00 PnL: 2.10 (SL)
+[CLOSED] SELL @ 129.20 -> Exit: 134.20 PnL: -5.00 (SL)
+[CLOSED] SELL @ 128.25 -> Exit: 133.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 128.40 -> Exit: 133.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 130.30 -> Exit: 133.00 PnL: 2.70 (SL)
+[CLOSED] BUY @ 131.15 -> Exit: 133.00 PnL: 1.85 (SL)
+[CLOSED] SELL @ 130.90 -> Exit: 135.90 PnL: -5.00 (SL)
+[CLOSED] SELL @ 131.00 -> Exit: 136.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 131.65 -> Exit: 133.00 PnL: 1.35 (SL)
+[CLOSED] BUY @ 133.75 -> Exit: 133.00 PnL: -0.75 (SL)
+[CLOSED] BUY @ 134.15 -> Exit: 133.00 PnL: -1.15 (SL)
+[CLOSED] BUY @ 135.30 -> Exit: 130.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 136.40 -> Exit: 131.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 135.25 -> Exit: 135.25 PnL: 0.00 (SL)
+[CLOSED] BUY @ 135.35 -> Exit: 130.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 133.40 -> Exit: 123.40 PnL: 10.00 (TP)
+[CLOSED] SELL @ 132.75 -> Exit: 122.75 PnL: 10.00 (TP)
+[CLOSED] BUY @ 135.15 -> Exit: 130.15 PnL: -5.00 (SL)
+[CLOSED] SELL @ 133.30 -> Exit: 123.30 PnL: 10.00 (TP)
+[CLOSED] SELL @ 131.95 -> Exit: 121.95 PnL: 10.00 (TP)
+[CLOSED] SELL @ 129.95 -> Exit: 125.35 PnL: 4.60 (SL)
+[CLOSED] SELL @ 129.40 -> Exit: 125.35 PnL: 4.05 (SL)
+[CLOSED] SELL @ 128.50 -> Exit: 125.35 PnL: 3.15 (SL)
+[CLOSED] SELL @ 127.45 -> Exit: 125.35 PnL: 2.10 (SL)
+[CLOSED] SELL @ 122.60 -> Exit: 118.00 PnL: 4.60 (SL)
+[CLOSED] SELL @ 116.05 -> Exit: 121.05 PnL: -5.00 (SL)
+[CLOSED] BUY @ 172.70 -> Exit: 167.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 163.40 -> Exit: 158.00 PnL: 5.40 (SL)
+[CLOSED] SELL @ 156.30 -> Exit: 151.60 PnL: 4.70 (SL)
+[CLOSED] SELL @ 149.95 -> Exit: 147.30 PnL: 2.65 (SL)
+[CLOSED] SELL @ 145.70 -> Exit: 141.10 PnL: 4.60 (SL)
+[CLOSED] SELL @ 140.40 -> Exit: 140.00 PnL: 0.40 (SL)
+[CLOSED] SELL @ 137.05 -> Exit: 138.10 PnL: -1.05 (SL)
+[CLOSED] BUY @ 139.45 -> Exit: 134.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 138.90 -> Exit: 133.25 PnL: 5.65 (SL)
+[CLOSED] SELL @ 130.60 -> Exit: 132.30 PnL: -1.70 (SL)
+[CLOSED] BUY @ 131.85 -> Exit: 126.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 128.55 -> Exit: 129.00 PnL: -0.45 (SL)
+[CLOSED] SELL @ 128.65 -> Exit: 130.55 PnL: -1.90 (SL)
+[CLOSED] BUY @ 129.65 -> Exit: 128.30 PnL: -1.35 (SL)
+[CLOSED] SELL @ 127.70 -> Exit: 132.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 137.70 -> Exit: 140.70 PnL: 3.00 (SL)
+[CLOSED] BUY @ 143.85 -> Exit: 138.85 PnL: -5.00 (SL)
+[CLOSED] BUY @ 147.15 -> Exit: 148.50 PnL: 1.35 (SL)
+[CLOSED] BUY @ 152.35 -> Exit: 147.35 PnL: -5.00 (SL)
+[CLOSED] BUY @ 155.15 -> Exit: 150.15 PnL: -5.00 (SL)
+[CLOSED] SELL @ 145.35 -> Exit: 143.50 PnL: 1.85 (SL)
+[CLOSED] SELL @ 142.50 -> Exit: 147.50 PnL: -5.00 (SL)
+[CLOSED] BUY @ 149.55 -> Exit: 151.85 PnL: 2.30 (SL)
+[CLOSED] BUY @ 154.55 -> Exit: 154.85 PnL: 0.30 (SL)
+[CLOSED] SELL @ 153.45 -> Exit: 153.55 PnL: -0.10 (SL)
+[CLOSED] BUY @ 153.30 -> Exit: 163.30 PnL: 10.00 (TP)
+[CLOSED] BUY @ 164.10 -> Exit: 163.55 PnL: -0.55 (SL)
+[CLOSED] BUY @ 164.75 -> Exit: 163.00 PnL: -1.75 (SL)
+[CLOSED] BUY @ 165.85 -> Exit: 165.80 PnL: -0.05 (SL)
+[CLOSED] BUY @ 166.65 -> Exit: 161.65 PnL: -5.00 (SL)
+[CLOSED] BUY @ 169.25 -> Exit: 170.60 PnL: 1.35 (SL)
+[CLOSED] SELL @ 167.30 -> Exit: 172.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 176.95 -> Exit: 186.95 PnL: 10.00 (TP)
+[CLOSED] BUY @ 181.00 -> Exit: 191.00 PnL: 10.00 (TP)
+[CLOSED] BUY @ 192.15 -> Exit: 195.00 PnL: 2.85 (SL)
+[CLOSED] BUY @ 198.30 -> Exit: 208.30 PnL: 10.00 (TP)
+[CLOSED] BUY @ 203.00 -> Exit: 198.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 191.90 -> Exit: 196.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 201.15 -> Exit: 211.15 PnL: 10.00 (TP)
+[CLOSED] BUY @ 202.00 -> Exit: 212.00 PnL: 10.00 (TP)
+[CLOSED] BUY @ 206.30 -> Exit: 205.85 PnL: -0.45 (SL)
+[CLOSED] SELL @ 206.05 -> Exit: 205.50 PnL: 0.55 (SL)
+[CLOSED] BUY @ 209.70 -> Exit: 210.80 PnL: 1.10 (SL)
+[CLOSED] BUY @ 211.90 -> Exit: 216.65 PnL: 4.75 (SL)
+[CLOSED] BUY @ 212.65 -> Exit: 222.65 PnL: 10.00 (TP)
+[CLOSED] BUY @ 215.35 -> Exit: 210.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 209.65 -> Exit: 205.45 PnL: 4.20 (SL)
+[CLOSED] SELL @ 202.70 -> Exit: 198.30 PnL: 4.40 (SL)
+[CLOSED] SELL @ 199.75 -> Exit: 197.50 PnL: 2.25 (SL)
+[CLOSED] SELL @ 198.45 -> Exit: 193.40 PnL: 5.05 (SL)
+[CLOSED] SELL @ 190.30 -> Exit: 195.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 196.35 -> Exit: 196.80 PnL: 0.45 (SL)
+[CLOSED] BUY @ 200.25 -> Exit: 195.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 194.35 -> Exit: 194.45 PnL: -0.10 (SL)
+[CLOSED] SELL @ 191.75 -> Exit: 187.60 PnL: 4.15 (SL)
+[CLOSED] SELL @ 185.55 -> Exit: 182.00 PnL: 3.55 (SL)
+[CLOSED] SELL @ 179.30 -> Exit: 181.00 PnL: -1.70 (SL)
+[CLOSED] SELL @ 178.80 -> Exit: 183.80 PnL: -5.00 (SL)
+[CLOSED] BUY @ 180.20 -> Exit: 190.20 PnL: 10.00 (TP)
+[CLOSED] BUY @ 183.75 -> Exit: 188.90 PnL: 5.15 (SL)
+[CLOSED] BUY @ 192.70 -> Exit: 187.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 189.60 -> Exit: 184.15 PnL: 5.45 (SL)
+[CLOSED] SELL @ 180.50 -> Exit: 176.10 PnL: 4.40 (SL)
+[CLOSED] SELL @ 174.45 -> Exit: 174.00 PnL: 0.45 (SL)
+[CLOSED] SELL @ 171.65 -> Exit: 176.65 PnL: -5.00 (SL)
+[CLOSED] BUY @ 176.00 -> Exit: 171.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 174.15 -> Exit: 172.85 PnL: 1.30 (SL)
+[CLOSED] BUY @ 180.20 -> Exit: 175.20 PnL: -5.00 (SL)
+[CLOSED] SELL @ 175.00 -> Exit: 174.30 PnL: 0.70 (SL)
+[CLOSED] SELL @ 171.15 -> Exit: 176.15 PnL: -5.00 (SL)
+[CLOSED] BUY @ 178.65 -> Exit: 188.65 PnL: 10.00 (TP)
+[CLOSED] BUY @ 189.00 -> Exit: 188.90 PnL: -0.10 (SL)
+[CLOSED] BUY @ 189.20 -> Exit: 184.20 PnL: -5.00 (SL)
+[CLOSED] BUY @ 189.30 -> Exit: 184.30 PnL: -5.00 (SL)
+[CLOSED] SELL @ 183.15 -> Exit: 179.00 PnL: 4.15 (SL)
+[CLOSED] SELL @ 176.75 -> Exit: 181.75 PnL: -5.00 (SL)
+[CLOSED] BUY @ 185.35 -> Exit: 180.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 176.95 -> Exit: 176.40 PnL: 0.55 (SL)
+[CLOSED] SELL @ 176.60 -> Exit: 176.60 PnL: 0.00 (SL)
+[CLOSED] SELL @ 175.65 -> Exit: 171.55 PnL: 4.10 (SL)
+[CLOSED] SELL @ 168.00 -> Exit: 173.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 179.60 -> Exit: 184.90 PnL: 5.30 (SL)
+[CLOSED] SELL @ 177.95 -> Exit: 182.95 PnL: -5.00 (SL)
+[CLOSED] BUY @ 186.70 -> Exit: 191.00 PnL: 4.30 (SL)
+[CLOSED] SELL @ 186.20 -> Exit: 191.20 PnL: -5.00 (SL)
+[CLOSED] BUY @ 191.35 -> Exit: 186.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 186.00 -> Exit: 191.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 193.10 -> Exit: 197.30 PnL: 4.20 (SL)
+[CLOSED] BUY @ 196.95 -> Exit: 197.30 PnL: 0.35 (SL)
+[CLOSED] SELL @ 196.95 -> Exit: 194.65 PnL: 2.30 (SL)
+[CLOSED] SELL @ 194.85 -> Exit: 191.50 PnL: 3.35 (SL)
+[CLOSED] SELL @ 189.25 -> Exit: 189.00 PnL: 0.25 (SL)
+[CLOSED] SELL @ 185.35 -> Exit: 190.35 PnL: -5.00 (SL)
+[CLOSED] BUY @ 190.50 -> Exit: 188.65 PnL: -1.85 (SL)
+[CLOSED] SELL @ 189.60 -> Exit: 190.00 PnL: -0.40 (SL)
+[CLOSED] BUY @ 189.00 -> Exit: 188.90 PnL: -0.10 (SL)
+[CLOSED] BUY @ 192.45 -> Exit: 187.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 191.20 -> Exit: 189.60 PnL: 1.60 (SL)
+[CLOSED] BUY @ 192.45 -> Exit: 187.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 187.45 -> Exit: 184.55 PnL: 2.90 (SL)
+[CLOSED] SELL @ 182.30 -> Exit: 182.00 PnL: 0.30 (SL)
+[CLOSED] SELL @ 181.85 -> Exit: 186.85 PnL: -5.00 (SL)
+[CLOSED] BUY @ 183.65 -> Exit: 184.00 PnL: 0.35 (SL)
+[CLOSED] BUY @ 186.00 -> Exit: 181.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 185.00 -> Exit: 175.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 175.70 -> Exit: 176.45 PnL: -0.75 (SL)
+[CLOSED] SELL @ 173.95 -> Exit: 173.00 PnL: 0.95 (SL)
+[CLOSED] SELL @ 173.35 -> Exit: 178.35 PnL: -5.00 (SL)
+[CLOSED] BUY @ 175.40 -> Exit: 176.45 PnL: 1.05 (SL)
+[CLOSED] BUY @ 176.70 -> Exit: 175.00 PnL: -1.70 (SL)
+[CLOSED] SELL @ 176.30 -> Exit: 181.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 184.70 -> Exit: 179.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 174.65 -> Exit: 172.15 PnL: 2.50 (SL)
+[CLOSED] SELL @ 169.10 -> Exit: 170.25 PnL: -1.15 (SL)
+[CLOSED] BUY @ 169.85 -> Exit: 164.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 165.90 -> Exit: 170.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 169.35 -> Exit: 171.55 PnL: 2.20 (SL)
+[CLOSED] BUY @ 174.10 -> Exit: 169.10 PnL: -5.00 (SL)
+[CLOSED] SELL @ 172.60 -> Exit: 172.30 PnL: 0.30 (SL)
+[CLOSED] SELL @ 172.40 -> Exit: 172.30 PnL: 0.10 (SL)
+[CLOSED] SELL @ 170.00 -> Exit: 175.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 177.15 -> Exit: 187.15 PnL: 10.00 (TP)
+[CLOSED] BUY @ 184.00 -> Exit: 184.50 PnL: 0.50 (SL)
+[CLOSED] BUY @ 187.35 -> Exit: 186.00 PnL: -1.35 (SL)
+[CLOSED] SELL @ 187.40 -> Exit: 184.35 PnL: 3.05 (SL)
+[CLOSED] BUY @ 189.75 -> Exit: 190.80 PnL: 1.05 (SL)
+[CLOSED] BUY @ 194.00 -> Exit: 189.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 185.25 -> Exit: 187.00 PnL: -1.75 (SL)
+[CLOSED] BUY @ 185.05 -> Exit: 180.05 PnL: -5.00 (SL)
+[CLOSED] SELL @ 182.65 -> Exit: 180.35 PnL: 2.30 (SL)
+[CLOSED] SELL @ 176.65 -> Exit: 177.55 PnL: -0.90 (SL)
+[CLOSED] SELL @ 175.20 -> Exit: 176.45 PnL: -1.25 (SL)
+[CLOSED] BUY @ 177.10 -> Exit: 172.10 PnL: -5.00 (SL)
+[CLOSED] SELL @ 170.20 -> Exit: 166.00 PnL: 4.20 (SL)
+[CLOSED] BUY @ 171.15 -> Exit: 166.15 PnL: -5.00 (SL)
+[CLOSED] SELL @ 164.90 -> Exit: 165.55 PnL: -0.65 (SL)
+[CLOSED] BUY @ 165.55 -> Exit: 170.40 PnL: 4.85 (SL)
+[CLOSED] SELL @ 164.05 -> Exit: 164.80 PnL: -0.75 (SL)
+[CLOSED] BUY @ 168.30 -> Exit: 170.40 PnL: 2.10 (SL)
+[CLOSED] BUY @ 170.50 -> Exit: 169.50 PnL: -1.00 (SL)
+[CLOSED] BUY @ 171.65 -> Exit: 166.65 PnL: -5.00 (SL)
+[CLOSED] SELL @ 168.50 -> Exit: 169.30 PnL: -0.80 (SL)
+[CLOSED] BUY @ 170.50 -> Exit: 165.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 166.55 -> Exit: 171.55 PnL: -5.00 (SL)
+[CLOSED] BUY @ 169.75 -> Exit: 169.00 PnL: -0.75 (SL)
+[CLOSED] SELL @ 169.00 -> Exit: 166.65 PnL: 2.35 (SL)
+[CLOSED] SELL @ 163.95 -> Exit: 168.95 PnL: -5.00 (SL)
+[CLOSED] BUY @ 169.25 -> Exit: 164.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 167.15 -> Exit: 168.00 PnL: -0.85 (SL)
+[CLOSED] SELL @ 165.45 -> Exit: 170.45 PnL: -5.00 (SL)
+[CLOSED] BUY @ 169.10 -> Exit: 168.25 PnL: -0.85 (SL)
+[CLOSED] BUY @ 170.40 -> Exit: 165.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 166.80 -> Exit: 163.15 PnL: 3.65 (SL)
+[CLOSED] SELL @ 160.65 -> Exit: 158.75 PnL: 1.90 (SL)
+[CLOSED] SELL @ 156.10 -> Exit: 161.10 PnL: -5.00 (SL)
+[CLOSED] BUY @ 161.45 -> Exit: 156.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 157.65 -> Exit: 157.30 PnL: 0.35 (SL)
+[CLOSED] SELL @ 155.10 -> Exit: 153.75 PnL: 1.35 (SL)
+[CLOSED] SELL @ 153.60 -> Exit: 158.60 PnL: -5.00 (SL)
+[CLOSED] BUY @ 155.45 -> Exit: 150.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 148.80 -> Exit: 153.80 PnL: -5.00 (SL)
+[CLOSED] BUY @ 153.35 -> Exit: 155.45 PnL: 2.10 (SL)
+[CLOSED] SELL @ 150.40 -> Exit: 155.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 158.75 -> Exit: 153.75 PnL: -5.00 (SL)
+[CLOSED] SELL @ 152.35 -> Exit: 151.45 PnL: 0.90 (SL)
+[CLOSED] SELL @ 148.10 -> Exit: 150.00 PnL: -1.90 (SL)
+[CLOSED] BUY @ 151.80 -> Exit: 153.30 PnL: 1.50 (SL)
+[CLOSED] BUY @ 153.25 -> Exit: 154.35 PnL: 1.10 (SL)
+[CLOSED] BUY @ 155.15 -> Exit: 160.10 PnL: 4.95 (SL)
+[CLOSED] BUY @ 156.50 -> Exit: 160.10 PnL: 3.60 (SL)
+[CLOSED] BUY @ 159.40 -> Exit: 154.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 157.00 -> Exit: 156.30 PnL: 0.70 (SL)
+[CLOSED] SELL @ 153.95 -> Exit: 153.10 PnL: 0.85 (SL)
+[CLOSED] SELL @ 149.10 -> Exit: 149.65 PnL: -0.55 (SL)
+[CLOSED] SELL @ 147.25 -> Exit: 149.00 PnL: -1.75 (SL)
+[CLOSED] SELL @ 146.60 -> Exit: 147.10 PnL: -0.50 (SL)
+[CLOSED] BUY @ 147.35 -> Exit: 145.80 PnL: -1.55 (SL)
+[CLOSED] BUY @ 149.05 -> Exit: 151.55 PnL: 2.50 (SL)
+[CLOSED] BUY @ 151.50 -> Exit: 151.55 PnL: 0.05 (SL)
+[CLOSED] BUY @ 152.40 -> Exit: 151.55 PnL: -0.85 (SL)
+[CLOSED] BUY @ 153.15 -> Exit: 151.55 PnL: -1.60 (SL)
+[CLOSED] SELL @ 152.10 -> Exit: 157.10 PnL: -5.00 (SL)
+[CLOSED] BUY @ 153.50 -> Exit: 155.00 PnL: 1.50 (SL)
+[CLOSED] BUY @ 155.75 -> Exit: 155.00 PnL: -0.75 (SL)
+[CLOSED] SELL @ 155.30 -> Exit: 157.00 PnL: -1.70 (SL)
+[CLOSED] BUY @ 157.65 -> Exit: 152.65 PnL: -5.00 (SL)
+[CLOSED] SELL @ 154.30 -> Exit: 159.30 PnL: -5.00 (SL)
+[CLOSED] SELL @ 153.60 -> Exit: 158.60 PnL: -5.00 (SL)
+[CLOSED] BUY @ 156.80 -> Exit: 166.80 PnL: 10.00 (TP)
+[CLOSED] BUY @ 159.35 -> Exit: 163.00 PnL: 3.65 (SL)
+[CLOSED] BUY @ 165.20 -> Exit: 160.20 PnL: -5.00 (SL)
+[CLOSED] SELL @ 163.55 -> Exit: 162.25 PnL: 1.30 (SL)
+[CLOSED] SELL @ 159.25 -> Exit: 158.40 PnL: 0.85 (SL)
+[CLOSED] SELL @ 154.95 -> Exit: 155.50 PnL: -0.55 (SL)
+[CLOSED] SELL @ 154.55 -> Exit: 154.40 PnL: 0.15 (SL)
+[CLOSED] SELL @ 153.55 -> Exit: 154.80 PnL: -1.25 (SL)
+[CLOSED] SELL @ 151.70 -> Exit: 156.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 152.10 -> Exit: 157.10 PnL: -5.00 (SL)
+[CLOSED] BUY @ 159.45 -> Exit: 158.00 PnL: -1.45 (SL)
+[CLOSED] BUY @ 160.25 -> Exit: 163.00 PnL: 2.75 (SL)
+[CLOSED] SELL @ 156.75 -> Exit: 161.75 PnL: -5.00 (SL)
+[CLOSED] BUY @ 162.20 -> Exit: 163.00 PnL: 0.80 (SL)
+[CLOSED] BUY @ 162.85 -> Exit: 164.00 PnL: 1.15 (SL)
+[CLOSED] BUY @ 163.65 -> Exit: 164.00 PnL: 0.35 (SL)
+[CLOSED] SELL @ 163.00 -> Exit: 161.35 PnL: 1.65 (SL)
+[CLOSED] SELL @ 161.30 -> Exit: 166.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 161.85 -> Exit: 164.80 PnL: 2.95 (SL)
+[CLOSED] BUY @ 164.00 -> Exit: 164.80 PnL: 0.80 (SL)
+[CLOSED] BUY @ 167.70 -> Exit: 177.70 PnL: 10.00 (TP)
+[CLOSED] SELL @ 164.85 -> Exit: 169.85 PnL: -5.00 (SL)
+[CLOSED] BUY @ 169.90 -> Exit: 179.90 PnL: 10.00 (TP)
+[CLOSED] BUY @ 180.75 -> Exit: 190.75 PnL: 10.00 (TP)
+[CLOSED] BUY @ 186.85 -> Exit: 189.75 PnL: 2.90 (SL)
+[CLOSED] BUY @ 192.15 -> Exit: 191.00 PnL: -1.15 (SL)
+[CLOSED] SELL @ 191.20 -> Exit: 189.70 PnL: 1.50 (SL)
+[CLOSED] SELL @ 191.20 -> Exit: 186.80 PnL: 4.40 (SL)
+[CLOSED] SELL @ 187.85 -> Exit: 187.00 PnL: 0.85 (SL)
+[CLOSED] SELL @ 184.20 -> Exit: 179.65 PnL: 4.55 (SL)
+[CLOSED] BUY @ 183.80 -> Exit: 178.80 PnL: -5.00 (SL)
+[CLOSED] SELL @ 179.70 -> Exit: 178.60 PnL: 1.10 (SL)
+[CLOSED] SELL @ 177.00 -> Exit: 178.40 PnL: -1.40 (SL)
+[CLOSED] BUY @ 180.25 -> Exit: 175.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 179.95 -> Exit: 176.25 PnL: 3.70 (SL)
+[CLOSED] SELL @ 177.95 -> Exit: 179.70 PnL: -1.75 (SL)
+[CLOSED] BUY @ 179.25 -> Exit: 174.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 178.30 -> Exit: 177.10 PnL: 1.20 (SL)
+[CLOSED] SELL @ 173.85 -> Exit: 178.85 PnL: -5.00 (SL)
+[CLOSED] BUY @ 182.40 -> Exit: 177.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 179.65 -> Exit: 184.65 PnL: -5.00 (SL)
+[CLOSED] BUY @ 180.45 -> Exit: 183.45 PnL: 3.00 (SL)
+[CLOSED] BUY @ 182.85 -> Exit: 183.45 PnL: 0.60 (SL)
+[CLOSED] SELL @ 182.35 -> Exit: 179.00 PnL: 3.35 (SL)
+[CLOSED] SELL @ 179.35 -> Exit: 180.40 PnL: -1.05 (SL)
+[CLOSED] SELL @ 178.60 -> Exit: 180.40 PnL: -1.80 (SL)
+[CLOSED] BUY @ 179.00 -> Exit: 189.00 PnL: 10.00 (TP)
+[CLOSED] BUY @ 183.80 -> Exit: 193.80 PnL: 10.00 (TP)
+[CLOSED] BUY @ 188.40 -> Exit: 190.85 PnL: 2.45 (SL)
+[CLOSED] BUY @ 191.70 -> Exit: 186.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 184.60 -> Exit: 189.60 PnL: -5.00 (SL)
+[CLOSED] BUY @ 187.25 -> Exit: 197.25 PnL: 10.00 (TP)
+[CLOSED] BUY @ 190.35 -> Exit: 194.80 PnL: 4.45 (SL)
+[CLOSED] BUY @ 195.70 -> Exit: 194.80 PnL: -0.90 (SL)
+[CLOSED] SELL @ 195.30 -> Exit: 196.60 PnL: -1.30 (SL)
+[CLOSED] BUY @ 197.00 -> Exit: 207.00 PnL: 10.00 (TP)
+[CLOSED] SELL @ 196.30 -> Exit: 201.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 202.85 -> Exit: 212.85 PnL: 10.00 (TP)
+[CLOSED] BUY @ 212.45 -> Exit: 207.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 201.65 -> Exit: 206.65 PnL: -5.00 (SL)
+[CLOSED] BUY @ 205.00 -> Exit: 205.95 PnL: 0.95 (SL)
+[CLOSED] BUY @ 207.05 -> Exit: 205.95 PnL: -1.10 (SL)
+[CLOSED] BUY @ 207.60 -> Exit: 202.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 203.55 -> Exit: 208.55 PnL: -5.00 (SL)
+[CLOSED] BUY @ 207.15 -> Exit: 211.00 PnL: 3.85 (SL)
+[CLOSED] BUY @ 211.05 -> Exit: 211.00 PnL: -0.05 (SL)
+[CLOSED] BUY @ 213.60 -> Exit: 208.60 PnL: -5.00 (SL)
+[CLOSED] BUY @ 214.15 -> Exit: 220.00 PnL: 5.85 (SL)
+[CLOSED] BUY @ 218.15 -> Exit: 213.15 PnL: -5.00 (SL)
+[CLOSED] SELL @ 212.05 -> Exit: 207.00 PnL: 5.05 (SL)
+[CLOSED] SELL @ 204.15 -> Exit: 206.05 PnL: -1.90 (SL)
+[CLOSED] BUY @ 205.15 -> Exit: 203.65 PnL: -1.50 (SL)
+[CLOSED] SELL @ 202.65 -> Exit: 202.55 PnL: 0.10 (SL)
+[CLOSED] SELL @ 200.75 -> Exit: 205.75 PnL: -5.00 (SL)
+[CLOSED] BUY @ 210.75 -> Exit: 209.60 PnL: -1.15 (SL)
+[CLOSED] SELL @ 206.85 -> Exit: 211.85 PnL: -5.00 (SL)
+[CLOSED] BUY @ 211.85 -> Exit: 217.00 PnL: 5.15 (SL)
+[CLOSED] BUY @ 213.60 -> Exit: 217.00 PnL: 3.40 (SL)
+[CLOSED] BUY @ 218.05 -> Exit: 217.80 PnL: -0.25 (SL)
+[CLOSED] SELL @ 215.85 -> Exit: 220.85 PnL: -5.00 (SL)
+[CLOSED] BUY @ 218.00 -> Exit: 218.00 PnL: 0.00 (SL)
+[CLOSED] BUY @ 219.55 -> Exit: 214.55 PnL: -5.00 (SL)
+[CLOSED] SELL @ 215.00 -> Exit: 220.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 221.50 -> Exit: 231.50 PnL: 10.00 (TP)
+[CLOSED] BUY @ 229.65 -> Exit: 224.65 PnL: -5.00 (SL)
+[CLOSED] SELL @ 221.60 -> Exit: 219.55 PnL: 2.05 (SL)
+[CLOSED] SELL @ 219.75 -> Exit: 209.75 PnL: 10.00 (TP)
+[CLOSED] SELL @ 209.65 -> Exit: 209.00 PnL: 0.65 (SL)
+[CLOSED] BUY @ 210.15 -> Exit: 220.15 PnL: 10.00 (TP)
+[CLOSED] BUY @ 214.45 -> Exit: 217.35 PnL: 2.90 (SL)
+[CLOSED] BUY @ 219.00 -> Exit: 214.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 211.45 -> Exit: 212.30 PnL: -0.85 (SL)
+[CLOSED] SELL @ 210.40 -> Exit: 209.00 PnL: 1.40 (SL)
+[CLOSED] SELL @ 205.40 -> Exit: 210.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 208.40 -> Exit: 210.95 PnL: 2.55 (SL)
+[CLOSED] BUY @ 213.30 -> Exit: 214.50 PnL: 1.20 (SL)
+[CLOSED] SELL @ 212.70 -> Exit: 214.40 PnL: -1.70 (SL)
+[CLOSED] SELL @ 211.35 -> Exit: 210.25 PnL: 1.10 (SL)
+[CLOSED] SELL @ 208.00 -> Exit: 207.00 PnL: 1.00 (SL)
+[CLOSED] BUY @ 210.40 -> Exit: 205.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 203.05 -> Exit: 201.25 PnL: 1.80 (SL)
+[CLOSED] BUY @ 203.55 -> Exit: 208.55 PnL: 5.00 (SL)
+[CLOSED] BUY @ 209.95 -> Exit: 204.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 203.55 -> Exit: 203.55 PnL: 0.00 (SL)
+[CLOSED] SELL @ 200.45 -> Exit: 198.25 PnL: 2.20 (SL)
+[CLOSED] SELL @ 195.50 -> Exit: 200.50 PnL: -5.00 (SL)
+[CLOSED] BUY @ 199.85 -> Exit: 209.85 PnL: 10.00 (TP)
+[CLOSED] BUY @ 210.40 -> Exit: 216.00 PnL: 5.60 (SL)
+[CLOSED] BUY @ 212.95 -> Exit: 216.00 PnL: 3.05 (SL)
+[CLOSED] BUY @ 213.15 -> Exit: 208.15 PnL: -5.00 (SL)
+[CLOSED] SELL @ 210.90 -> Exit: 215.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 216.70 -> Exit: 215.90 PnL: -0.80 (SL)
+[CLOSED] BUY @ 218.75 -> Exit: 217.50 PnL: -1.25 (SL)
+[CLOSED] SELL @ 215.80 -> Exit: 215.00 PnL: 0.80 (SL)
+[CLOSED] SELL @ 213.75 -> Exit: 218.75 PnL: -5.00 (SL)
+[CLOSED] BUY @ 217.80 -> Exit: 217.50 PnL: -0.30 (SL)
+[CLOSED] BUY @ 219.65 -> Exit: 214.65 PnL: -5.00 (SL)
+[CLOSED] SELL @ 217.00 -> Exit: 217.10 PnL: -0.10 (SL)
+[CLOSED] BUY @ 218.50 -> Exit: 228.50 PnL: 10.00 (TP)
+[CLOSED] BUY @ 221.90 -> Exit: 226.00 PnL: 4.10 (SL)
+[CLOSED] BUY @ 229.00 -> Exit: 230.95 PnL: 1.95 (SL)
+[CLOSED] BUY @ 229.20 -> Exit: 239.20 PnL: 10.00 (TP)
+[CLOSED] BUY @ 232.50 -> Exit: 237.80 PnL: 5.30 (SL)
+[CLOSED] BUY @ 239.35 -> Exit: 242.00 PnL: 2.65 (SL)
+[CLOSED] SELL @ 237.25 -> Exit: 234.20 PnL: 3.05 (SL)
+[CLOSED] SELL @ 234.35 -> Exit: 234.65 PnL: -0.30 (SL)
+[CLOSED] SELL @ 233.95 -> Exit: 238.95 PnL: -5.00 (SL)
+[CLOSED] BUY @ 235.65 -> Exit: 245.65 PnL: 10.00 (TP)
+[CLOSED] BUY @ 255.35 -> Exit: 250.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 246.35 -> Exit: 243.25 PnL: 3.10 (SL)
+[CLOSED] BUY @ 245.85 -> Exit: 245.90 PnL: 0.05 (SL)
+[CLOSED] BUY @ 248.15 -> Exit: 243.15 PnL: -5.00 (SL)
+[CLOSED] SELL @ 244.85 -> Exit: 246.05 PnL: -1.20 (SL)
+[CLOSED] BUY @ 245.50 -> Exit: 240.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 243.80 -> Exit: 240.70 PnL: 3.10 (SL)
+[CLOSED] BUY @ 245.00 -> Exit: 240.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 240.10 -> Exit: 240.00 PnL: 0.10 (SL)
+[CLOSED] SELL @ 237.40 -> Exit: 234.25 PnL: 3.15 (SL)
+[CLOSED] SELL @ 231.30 -> Exit: 228.50 PnL: 2.80 (SL)
+[CLOSED] SELL @ 226.20 -> Exit: 216.20 PnL: 10.00 (TP)
+[CLOSED] SELL @ 218.85 -> Exit: 223.85 PnL: -5.00 (SL)
+[CLOSED] BUY @ 224.45 -> Exit: 223.30 PnL: -1.15 (SL)
+[CLOSED] BUY @ 225.50 -> Exit: 224.30 PnL: -1.20 (SL)
+[CLOSED] SELL @ 224.00 -> Exit: 222.00 PnL: 2.00 (SL)
+[CLOSED] SELL @ 219.65 -> Exit: 218.10 PnL: 1.55 (SL)
+[CLOSED] BUY @ 225.40 -> Exit: 220.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 220.85 -> Exit: 225.85 PnL: -5.00 (SL)
+[CLOSED] BUY @ 225.45 -> Exit: 220.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 219.05 -> Exit: 215.45 PnL: 3.60 (SL)
+[CLOSED] SELL @ 215.85 -> Exit: 216.15 PnL: -0.30 (SL)
+[CLOSED] SELL @ 213.50 -> Exit: 214.15 PnL: -0.65 (SL)
+[CLOSED] SELL @ 212.70 -> Exit: 217.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 216.85 -> Exit: 211.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 215.60 -> Exit: 214.10 PnL: 1.50 (SL)
+[CLOSED] SELL @ 215.00 -> Exit: 220.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 218.55 -> Exit: 213.55 PnL: -5.00 (SL)
+[CLOSED] SELL @ 214.35 -> Exit: 209.50 PnL: 4.85 (SL)
+[CLOSED] BUY @ 216.55 -> Exit: 211.55 PnL: -5.00 (SL)
+[CLOSED] SELL @ 202.05 -> Exit: 192.05 PnL: 10.00 (TP)
+[CLOSED] SELL @ 194.20 -> Exit: 184.20 PnL: 10.00 (TP)
+[CLOSED] SELL @ 192.80 -> Exit: 197.80 PnL: -5.00 (SL)
+[CLOSED] BUY @ 200.45 -> Exit: 204.00 PnL: 3.55 (SL)
+[CLOSED] SELL @ 195.85 -> Exit: 195.40 PnL: 0.45 (SL)
+[CLOSED] SELL @ 192.35 -> Exit: 197.35 PnL: -5.00 (SL)
+[CLOSED] BUY @ 195.40 -> Exit: 194.35 PnL: -1.05 (SL)
+[CLOSED] SELL @ 191.50 -> Exit: 188.50 PnL: 3.00 (SL)
+[CLOSED] SELL @ 188.00 -> Exit: 186.40 PnL: 1.60 (SL)
+[CLOSED] SELL @ 185.00 -> Exit: 186.40 PnL: -1.40 (SL)
+[CLOSED] BUY @ 186.25 -> Exit: 181.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 180.80 -> Exit: 185.80 PnL: -5.00 (SL)
+[CLOSED] BUY @ 185.80 -> Exit: 189.90 PnL: 4.10 (SL)
+[CLOSED] BUY @ 186.10 -> Exit: 189.90 PnL: 3.80 (SL)
+[CLOSED] BUY @ 191.55 -> Exit: 189.90 PnL: -1.65 (SL)
+[CLOSED] SELL @ 190.60 -> Exit: 190.40 PnL: 0.20 (SL)
+[CLOSED] BUY @ 191.05 -> Exit: 191.00 PnL: -0.05 (SL)
+[CLOSED] BUY @ 192.55 -> Exit: 187.55 PnL: -5.00 (SL)
+[CLOSED] SELL @ 192.20 -> Exit: 192.30 PnL: -0.10 (SL)
+[CLOSED] SELL @ 189.00 -> Exit: 190.00 PnL: -1.00 (SL)
+[CLOSED] SELL @ 186.30 -> Exit: 187.70 PnL: -1.40 (SL)
+[CLOSED] SELL @ 184.40 -> Exit: 185.90 PnL: -1.50 (SL)
+[CLOSED] BUY @ 186.60 -> Exit: 185.20 PnL: -1.40 (SL)
+[CLOSED] BUY @ 187.85 -> Exit: 189.00 PnL: 1.15 (SL)
+[CLOSED] BUY @ 189.05 -> Exit: 189.00 PnL: -0.05 (SL)
+[CLOSED] SELL @ 188.15 -> Exit: 178.15 PnL: 10.00 (TP)
+[CLOSED] SELL @ 187.90 -> Exit: 192.90 PnL: -5.00 (SL)
+[CLOSED] SELL @ 187.70 -> Exit: 192.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 190.70 -> Exit: 185.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 127.70 -> Exit: 117.70 PnL: 10.00 (TP)
+[CLOSED] SELL @ 105.20 -> Exit: 105.60 PnL: -0.40 (SL)
+[CLOSED] BUY @ 105.80 -> Exit: 103.95 PnL: -1.85 (SL)
+[CLOSED] SELL @ 105.30 -> Exit: 100.45 PnL: 4.85 (SL)
+[CLOSED] SELL @ 97.05 -> Exit: 97.45 PnL: -0.40 (SL)
+[CLOSED] SELL @ 96.65 -> Exit: 101.65 PnL: -5.00 (SL)
+[CLOSED] BUY @ 98.40 -> Exit: 108.40 PnL: 10.00 (TP)
+[CLOSED] BUY @ 98.75 -> Exit: 108.75 PnL: 10.00 (TP)
+[CLOSED] BUY @ 102.10 -> Exit: 105.05 PnL: 2.95 (SL)
+[CLOSED] BUY @ 107.50 -> Exit: 102.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 101.20 -> Exit: 106.20 PnL: -5.00 (SL)
+[CLOSED] BUY @ 113.05 -> Exit: 114.00 PnL: 0.95 (SL)
+[CLOSED] SELL @ 112.70 -> Exit: 109.50 PnL: 3.20 (SL)
+[CLOSED] SELL @ 107.85 -> Exit: 106.10 PnL: 1.75 (SL)
+[CLOSED] SELL @ 102.10 -> Exit: 102.70 PnL: -0.60 (SL)
+[CLOSED] SELL @ 100.90 -> Exit: 105.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 106.35 -> Exit: 101.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 100.95 -> Exit: 100.55 PnL: 0.40 (SL)
+[CLOSED] SELL @ 99.85 -> Exit: 100.60 PnL: -0.75 (SL)
+[CLOSED] BUY @ 103.00 -> Exit: 106.70 PnL: 3.70 (SL)
+[CLOSED] BUY @ 108.00 -> Exit: 106.70 PnL: -1.30 (SL)
+[CLOSED] SELL @ 106.75 -> Exit: 107.15 PnL: -0.40 (SL)
+[CLOSED] SELL @ 104.00 -> Exit: 103.35 PnL: 0.65 (SL)
+[CLOSED] BUY @ 105.60 -> Exit: 100.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 102.60 -> Exit: 104.00 PnL: -1.40 (SL)
+[CLOSED] SELL @ 102.40 -> Exit: 102.20 PnL: 0.20 (SL)
+[CLOSED] BUY @ 102.30 -> Exit: 97.30 PnL: -5.00 (SL)
+[CLOSED] SELL @ 98.85 -> Exit: 99.00 PnL: -0.15 (SL)
+[CLOSED] SELL @ 96.90 -> Exit: 94.95 PnL: 1.95 (SL)
+[CLOSED] BUY @ 99.10 -> Exit: 97.50 PnL: -1.60 (SL)
+[CLOSED] SELL @ 97.90 -> Exit: 94.95 PnL: 2.95 (SL)
+[CLOSED] SELL @ 91.80 -> Exit: 91.05 PnL: 0.75 (SL)
+[CLOSED] SELL @ 88.90 -> Exit: 88.15 PnL: 0.75 (SL)
+[CLOSED] BUY @ 89.40 -> Exit: 88.60 PnL: -0.80 (SL)
+[CLOSED] BUY @ 90.10 -> Exit: 85.10 PnL: -5.00 (SL)
+[CLOSED] SELL @ 87.80 -> Exit: 85.60 PnL: 2.20 (SL)
+[CLOSED] BUY @ 88.40 -> Exit: 83.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 87.00 -> Exit: 85.60 PnL: 1.40 (SL)
+[CLOSED] SELL @ 86.20 -> Exit: 85.60 PnL: 0.60 (SL)
+[CLOSED] SELL @ 84.90 -> Exit: 85.60 PnL: -0.70 (SL)
+[CLOSED] BUY @ 86.30 -> Exit: 96.30 PnL: 10.00 (TP)
+[CLOSED] SELL @ 85.90 -> Exit: 85.60 PnL: 0.30 (SL)
+[CLOSED] SELL @ 84.90 -> Exit: 85.60 PnL: -0.70 (SL)
+[CLOSED] SELL @ 84.10 -> Exit: 85.60 PnL: -1.50 (SL)
+[CLOSED] BUY @ 84.90 -> Exit: 94.90 PnL: 10.00 (TP)
+[CLOSED] SELL @ 83.90 -> Exit: 85.60 PnL: -1.70 (SL)
+[CLOSED] SELL @ 82.30 -> Exit: 87.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 85.90 -> Exit: 95.90 PnL: 10.00 (TP)
+[CLOSED] BUY @ 87.60 -> Exit: 97.60 PnL: 10.00 (TP)
+[CLOSED] BUY @ 88.55 -> Exit: 98.55 PnL: 10.00 (TP)
+[CLOSED] BUY @ 96.70 -> Exit: 95.40 PnL: -1.30 (SL)
+[CLOSED] SELL @ 96.55 -> Exit: 93.00 PnL: 3.55 (SL)
+[CLOSED] BUY @ 97.25 -> Exit: 96.60 PnL: -0.65 (SL)
+[CLOSED] SELL @ 96.85 -> Exit: 93.00 PnL: 3.85 (SL)
+[CLOSED] SELL @ 91.50 -> Exit: 90.40 PnL: 1.10 (SL)
+[CLOSED] SELL @ 87.00 -> Exit: 85.60 PnL: 1.40 (SL)
+[CLOSED] SELL @ 86.90 -> Exit: 85.60 PnL: 1.30 (SL)
+[CLOSED] SELL @ 86.00 -> Exit: 85.60 PnL: 0.40 (SL)
+[CLOSED] SELL @ 82.10 -> Exit: 79.00 PnL: 3.10 (SL)
+[CLOSED] SELL @ 80.50 -> Exit: 79.00 PnL: 1.50 (SL)
+[CLOSED] SELL @ 78.25 -> Exit: 79.00 PnL: -0.75 (SL)
+[CLOSED] SELL @ 76.00 -> Exit: 72.05 PnL: 3.95 (SL)
+[CLOSED] SELL @ 75.90 -> Exit: 72.05 PnL: 3.85 (SL)
+[CLOSED] SELL @ 75.35 -> Exit: 72.05 PnL: 3.30 (SL)
+[CLOSED] SELL @ 74.10 -> Exit: 72.05 PnL: 2.05 (SL)
+[CLOSED] SELL @ 74.05 -> Exit: 72.05 PnL: 2.00 (SL)
+[CLOSED] SELL @ 73.50 -> Exit: 72.05 PnL: 1.45 (SL)
+[CLOSED] SELL @ 73.40 -> Exit: 72.05 PnL: 1.35 (SL)
+[CLOSED] SELL @ 71.65 -> Exit: 72.05 PnL: -0.40 (SL)
+[CLOSED] SELL @ 71.10 -> Exit: 72.05 PnL: -0.95 (SL)
+[CLOSED] SELL @ 69.40 -> Exit: 74.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 71.40 -> Exit: 71.20 PnL: -0.20 (SL)
+[CLOSED] BUY @ 73.35 -> Exit: 71.90 PnL: -1.45 (SL)
+[CLOSED] BUY @ 75.00 -> Exit: 79.85 PnL: 4.85 (SL)
+[CLOSED] SELL @ 72.85 -> Exit: 74.35 PnL: -1.50 (SL)
+[CLOSED] SELL @ 71.55 -> Exit: 76.55 PnL: -5.00 (SL)
+[CLOSED] BUY @ 73.60 -> Exit: 71.90 PnL: -1.70 (SL)
+[CLOSED] BUY @ 73.60 -> Exit: 71.90 PnL: -1.70 (SL)
+[CLOSED] BUY @ 75.60 -> Exit: 70.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 71.65 -> Exit: 76.65 PnL: -5.00 (SL)
+[CLOSED] BUY @ 73.55 -> Exit: 83.55 PnL: 10.00 (TP)
+[CLOSED] SELL @ 72.55 -> Exit: 77.55 PnL: -5.00 (SL)
+[CLOSED] BUY @ 73.15 -> Exit: 83.15 PnL: 10.00 (TP)
+[CLOSED] BUY @ 74.60 -> Exit: 79.85 PnL: 5.25 (SL)
+[CLOSED] SELL @ 73.30 -> Exit: 78.30 PnL: -5.00 (SL)
+[CLOSED] SELL @ 72.40 -> Exit: 77.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 74.15 -> Exit: 79.85 PnL: 5.70 (SL)
+[CLOSED] SELL @ 73.70 -> Exit: 78.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 74.45 -> Exit: 79.85 PnL: 5.40 (SL)
+[CLOSED] SELL @ 74.45 -> Exit: 79.45 PnL: -5.00 (SL)
+[CLOSED] BUY @ 75.80 -> Exit: 79.85 PnL: 4.05 (SL)
+[CLOSED] BUY @ 76.85 -> Exit: 79.85 PnL: 3.00 (SL)
+[CLOSED] SELL @ 73.70 -> Exit: 78.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 77.20 -> Exit: 79.85 PnL: 2.65 (SL)
+[CLOSED] SELL @ 77.10 -> Exit: 82.10 PnL: -5.00 (SL)
+[CLOSED] BUY @ 77.75 -> Exit: 79.85 PnL: 2.10 (SL)
+[CLOSED] BUY @ 77.85 -> Exit: 79.85 PnL: 2.00 (SL)
+[CLOSED] SELL @ 77.50 -> Exit: 82.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 77.15 -> Exit: 82.15 PnL: -5.00 (SL)
+[CLOSED] BUY @ 77.60 -> Exit: 79.85 PnL: 2.25 (SL)
+[CLOSED] BUY @ 78.25 -> Exit: 79.85 PnL: 1.60 (SL)
+[CLOSED] BUY @ 80.00 -> Exit: 79.85 PnL: -0.15 (SL)
+[CLOSED] BUY @ 83.25 -> Exit: 78.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 78.60 -> Exit: 78.45 PnL: 0.15 (SL)
+[CLOSED] SELL @ 75.70 -> Exit: 77.55 PnL: -1.85 (SL)
+[CLOSED] SELL @ 75.05 -> Exit: 76.65 PnL: -1.60 (SL)
+[CLOSED] SELL @ 73.85 -> Exit: 78.85 PnL: -5.00 (SL)
+[CLOSED] BUY @ 76.00 -> Exit: 75.00 PnL: -1.00 (SL)
+[CLOSED] BUY @ 76.35 -> Exit: 75.00 PnL: -1.35 (SL)
+[CLOSED] BUY @ 76.65 -> Exit: 75.00 PnL: -1.65 (SL)
+[CLOSED] BUY @ 77.60 -> Exit: 72.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 76.10 -> Exit: 73.70 PnL: 2.40 (SL)
+[CLOSED] SELL @ 74.70 -> Exit: 73.70 PnL: 1.00 (SL)
+[CLOSED] SELL @ 74.05 -> Exit: 73.70 PnL: 0.35 (SL)
+[CLOSED] SELL @ 72.15 -> Exit: 73.70 PnL: -1.55 (SL)
+[CLOSED] SELL @ 71.60 -> Exit: 76.60 PnL: -5.00 (SL)
+[CLOSED] BUY @ 71.70 -> Exit: 74.95 PnL: 3.25 (SL)
+[CLOSED] SELL @ 70.60 -> Exit: 75.60 PnL: -5.00 (SL)
+[CLOSED] BUY @ 71.95 -> Exit: 74.95 PnL: 3.00 (SL)
+[CLOSED] SELL @ 71.90 -> Exit: 76.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 72.20 -> Exit: 74.95 PnL: 2.75 (SL)
+[CLOSED] BUY @ 73.15 -> Exit: 74.95 PnL: 1.80 (SL)
+[CLOSED] BUY @ 77.10 -> Exit: 72.10 PnL: -5.00 (SL)
+[CLOSED] BUY @ 78.55 -> Exit: 73.55 PnL: -5.00 (SL)
+[CLOSED] SELL @ 75.80 -> Exit: 77.30 PnL: -1.50 (SL)
+[CLOSED] BUY @ 76.20 -> Exit: 74.30 PnL: -1.90 (SL)
+[CLOSED] BUY @ 76.55 -> Exit: 74.60 PnL: -1.95 (SL)
+[CLOSED] SELL @ 74.00 -> Exit: 75.70 PnL: -1.70 (SL)
+[CLOSED] BUY @ 75.30 -> Exit: 73.65 PnL: -1.65 (SL)
+[CLOSED] BUY @ 76.50 -> Exit: 74.60 PnL: -1.90 (SL)
+[CLOSED] SELL @ 74.15 -> Exit: 76.10 PnL: -1.95 (SL)
+[CLOSED] SELL @ 73.70 -> Exit: 78.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 75.90 -> Exit: 74.60 PnL: -1.30 (SL)
+[CLOSED] BUY @ 76.40 -> Exit: 74.60 PnL: -1.80 (SL)
+[CLOSED] BUY @ 78.05 -> Exit: 73.05 PnL: -5.00 (SL)
+[CLOSED] SELL @ 75.50 -> Exit: 75.70 PnL: -0.20 (SL)
+[CLOSED] SELL @ 74.25 -> Exit: 75.70 PnL: -1.45 (SL)
+[CLOSED] SELL @ 73.85 -> Exit: 75.70 PnL: -1.85 (SL)
+[CLOSED] SELL @ 73.15 -> Exit: 78.15 PnL: -5.00 (SL)
+[CLOSED] SELL @ 72.75 -> Exit: 77.75 PnL: -5.00 (SL)
+[CLOSED] BUY @ 73.00 -> Exit: 76.20 PnL: 3.20 (SL)
+[CLOSED] BUY @ 77.25 -> Exit: 76.20 PnL: -1.05 (SL)
+[CLOSED] BUY @ 79.10 -> Exit: 74.10 PnL: -5.00 (SL)
+[CLOSED] SELL @ 76.00 -> Exit: 76.85 PnL: -0.85 (SL)
+[CLOSED] BUY @ 78.35 -> Exit: 79.00 PnL: 0.65 (SL)
+[CLOSED] BUY @ 79.05 -> Exit: 79.00 PnL: -0.05 (SL)
+[CLOSED] BUY @ 80.20 -> Exit: 79.00 PnL: -1.20 (SL)
+[CLOSED] BUY @ 81.65 -> Exit: 85.60 PnL: 3.95 (SL)
+[CLOSED] SELL @ 78.30 -> Exit: 83.30 PnL: -5.00 (SL)
+[CLOSED] BUY @ 80.00 -> Exit: 85.60 PnL: 5.60 (SL)
+[CLOSED] SELL @ 78.25 -> Exit: 83.25 PnL: -5.00 (SL)
+[CLOSED] BUY @ 79.25 -> Exit: 89.25 PnL: 10.00 (TP)
+[CLOSED] BUY @ 85.40 -> Exit: 85.60 PnL: 0.20 (SL)
+[CLOSED] SELL @ 85.40 -> Exit: 83.30 PnL: 2.10 (SL)
+[CLOSED] BUY @ 85.65 -> Exit: 80.65 PnL: -5.00 (SL)
+[CLOSED] SELL @ 79.30 -> Exit: 79.10 PnL: 0.20 (SL)
+[CLOSED] BUY @ 79.50 -> Exit: 77.80 PnL: -1.70 (SL)
+[CLOSED] BUY @ 79.65 -> Exit: 77.80 PnL: -1.85 (SL)
+[CLOSED] BUY @ 80.60 -> Exit: 75.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 78.30 -> Exit: 79.10 PnL: -0.80 (SL)
+[CLOSED] BUY @ 79.30 -> Exit: 74.30 PnL: -5.00 (SL)
+[CLOSED] SELL @ 78.80 -> Exit: 79.10 PnL: -0.30 (SL)
+[CLOSED] SELL @ 77.20 -> Exit: 72.35 PnL: 4.85 (SL)
+[CLOSED] SELL @ 77.00 -> Exit: 72.35 PnL: 4.65 (SL)
+[CLOSED] SELL @ 75.95 -> Exit: 72.35 PnL: 3.60 (SL)
+[CLOSED] BUY @ 76.45 -> Exit: 71.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 74.70 -> Exit: 72.35 PnL: 2.35 (SL)
+[CLOSED] SELL @ 73.55 -> Exit: 72.35 PnL: 1.20 (SL)
+[CLOSED] SELL @ 72.25 -> Exit: 72.35 PnL: -0.10 (SL)
+[CLOSED] SELL @ 70.45 -> Exit: 72.35 PnL: -1.90 (SL)
+[CLOSED] BUY @ 71.65 -> Exit: 69.90 PnL: -1.75 (SL)
+[CLOSED] SELL @ 70.25 -> Exit: 68.80 PnL: 1.45 (SL)
+[CLOSED] SELL @ 70.00 -> Exit: 68.80 PnL: 1.20 (SL)
+[CLOSED] BUY @ 70.80 -> Exit: 69.90 PnL: -0.90 (SL)
+[CLOSED] SELL @ 70.10 -> Exit: 68.80 PnL: 1.30 (SL)
+[CLOSED] BUY @ 71.30 -> Exit: 69.90 PnL: -1.40 (SL)
+[CLOSED] SELL @ 70.85 -> Exit: 72.35 PnL: -1.50 (SL)
+[CLOSED] SELL @ 70.40 -> Exit: 72.35 PnL: -1.95 (SL)
+[CLOSED] SELL @ 69.00 -> Exit: 68.80 PnL: 0.20 (SL)
+[CLOSED] BUY @ 70.25 -> Exit: 69.90 PnL: -0.35 (SL)
+[CLOSED] BUY @ 72.90 -> Exit: 67.90 PnL: -5.00 (SL)
+[CLOSED] SELL @ 70.85 -> Exit: 68.80 PnL: 2.05 (SL)
+[CLOSED] BUY @ 71.45 -> Exit: 69.90 PnL: -1.55 (SL)
+[CLOSED] BUY @ 71.85 -> Exit: 66.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 71.50 -> Exit: 68.80 PnL: 2.70 (SL)
+[CLOSED] BUY @ 72.20 -> Exit: 67.20 PnL: -5.00 (SL)
+[CLOSED] BUY @ 72.25 -> Exit: 67.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 72.45 -> Exit: 68.80 PnL: 3.65 (SL)
+[CLOSED] SELL @ 70.00 -> Exit: 68.80 PnL: 1.20 (SL)
+[CLOSED] SELL @ 67.15 -> Exit: 68.80 PnL: -1.65 (SL)
+[CLOSED] SELL @ 65.25 -> Exit: 70.25 PnL: -5.00 (SL)
+[CLOSED] BUY @ 67.70 -> Exit: 67.55 PnL: -0.15 (SL)
+[CLOSED] BUY @ 68.90 -> Exit: 67.55 PnL: -1.35 (SL)
+[CLOSED] BUY @ 70.50 -> Exit: 69.20 PnL: -1.30 (SL)
+[CLOSED] SELL @ 68.85 -> Exit: 70.45 PnL: -1.60 (SL)
+[CLOSED] SELL @ 67.65 -> Exit: 72.65 PnL: -5.00 (SL)
+[CLOSED] BUY @ 68.60 -> Exit: 67.95 PnL: -0.65 (SL)
+[CLOSED] BUY @ 68.80 -> Exit: 67.95 PnL: -0.85 (SL)
+[CLOSED] BUY @ 69.35 -> Exit: 67.95 PnL: -1.40 (SL)
+[CLOSED] BUY @ 69.40 -> Exit: 67.95 PnL: -1.45 (SL)
+[CLOSED] SELL @ 68.35 -> Exit: 69.50 PnL: -1.15 (SL)
+[CLOSED] SELL @ 67.10 -> Exit: 72.10 PnL: -5.00 (SL)
+[CLOSED] BUY @ 68.45 -> Exit: 67.95 PnL: -0.50 (SL)
+[CLOSED] BUY @ 68.50 -> Exit: 67.95 PnL: -0.55 (SL)
+[CLOSED] SELL @ 67.45 -> Exit: 72.45 PnL: -5.00 (SL)
+[CLOSED] SELL @ 67.40 -> Exit: 72.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 68.20 -> Exit: 67.95 PnL: -0.25 (SL)
+[CLOSED] BUY @ 68.70 -> Exit: 67.95 PnL: -0.75 (SL)
+[CLOSED] BUY @ 69.70 -> Exit: 67.95 PnL: -1.75 (SL)
+[CLOSED] BUY @ 70.65 -> Exit: 69.20 PnL: -1.45 (SL)
+[CLOSED] SELL @ 70.65 -> Exit: 71.45 PnL: -0.80 (SL)
+[CLOSED] BUY @ 71.10 -> Exit: 69.20 PnL: -1.90 (SL)
+[CLOSED] SELL @ 70.05 -> Exit: 71.45 PnL: -1.40 (SL)
+[CLOSED] SELL @ 68.05 -> Exit: 73.05 PnL: -5.00 (SL)
+[CLOSED] BUY @ 69.60 -> Exit: 69.20 PnL: -0.40 (SL)
+[CLOSED] BUY @ 72.60 -> Exit: 67.60 PnL: -5.00 (SL)
+[CLOSED] SELL @ 71.45 -> Exit: 69.50 PnL: 1.95 (SL)
+[CLOSED] SELL @ 70.30 -> Exit: 69.50 PnL: 0.80 (SL)
+[CLOSED] SELL @ 69.65 -> Exit: 69.50 PnL: 0.15 (SL)
+[CLOSED] BUY @ 70.00 -> Exit: 68.40 PnL: -1.60 (SL)
+[CLOSED] BUY @ 70.35 -> Exit: 68.40 PnL: -1.95 (SL)
+[CLOSED] BUY @ 71.00 -> Exit: 66.00 PnL: -5.00 (SL)
+[CLOSED] SELL @ 70.45 -> Exit: 69.50 PnL: 0.95 (SL)
+[CLOSED] SELL @ 69.35 -> Exit: 69.50 PnL: -0.15 (SL)
+[CLOSED] BUY @ 69.40 -> Exit: 68.50 PnL: -0.90 (SL)
+[CLOSED] SELL @ 68.65 -> Exit: 69.50 PnL: -0.85 (SL)
+[CLOSED] BUY @ 68.85 -> Exit: 68.50 PnL: -0.35 (SL)
+[CLOSED] SELL @ 68.40 -> Exit: 69.50 PnL: -1.10 (SL)
+[CLOSED] SELL @ 67.95 -> Exit: 69.50 PnL: -1.55 (SL)
+[CLOSED] SELL @ 67.40 -> Exit: 72.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 68.85 -> Exit: 68.50 PnL: -0.35 (SL)
+[CLOSED] SELL @ 67.40 -> Exit: 72.40 PnL: -5.00 (SL)
+[CLOSED] BUY @ 67.65 -> Exit: 68.50 PnL: 0.85 (SL)
+[CLOSED] SELL @ 66.65 -> Exit: 71.65 PnL: -5.00 (SL)
+[CLOSED] BUY @ 66.70 -> Exit: 68.50 PnL: 1.80 (SL)
+[CLOSED] BUY @ 67.40 -> Exit: 68.50 PnL: 1.10 (SL)
+[CLOSED] BUY @ 68.50 -> Exit: 68.50 PnL: 0.00 (SL)
+[CLOSED] BUY @ 70.30 -> Exit: 68.50 PnL: -1.80 (SL)
+[CLOSED] BUY @ 71.95 -> Exit: 66.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 71.30 -> Exit: 72.05 PnL: -0.75 (SL)
+[CLOSED] SELL @ 70.40 -> Exit: 72.05 PnL: -1.65 (SL)
+[CLOSED] BUY @ 70.85 -> Exit: 65.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 69.05 -> Exit: 69.15 PnL: -0.10 (SL)
+[CLOSED] BUY @ 71.80 -> Exit: 66.80 PnL: -5.00 (SL)
+[CLOSED] SELL @ 71.40 -> Exit: 69.15 PnL: 2.25 (SL)
+[CLOSED] SELL @ 70.70 -> Exit: 69.15 PnL: 1.55 (SL)
+[CLOSED] BUY @ 71.55 -> Exit: 66.55 PnL: -5.00 (SL)
+[CLOSED] SELL @ 70.70 -> Exit: 69.15 PnL: 1.55 (SL)
+[CLOSED] BUY @ 72.00 -> Exit: 67.00 PnL: -5.00 (SL)
+[CLOSED] BUY @ 72.20 -> Exit: 67.20 PnL: -5.00 (SL)
+[CLOSED] SELL @ 70.30 -> Exit: 69.15 PnL: 1.15 (SL)
+[CLOSED] SELL @ 69.45 -> Exit: 69.15 PnL: 0.30 (SL)
+[CLOSED] BUY @ 70.70 -> Exit: 65.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 69.00 -> Exit: 69.15 PnL: -0.15 (SL)
+[CLOSED] SELL @ 68.60 -> Exit: 69.15 PnL: -0.55 (SL)
+[CLOSED] BUY @ 68.60 -> Exit: 67.70 PnL: -0.90 (SL)
+[CLOSED] SELL @ 67.95 -> Exit: 69.15 PnL: -1.20 (SL)
+[CLOSED] SELL @ 66.35 -> Exit: 71.35 PnL: -5.00 (SL)
+[CLOSED] BUY @ 68.60 -> Exit: 67.70 PnL: -0.90 (SL)
+[CLOSED] BUY @ 69.80 -> Exit: 64.80 PnL: -5.00 (SL)
+[CLOSED] BUY @ 70.95 -> Exit: 65.95 PnL: -5.00 (SL)
+[CLOSED] SELL @ 68.85 -> Exit: 66.25 PnL: 2.60 (SL)
+[CLOSED] BUY @ 68.70 -> Exit: 63.70 PnL: -5.00 (SL)
+[CLOSED] SELL @ 68.55 -> Exit: 66.25 PnL: 2.30 (SL)
+[CLOSED] SELL @ 66.45 -> Exit: 66.25 PnL: 0.20 (SL)
+[CLOSED] SELL @ 66.00 -> Exit: 66.25 PnL: -0.25 (SL)
+[CLOSED] SELL @ 66.05 -> Exit: 66.25 PnL: -0.20 (SL)
+[CLOSED] SELL @ 64.25 -> Exit: 61.00 PnL: 3.25 (SL)
+[CLOSED] BUY @ 64.70 -> Exit: 63.80 PnL: -0.90 (SL)
+[CLOSED] SELL @ 64.60 -> Exit: 66.25 PnL: -1.65 (SL)
+[CLOSED] SELL @ 63.50 -> Exit: 61.00 PnL: 2.50 (SL)
+[CLOSED] BUY @ 64.00 -> Exit: 63.80 PnL: -0.20 (SL)
+[CLOSED] BUY @ 64.95 -> Exit: 63.80 PnL: -1.15 (SL)
+[CLOSED] BUY @ 66.90 -> Exit: 61.90 PnL: -5.00 (SL)
+[CLOSED] BUY @ 66.80 -> Exit: 61.80 PnL: -5.00 (SL)
+[CLOSED] SELL @ 66.45 -> Exit: 61.00 PnL: 5.45 (SL)
+[CLOSED] SELL @ 64.35 -> Exit: 61.00 PnL: 3.35 (SL)
+[CLOSED] BUY @ 65.10 -> Exit: 60.10 PnL: -5.00 (SL)
+[CLOSED] SELL @ 64.50 -> Exit: 61.00 PnL: 3.50 (SL)
+[CLOSED] BUY @ 64.65 -> Exit: 59.65 PnL: -5.00 (SL)
+[CLOSED] SELL @ 64.20 -> Exit: 61.00 PnL: 3.20 (SL)
+[CLOSED] SELL @ 63.50 -> Exit: 61.00 PnL: 2.50 (SL)
+[CLOSED] SELL @ 62.35 -> Exit: 61.00 PnL: 1.35 (SL)
+[CLOSED] SELL @ 60.00 -> Exit: 61.60 PnL: -1.60 (SL)
+[CLOSED] SELL @ 59.95 -> Exit: 61.60 PnL: -1.65 (SL)
+[CLOSED] SELL @ 60.00 -> Exit: 61.60 PnL: -1.60 (SL)
+[CLOSED] SELL @ 58.70 -> Exit: 63.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 60.60 -> Exit: 63.40 PnL: 2.80 (SL)
+[CLOSED] SELL @ 60.25 -> Exit: 61.60 PnL: -1.35 (SL)
+[CLOSED] SELL @ 59.85 -> Exit: 61.60 PnL: -1.75 (SL)
+[CLOSED] SELL @ 58.70 -> Exit: 63.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 58.90 -> Exit: 63.40 PnL: 4.50 (SL)
+[CLOSED] BUY @ 59.50 -> Exit: 63.40 PnL: 3.90 (SL)
+[CLOSED] BUY @ 60.40 -> Exit: 63.40 PnL: 3.00 (SL)
+[CLOSED] SELL @ 59.20 -> Exit: 64.20 PnL: -5.00 (SL)
+[CLOSED] BUY @ 60.50 -> Exit: 63.40 PnL: 2.90 (SL)
+[CLOSED] SELL @ 60.05 -> Exit: 61.60 PnL: -1.55 (SL)
+[CLOSED] SELL @ 58.55 -> Exit: 63.55 PnL: -5.00 (SL)
+[CLOSED] BUY @ 58.90 -> Exit: 63.40 PnL: 4.50 (SL)
+[CLOSED] BUY @ 63.30 -> Exit: 73.30 PnL: 10.00 (TP)
+[CLOSED] BUY @ 76.80 -> Exit: 71.80 PnL: -5.00 (SL)
+[CLOSED] BUY @ 81.05 -> Exit: 76.05 PnL: -5.00 (SL)
+[CLOSED] SELL @ 75.50 -> Exit: 75.30 PnL: 0.20 (SL)
+[CLOSED] SELL @ 73.70 -> Exit: 73.45 PnL: 0.25 (SL)
+[CLOSED] SELL @ 73.25 -> Exit: 73.45 PnL: -0.20 (SL)
+[CLOSED] SELL @ 70.20 -> Exit: 69.20 PnL: 1.00 (SL)
+[CLOSED] SELL @ 68.10 -> Exit: 69.20 PnL: -1.10 (SL)
+[CLOSED] BUY @ 76.05 -> Exit: 86.05 PnL: 10.00 (TP)
+[CLOSED] BUY @ 81.55 -> Exit: 84.50 PnL: 2.95 (SL)
+[CLOSED] BUY @ 86.55 -> Exit: 88.30 PnL: 1.75 (SL)
+[CLOSED] SELL @ 84.50 -> Exit: 86.20 PnL: -1.70 (SL)
+[CLOSED] SELL @ 83.25 -> Exit: 88.25 PnL: -5.00 (SL)
+[CLOSED] BUY @ 87.20 -> Exit: 82.20 PnL: -5.00 (SL)
+[CLOSED] SELL @ 84.05 -> Exit: 82.00 PnL: 2.05 (SL)
+[CLOSED] BUY @ 84.40 -> Exit: 79.40 PnL: -5.00 (SL)
+[CLOSED] SELL @ 82.25 -> Exit: 80.60 PnL: 1.65 (SL)
+[CLOSED] BUY @ 85.30 -> Exit: 80.30 PnL: -5.00 (SL)
+[CLOSED] SELL @ 85.20 -> Exit: 80.60 PnL: 4.60 (SL)
+[CLOSED] SELL @ 81.55 -> Exit: 82.20 PnL: -0.65 (SL)
+[CLOSED] SELL @ 80.80 -> Exit: 82.20 PnL: -1.40 (SL)
+[CLOSED] BUY @ 82.15 -> Exit: 84.75 PnL: 2.60 (SL)
+[CLOSED] BUY @ 84.85 -> Exit: 79.85 PnL: -5.00 (SL)
+[CLOSED] SELL @ 82.05 -> Exit: 82.65 PnL: -0.60 (SL)
+[CLOSED] SELL @ 80.50 -> Exit: 81.25 PnL: -0.75 (SL)
+[CLOSED] BUY @ 82.35 -> Exit: 77.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 80.70 -> Exit: 79.00 PnL: 1.70 (SL)
+[CLOSED] SELL @ 78.40 -> Exit: 79.50 PnL: -1.10 (SL)
+[CLOSED] SELL @ 76.40 -> Exit: 78.30 PnL: -1.90 (SL)
+[CLOSED] BUY @ 79.60 -> Exit: 80.50 PnL: 0.90 (SL)
+[CLOSED] SELL @ 78.45 -> Exit: 83.45 PnL: -5.00 (SL)
+[CLOSED] BUY @ 81.45 -> Exit: 80.85 PnL: -0.60 (SL)
+[CLOSED] BUY @ 83.25 -> Exit: 78.25 PnL: -5.00 (SL)
+[CLOSED] SELL @ 82.55 -> Exit: 82.60 PnL: -0.05 (SL)
+[CLOSED] SELL @ 80.20 -> Exit: 70.20 PnL: 10.00 (TP)
+[CLOSED] SELL @ 68.35 -> Exit: 73.35 PnL: -5.00 (SL)
+[CLOSED] BUY @ 73.50 -> Exit: 68.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 70.45 -> Exit: 71.65 PnL: -1.20 (SL)
+[CLOSED] BUY @ 70.55 -> Exit: 70.70 PnL: 0.15 (SL)
+[CLOSED] SELL @ 67.95 -> Exit: 72.95 PnL: -5.00 (SL)
+[CLOSED] BUY @ 72.45 -> Exit: 67.45 PnL: -5.00 (SL)
+[CLOSED] BUY @ 72.50 -> Exit: 67.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 71.10 -> Exit: 70.95 PnL: 0.15 (SL)
+[CLOSED] BUY @ 72.35 -> Exit: 67.35 PnL: -5.00 (SL)
+[CLOSED] SELL @ 69.75 -> Exit: 70.95 PnL: -1.20 (SL)
+[CLOSED] BUY @ 72.50 -> Exit: 67.50 PnL: -5.00 (SL)
+[CLOSED] SELL @ 68.50 -> Exit: 66.45 PnL: 2.05 (SL)
+[CLOSED] SELL @ 65.60 -> Exit: 55.60 PnL: 10.00 (TP)
+[CLOSED] SELL @ 64.45 -> Exit: 54.45 PnL: 10.00 (TP)
+[CLOSED] SELL @ 62.15 -> Exit: 57.10 PnL: 5.05 (SL)
+[CLOSED] SELL @ 59.80 -> Exit: 57.10 PnL: 2.70 (SL)
+[CLOSED] SELL @ 58.30 -> Exit: 57.10 PnL: 1.20 (SL)
+[CLOSED] SELL @ 57.25 -> Exit: 57.10 PnL: 0.15 (SL)
+[CLOSED] SELL @ 55.30 -> Exit: 57.10 PnL: -1.80 (SL)
+[CLOSED] SELL @ 55.10 -> Exit: 60.10 PnL: -5.00 (SL)
+[CLOSED] BUY @ 55.65 -> Exit: 58.50 PnL: 2.85 (SL)
+[CLOSED] SELL @ 54.70 -> Exit: 59.70 PnL: -5.00 (SL)
+[CLOSED] BUY @ 55.20 -> Exit: 58.50 PnL: 3.30 (SL)
+[CLOSED] SELL @ 55.15 -> Exit: 60.15 PnL: -5.00 (SL)
+[CLOSED] BUY @ 55.75 -> Exit: 58.50 PnL: 2.75 (SL)
+[CLOSED] BUY @ 57.30 -> Exit: 58.50 PnL: 1.20 (SL)
+[CLOSED] BUY @ 60.00 -> Exit: 58.50 PnL: -1.50 (SL)
+[CLOSED] SELL @ 60.00 -> Exit: 61.00 PnL: -1.00 (SL)
+[OPEN] SELL @ 59.65
+[CLOSED] BUY @ 60.05 -> Exit: 58.50 PnL: -1.55 (SL)
+[OPEN] BUY @ 61.00
+[OPEN] SELL @ 60.55
+[OPEN] BUY @ 61.00
+[OPEN] BUY @ 61.70
+[OPEN] SELL @ 61.55
+[OPEN] SELL @ 61.20
+[OPEN] BUY @ 61.45
+[OPEN] SELL @ 60.30
+[OPEN] SELL @ 59.50
+[OPEN] BUY @ 60.00
+[OPEN] BUY @ 60.35
+==============================
