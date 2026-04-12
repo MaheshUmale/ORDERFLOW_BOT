@@ -207,8 +207,9 @@ def update_chart(n, active_instrument, mode, history, tab):
     inst_engine = engines.get(instrument_key, engine)
 
     all_opt_candles = get_all_opt_candles(instrument_key)
-    if not df_opt.empty:
+    if not df_opt.empty and all_opt_candles:
         last_c = all_opt_candles[-1]
+        # Ensure we have some base analysis to start from
         prev_cum_delta = inst_analysis[-1]['cum_delta'] if inst_analysis else 0
         current_c_analysis = inst_engine.analyze_candle(last_c, prev_cum_delta)
         # Deep copy to avoid modifying the analysis_storage

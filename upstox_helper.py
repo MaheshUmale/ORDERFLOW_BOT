@@ -9,7 +9,7 @@ load_dotenv()
 class UpstoxHelper:
     def __init__(self):
         # Access Token is the primary authentication for the provided environment
-        self.access_token = 'eyJ0eXAiOiJKV1QiLCJrZXlfaWQiOiJza192MS4wIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiI3NkFGMzUiLCJqdGkiOiI2OWQ4NmNjZjhiZDAzNDY0OGVjODJlYWQiLCJpc011bHRpQ2xpZW50IjpmYWxzZSwiaXNQbHVzUGxhbiI6ZmFsc2UsImlhdCI6MTc3NTc5MTMxMSwiaXNzIjoidWRhcGktZ2F0ZXdheS1zZXJ2aWNlIiwiZXhwIjoxNzc1ODU4NDAwfQ.z523ziIynXatZYrVB6JDr8GpHkaZpnyk9hlULhbnbRs'
+        self.access_token = os.getenv("UPSTOX_ACCESS_TOKEN", "")
         self.base_url = "https://api.upstox.com/v2"
         self.base_url_v3 = "https://api.upstox.com/v3"
         self._instruments_cache = None
@@ -91,4 +91,20 @@ class UpstoxHelper:
                 return data['data']['candles']
         else:
             print(f"Historical API Error {response.status_code}: {response.text}")
+        return []
+
+    def get_historical_candles_range(self, instrument_key, from_date, to_date, interval='1minute'):
+        """Fetch historical candles for a specific range."""
+        url = f"{self.base_url}/historical-candle/{instrument_key}/{interval}/{to_date}/{from_date}"
+        headers = {
+            'Authorization': f"Bearer {self.access_token}",
+            'Accept': 'application/json'
+        }
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            data = response.json()
+            if data['status'] == 'success':
+                return data['data']['candles']
+        else:
+            print(f"Historical Range API Error {response.status_code}: {response.text}")
         return []
