@@ -1,48 +1,42 @@
 # Order Flow & Relative Strength Trading Terminal
 
-A real-time trading terminal built with Plotly Dash and Upstox API for Order Flow (Footprint) analysis and Relative Strength strategies.
+A high-performance real-time trading terminal built with Plotly Dash and Upstox API. It focuses on Order Flow (Footprint) analysis and Relative Strength strategies to identify high-probability trading opportunities.
 
 ## Key Features
 
 - **Real-Time Order Flow**: Live Footprint charts with delta, absorption zones, aggression (imbalances), and exhaustion detection.
 - **Relative Strength Strategy**: Detects structural divergence between the Spot Index (NIFTY/BANKNIFTY) and Option contracts.
-- **Multi-Tab Support**: Open multiple instruments in different browser tabs independently.
-- **Automatic Trend Levels**: Real-time Support and Resistance levels based on pivot algorithms.
-- **Live Upstox Integration**: Uses Upstox V3 WebSocket for live market data and V2 Historical API for bootstrapping.
+- **Multi-Tab Support**: Browser-based terminal allows independent instrument tracking across multiple tabs.
+- **Automatic Trend Levels**: Integrated Support and Resistance levels based on real-time price action.
+- **Upstox V3 Integration**: Robust WebSocket implementation for low-latency market data.
 
-## Architecture
+## Architecture Overview
 
-- **`app.py`**: Dash UI and real-time charting logic.
-- **`data_manager.py`**: Orchestrates live data aggregation, historical bootstrapping, and multi-instrument state.
-- **`upstox_wss.py`**: Robust WebSocket client (V3) with Protobuf decoding and automatic subscriptions.
-- **`order_flow_engine.py`**: Core logic for analyzing footprint candles (imbalances, walls, exhaustion).
-- **`strategy_logic.py`**: Implementation of the Relative Strength divergence strategy.
-- **`upstox_helper.py`**: API utilities for instrument discovery, option chains, and historical data.
+- **Frontend**: Dash & Plotly for interactive, real-time charting.
+- **Data Engine**: `data_manager.py` handles multi-instrument data aggregation, synchronization, and historical bootstrapping.
+- **Analysis Engine**: `order_flow_engine.py` processes per-candle footprint data for micro-structure signals.
+- **Strategy Engine**: `strategy_logic.py` implements the RS divergence logic.
+- **Live Feed**: `upstox_wss.py` manages the WebSocket connection and Protobuf decoding.
 
-## Setup
+## Quick Start
 
-1. Install dependencies:
+1. **Install Dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
-2. Configure `.env` with your Upstox credentials (see `.env.example`).
-3. Start the terminal:
+2. **Configure Environment**:
+   Copy `.env.example` to `.env` and fill in your Upstox credentials.
+3. **Run Terminal**:
    ```bash
    python3 app.py
    ```
 
-## Logs & Observability
+## Signal Indicators
 
-The terminal logs real-time data flow to the console:
-- `WSS TICK`: Raw tick received from Upstox WebSocket.
-- `DM TICK`: Tick processed and aggregated into a candle by the Data Manager.
-
-## Dashboard Usage
-
-- **Base Index**: Choose between NIFTY and BANKNIFTY.
-- **Option Instrument**: Search and select specific option contracts.
-- **Terminal Mode**: Switch between 'Order Flow' and 'Rel. Strength' views.
-- **Connect & Start**: Initialize the live feed for the selected instrument.
+- **OF BUY/SELL**: Order Flow signals based on diagonal imbalances and delta.
+- **RS BUY**: Relative Strength bullish divergence signals (Index makes a lower low while Option holds).
+- **Absorption**: Highlights price levels with high volume concentration.
+- **Exhaustion**: Detects fading momentum at candle extremes.
 
 ---
-*Inspired by NinjaTrader 8 Order Flow Bot.*
+*Developed for professional traders seeking institutional-grade order flow insights.*

@@ -6,6 +6,7 @@ from collections import deque
 from footprint_candle import FootprintCandle
 from order_flow_engine import OrderFlowEngine
 from strategy_logic import RelativeStrengthStrategy
+from trade_manager import TradeManager
 from upstox_wss import UpstoxWSS
 from upstox_helper import UpstoxHelper
 
@@ -27,6 +28,7 @@ opt_to_idx_map = {}
 
 helper = UpstoxHelper()
 rs_strategy = RelativeStrengthStrategy()
+trade_manager = TradeManager()
 
 # Active set of keys to subscribe to
 subscribed_instruments = set()
@@ -37,9 +39,13 @@ def on_tick_received(instrument_key, price, volume, is_buy):
     now = pd.Timestamp.now(tz='Asia/Kolkata').replace(tzinfo=None)
     ts_min = now.floor('1min')
 
+    # Fast path: check if instrument is even tracked without lock first
+    if instrument_key not in subscribed_instruments:
+        return
+
     with data_lock:
-        # LOG FOR THE USER
-        print(f"DM TICK: {instrument_key} Price={price} Vol={volume} @ {ts_min}", flush=True)
+        # 0. Update Trade Manager
+        trade_manager.update_trades(instrument_key, price)
 
         # 1. Footprint Aggregation
         if instrument_key in candles_storage:
@@ -121,7 +127,28 @@ def get_synced_df(opt_key):
 upstox_wss = UpstoxWSS(callback=on_tick_received)
 
 def start_live_feed():
-    upstox_wss.start()
+    import os
+    if os.getenv("MOCK_DATA") == "TRUE":
+        threading.Thread(target=run_mock_feed, daemon=True).start()
+    else:
+        upstox_wss.start()
+
+def run_mock_feed():
+    print("STARTING MOCK FEED...", flush=True)
+    while True:
+        with data_lock:
+            active_keys = list(subscribed_instruments)
+        if not active_keys:
+            time.sleep(1)
+            continue
+
+        for key in active_keys:
+            # Generate a random tick
+            price = 100 + random.random() * 10
+            vol = random.randint(1, 500)
+            is_buy = random.random() > 0.5
+            on_tick_received(key, price, vol, is_buy)
+        time.sleep(0.5)
 
 def change_instrument(opt_key, idx_name='NIFTY'):
     global subscribed_instruments

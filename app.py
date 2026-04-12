@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
 from data_manager import (get_all_opt_candles, get_synced_df,
-                          start_live_feed, change_instrument, rs_strategy, engine)
+                          start_live_feed, change_instrument, rs_strategy, engine, trade_manager)
 from pivot_algorithm import AutoTrendSupportResistance
 from upstox_helper import UpstoxHelper
 import datetime
@@ -53,6 +53,14 @@ app.layout = html.Div([
 
             # Live Stats Panel
             html.Div([
+                html.Div([
+                    html.Div("PnL", style={'fontSize': '10px', 'color': '#aaa'}),
+                    html.Div(id='stat-pnl', children="0.00", style={'fontSize': '18px', 'color': '#00ff00', 'fontWeight': 'bold'})
+                ], style={'display': 'inline-block', 'marginRight': '20px', 'textAlign': 'center'}),
+                html.Div([
+                    html.Div("Win Rate", style={'fontSize': '10px', 'color': '#aaa'}),
+                    html.Div(id='stat-winrate', children="0%", style={'fontSize': '18px', 'color': 'white'})
+                ], style={'display': 'inline-block', 'marginRight': '20px', 'textAlign': 'center'}),
                 html.Div([
                     html.Div("Backend LTP", style={'fontSize': '10px', 'color': '#aaa'}),
                     html.Div(id='stat-ltp', children="0.00", style={'fontSize': '18px', 'color': '#00ff00', 'fontWeight': 'bold'})
@@ -153,7 +161,9 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
      Output('stat-candles', 'children'),
      Output('stat-tick-time', 'children'),
      Output('stat-refresh-count', 'children'),
-     Output('stat-heartbeat', 'style')],
+     Output('stat-heartbeat', 'style'),
+     Output('stat-pnl', 'children'),
+     Output('stat-winrate', 'children')],
     [Input('update-interval', 'n_intervals'),
      Input('active-instrument-store', 'data')],
     [State('terminal-mode', 'value'),
@@ -168,13 +178,13 @@ def update_chart(n, active_instrument, mode, history):
     print(f"DEBUG: update_chart called. n={n}, active_instrument={active_instrument}", flush=True)
 
     if not active_instrument or not isinstance(active_instrument, dict):
-        return go.Figure().update_layout(template="plotly_dark"), "STATUS: INITIALIZING", [], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style
+        return go.Figure().update_layout(template="plotly_dark"), "STATUS: INITIALIZING", [], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
 
     instrument_label = active_instrument.get('label', 'Unknown')
     instrument_key = active_instrument.get('key')
 
     if not instrument_key:
-        return go.Figure().update_layout(title="Please select an instrument and click Connect.", template="plotly_dark"), "STATUS: READY", [html.Div(e) for e in reversed(history)], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style
+        return go.Figure().update_layout(title="Please select an instrument and click Connect.", template="plotly_dark"), "STATUS: READY", [html.Div(e) for e in reversed(history)], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
 
     # 1. Prepare Data
     all_opt_candles = get_all_opt_candles(instrument_key)
@@ -182,7 +192,7 @@ def update_chart(n, active_instrument, mode, history):
 
     if not all_opt_candles:
         msg = f"Waiting for ticks for {instrument_label}..."
-        return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, [html.Div(e) for e in reversed(history)], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style
+        return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, [html.Div(e) for e in reversed(history)], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
 
     df_opt = pd.DataFrame([{
         'time': c.start_time, 'open': c.open, 'high': c.high, 'low': c.low, 'close': c.close, 'delta': c.delta
@@ -244,15 +254,20 @@ def update_chart(n, active_instrument, mode, history):
     for i, row in df_merged.iterrows():
         if row['signal'] and pd.notna(row['signal']):
             color = 'lime' if row['signal'] == 'BUY' else 'red'
+            ev = trade_manager.get_ev(row['confidence'])
             fig.add_trace(go.Scatter(x=[row['time']], y=[row['low'] if row['signal'] == 'BUY' else row['high']],
                                      mode="markers+text", marker=dict(symbol="triangle-up" if row['signal'] == 'BUY' else "triangle-down", size=15, color=color),
-                                     text=[row['signal']], textposition="bottom center", name="OF SIGNAL"), row=1, col=1)
+                                     text=[f"{row['signal']} (EV:{ev:.1f})"], textposition="bottom center", name="OF SIGNAL"), row=1, col=1)
 
-            sig_msg = f"{row['time'].strftime('%H:%M:%S')} - OF {row['signal']} detected"
+            sig_msg = f"{row['time'].strftime('%H:%M:%S')} - OF {row['signal']} (EV:{ev:.1f}) detected"
             if sig_msg not in history:
                 history.append(sig_msg)
+                # Auto-trade if EV is positive
+                if ev > 0:
+                    trade_manager.add_trade(instrument_key, row['signal'], row['close'], row['confidence'])
+
                 if i == len(analysis_df) - 1:
-                    signal_alert_div = html.Div(f"🚀 {row['signal']} SIGNAL DETECTED!",
+                    signal_alert_div = html.Div(f"🚀 {row['signal']} SIGNAL (EV: {ev:.1f}) DETECTED!",
                                                style={'backgroundColor': 'green' if row['signal']=='BUY' else 'red', 'color': 'white', 'padding': '15px', 'borderRadius':'5px', 'fontSize':'20px', 'textAlign':'center'})
 
     if mode == 'RS' and not df_sync.empty:
@@ -301,8 +316,10 @@ def update_chart(n, active_instrument, mode, history):
 
     current_ltp = f"{df_opt['close'].iloc[-1]:.2f}"
     candles_count = str(len(df_opt))
+    pnl_str = f"{trade_manager.stats['realized_pnl']:.2f}"
+    winrate_str = f"{trade_manager.stats['win_rate']:.1f}%"
 
-    return fig, alert_text, [html.Div(e) for e in reversed(history)], signal_alert_div, history, current_ltp, candles_count, last_tick_str, refresh_count, heartbeat_style
+    return fig, alert_text, [html.Div(e) for e in reversed(history)], signal_alert_div, history, current_ltp, candles_count, last_tick_str, refresh_count, heartbeat_style, pnl_str, winrate_str
 
 if __name__ == '__main__':
     # Initialize with no active instrument as requested (no simulation by default)
