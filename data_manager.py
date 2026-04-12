@@ -6,6 +6,7 @@ from collections import deque
 from footprint_candle import FootprintCandle
 from order_flow_engine import OrderFlowEngine
 from strategy_logic import RelativeStrengthStrategy
+from indicators import Indicators
 from trade_manager import TradeManager
 from upstox_wss import UpstoxWSS
 from upstox_helper import UpstoxHelper
@@ -22,7 +23,7 @@ current_candles = {}  # {key: FootprintCandle}
 engines = {}         # {key: OrderFlowEngine}
 aggregated_ohlc = {'idx': {}, 'opt': {}} # Keep this for RS, but might need keying too if multi-index
 
-data_lock = threading.Lock()
+data_lock = threading.RLock()
 # For simplicity in RS, we map option_key -> index_key
 opt_to_idx_map = {}
 
@@ -57,7 +58,15 @@ def on_tick_received(instrument_key, price, volume, is_buy):
                     engine = engines.get(instrument_key)
                     if engine:
                         engine.cumulative_delta += old_candle.delta
-                        analysis_storage[instrument_key].append(engine.analyze_candle(old_candle, engine.cumulative_delta - old_candle.delta))
+                        analysis = engine.analyze_candle(old_candle, engine.cumulative_delta - old_candle.delta)
+                        analysis_storage[instrument_key].append(analysis)
+
+                        # Auto-trade on completed candle
+                        if analysis.get('signal') and analysis.get('confidence', 0) > 0.6:
+                            ev = trade_manager.get_ev(analysis['confidence'])
+                            if ev > 0:
+                                print(f"AUTO-TRADE: {analysis['signal']} on {instrument_key} @ {old_candle.close} (EV: {ev:.1f})", flush=True)
+                                trade_manager.add_trade(instrument_key, analysis['signal'], old_candle.close, analysis['confidence'])
 
                 # Check if candles_storage already has this timestamp (e.g. from bootstrap)
                 # If so, remove it to favor the live one
@@ -109,6 +118,30 @@ def get_all_opt_candles(instrument_key):
             if not all_c or all_c[-1].start_time != current_candles[instrument_key].start_time:
                 all_c.append(current_candles[instrument_key])
         return all_c
+
+def get_opt_df_with_indicators(instrument_key):
+    candles = get_all_opt_candles(instrument_key)
+    if not candles: return pd.DataFrame()
+
+    df = pd.DataFrame([{
+        'time': c.start_time, 'open': c.open, 'high': c.high, 'low': c.low, 'close': c.close, 'volume': c.volume, 'delta': c.delta
+    } for c in candles]).drop_duplicates(subset='time', keep='last')
+
+    df = Indicators.calculate_vwap(df)
+    return df
+
+def get_volume_profile(instrument_key):
+    candles = get_all_opt_candles(instrument_key)
+    if not candles: return {}
+
+    profile = {}
+    # Aggregate volume across last 50 candles for the profile
+    recent_candles = candles[-50:]
+    for c in recent_candles:
+        for price, data in c.price_levels.items():
+            profile[price] = profile.get(price, 0) + data['bid_vol'] + data['ask_vol']
+
+    return profile
 
 def get_synced_df(opt_key):
     with data_lock:
