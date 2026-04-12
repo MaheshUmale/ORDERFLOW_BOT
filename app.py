@@ -4,7 +4,7 @@ from dash.dependencies import Input, Output, State
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
-from data_manager import (get_all_opt_candles, get_synced_df,
+from data_manager import (get_all_opt_candles, get_synced_df, get_opt_df_with_indicators, get_volume_profile,
                           start_live_feed, change_instrument, rs_strategy, engine, trade_manager)
 from pivot_algorithm import AutoTrendSupportResistance
 from upstox_helper import UpstoxHelper
@@ -93,8 +93,12 @@ app.layout = html.Div([
     html.Div([
         dcc.Graph(id='main-chart', style={'height': '75vh', 'width': '78%', 'display': 'inline-block'}),
         html.Div([
-            html.H3("Signal Log", style={'color': 'white', 'textAlign': 'center'}),
-            html.Div(id='signal-log', style={'height': '65vh', 'overflowY': 'scroll', 'color': '#00ff00', 'backgroundColor': '#000', 'padding': '5px', 'fontFamily': 'Courier New', 'fontSize': '12px', 'border':'1px solid #444'})
+            html.H3("Live Monitor", style={'color': 'white', 'textAlign': 'center'}),
+            dcc.Tabs(id='monitor-tabs', value='signals', children=[
+                dcc.Tab(label='Signals', value='signals', style={'backgroundColor': '#222', 'color': 'white'}, selected_style={'backgroundColor': '#444', 'color': 'lime'}),
+                dcc.Tab(label='Trades', value='trades', style={'backgroundColor': '#222', 'color': 'white'}, selected_style={'backgroundColor': '#444', 'color': 'cyan'}),
+            ]),
+            html.Div(id='monitor-content', style={'height': '60vh', 'overflowY': 'scroll', 'backgroundColor': '#000', 'padding': '5px', 'fontFamily': 'Courier New', 'fontSize': '12px', 'border':'1px solid #444'})
         ], style={'width': '20%', 'display': 'inline-block', 'verticalAlign': 'top', 'padding': '10px'})
     ]),
 
@@ -154,7 +158,7 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
 @app.callback(
     [Output('main-chart', 'figure'),
      Output('trap-alerts', 'children'),
-     Output('signal-log', 'children'),
+     Output('monitor-content', 'children'),
      Output('signal-alert', 'children'),
      Output('signal-history', 'data', allow_duplicate=True),
      Output('stat-ltp', 'children'),
@@ -167,10 +171,11 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
     [Input('update-interval', 'n_intervals'),
      Input('active-instrument-store', 'data')],
     [State('terminal-mode', 'value'),
-     State('signal-history', 'data')],
+     State('signal-history', 'data'),
+     State('monitor-tabs', 'value')],
     prevent_initial_call=True
 )
-def update_chart(n, active_instrument, mode, history):
+def update_chart(n, active_instrument, mode, history, tab):
     # Common stats
     refresh_count = str(n)
     heartbeat_style = {'color': 'red' if n % 2 == 0 else 'lime'}
@@ -184,34 +189,37 @@ def update_chart(n, active_instrument, mode, history):
     instrument_key = active_instrument.get('key')
 
     if not instrument_key:
-        return go.Figure().update_layout(title="Please select an instrument and click Connect.", template="plotly_dark"), "STATUS: READY", [html.Div(e) for e in reversed(history)], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
+        monitor_content = [html.Div(e) for e in reversed(history)] if tab == 'signals' else "No Trades"
+        return go.Figure().update_layout(title="Please select an instrument and click Connect.", template="plotly_dark"), "STATUS: READY", monitor_content, "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
 
     # 1. Prepare Data
-    all_opt_candles = get_all_opt_candles(instrument_key)
-    print(f"DEBUG: update_chart called. n={n}, instrument={instrument_key}, candles={len(all_opt_candles)}", flush=True)
+    df_opt = get_opt_df_with_indicators(instrument_key)
+    print(f"DEBUG: update_chart called. n={n}, instrument={instrument_key}, candles={len(df_opt)}", flush=True)
 
-    if not all_opt_candles:
+    if df_opt.empty:
         msg = f"Waiting for ticks for {instrument_label}..."
-        return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, [html.Div(e) for e in reversed(history)], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
-
-    df_opt = pd.DataFrame([{
-        'time': c.start_time, 'open': c.open, 'high': c.high, 'low': c.low, 'close': c.close, 'delta': c.delta
-    } for c in all_opt_candles]).drop_duplicates(subset='time', keep='last')
+        monitor_content = [html.Div(e) for e in reversed(history)] if tab == 'signals' else "No Trades"
+        return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, monitor_content, "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
 
     # Utilize pre-calculated analysis from storage, appending current incomplete candle analysis
     from data_manager import analysis_storage, engines
     inst_analysis = list(analysis_storage.get(instrument_key, []))
     inst_engine = engines.get(instrument_key, engine)
 
+    all_opt_candles = get_all_opt_candles(instrument_key)
     if not df_opt.empty:
         last_c = all_opt_candles[-1]
         prev_cum_delta = inst_analysis[-1]['cum_delta'] if inst_analysis else 0
         current_c_analysis = inst_engine.analyze_candle(last_c, prev_cum_delta)
-        inst_analysis.append(current_c_analysis)
+        # Deep copy to avoid modifying the analysis_storage
+        display_analysis = inst_analysis + [current_c_analysis]
+    else:
+        display_analysis = inst_analysis
 
-    analysis_df = pd.DataFrame(inst_analysis).drop_duplicates(subset='time', keep='last')
+    analysis_df = pd.DataFrame(display_analysis).drop_duplicates(subset='time', keep='last')
 
     # Merge data to ensure perfect alignment and avoid index errors
+    # Indicators df_opt has 'time' from get_opt_df_with_indicators
     df_merged = pd.merge(df_opt, analysis_df, on='time', how='inner', suffixes=('', '_an'))
 
     df_sync = get_synced_df(instrument_key)
@@ -225,6 +233,23 @@ def update_chart(n, active_instrument, mode, history):
 
     # 3. Main Plot
     fig.add_trace(go.Candlestick(x=df_merged['time'], open=df_merged['open'], high=df_merged['high'], low=df_merged['low'], close=df_merged['close'], name=instrument_label), row=1, col=1, secondary_y=False)
+
+    # VWAP & Bands
+    if 'vwap' in df_merged.columns:
+        fig.add_trace(go.Scatter(x=df_merged['time'], y=df_merged['vwap'], name='VWAP', line=dict(color='yellow', width=2)), row=1, col=1)
+        fig.add_trace(go.Scatter(x=df_merged['time'], y=df_merged['vwap_upper1'], name='VWAP U1', line=dict(color='rgba(255,255,0,0.3)', width=1, dash='dash')), row=1, col=1)
+        fig.add_trace(go.Scatter(x=df_merged['time'], y=df_merged['vwap_lower1'], name='VWAP L1', line=dict(color='rgba(255,255,0,0.3)', width=1, dash='dash')), row=1, col=1)
+
+    # Volume Profile (Horizontal Bars)
+    vp = get_volume_profile(instrument_key)
+    if vp:
+        prices = list(vp.keys())
+        vols = list(vp.values())
+        max_v = max(vols) if vols else 1
+        # Normalize for display on time axis (hacky but works for overlay)
+        last_time = df_merged['time'].iloc[-1]
+        norm_vols = [(v / max_v) * pd.Timedelta(minutes=5) for v in vols]
+        fig.add_trace(go.Bar(y=prices, x=norm_vols, orientation='h', name='VPVR', marker_color='rgba(100,100,100,0.2)', base=last_time - pd.Timedelta(minutes=5)), row=1, col=1)
 
     # Current Price Line (Confirmation of real-time update)
     last_price = df_merged['close'].iloc[-1]
@@ -262,11 +287,7 @@ def update_chart(n, active_instrument, mode, history):
             sig_msg = f"{row['time'].strftime('%H:%M:%S')} - OF {row['signal']} (EV:{ev:.1f}) detected"
             if sig_msg not in history:
                 history.append(sig_msg)
-                # Auto-trade if EV is positive
-                if ev > 0:
-                    trade_manager.add_trade(instrument_key, row['signal'], row['close'], row['confidence'])
-
-                if i == len(analysis_df) - 1:
+                if i == len(df_merged) - 1:
                     signal_alert_div = html.Div(f"🚀 {row['signal']} SIGNAL (EV: {ev:.1f}) DETECTED!",
                                                style={'backgroundColor': 'green' if row['signal']=='BUY' else 'red', 'color': 'white', 'padding': '15px', 'borderRadius':'5px', 'fontSize':'20px', 'textAlign':'center'})
 
@@ -319,7 +340,20 @@ def update_chart(n, active_instrument, mode, history):
     pnl_str = f"{trade_manager.stats['realized_pnl']:.2f}"
     winrate_str = f"{trade_manager.stats['win_rate']:.1f}%"
 
-    return fig, alert_text, [html.Div(e) for e in reversed(history)], signal_alert_div, history, current_ltp, candles_count, last_tick_str, refresh_count, heartbeat_style, pnl_str, winrate_str
+    if tab == 'signals':
+        monitor_content = [html.Div(e) for e in reversed(history)]
+    else:
+        # Trades tab
+        trade_items = []
+        for t in reversed(trade_manager.trades):
+            color = 'cyan' if t.status == 'OPEN' else ('lime' if t.pnl > 0 else 'red')
+            text = f"[{t.status}] {t.side} @ {t.entry_price:.2f}"
+            if t.status == 'CLOSED':
+                text += f" | Exit: {t.exit_price:.2f} PnL: {t.pnl:.2f}"
+            trade_items.append(html.Div(text, style={'color': color, 'marginBottom': '5px', 'borderBottom': '1px solid #333'}))
+        monitor_content = trade_items if trade_items else "No Trades"
+
+    return fig, alert_text, monitor_content, signal_alert_div, history, current_ltp, candles_count, last_tick_str, refresh_count, heartbeat_style, pnl_str, winrate_str
 
 if __name__ == '__main__':
     # Initialize with no active instrument as requested (no simulation by default)

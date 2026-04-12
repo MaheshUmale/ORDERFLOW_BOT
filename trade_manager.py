@@ -1,11 +1,10 @@
-import pandas as pd
-
 class Trade:
     def __init__(self, instrument_key, side, entry_price, stop_loss, take_profit, confidence=0.5):
         self.instrument_key = instrument_key
         self.side = side # 'BUY' or 'SELL'
         self.entry_price = entry_price
         self.stop_loss = stop_loss
+        self.initial_stop = stop_loss
         self.take_profit = take_profit
         self.confidence = confidence
         self.status = 'OPEN' # 'OPEN', 'CLOSED'
@@ -17,12 +16,22 @@ class Trade:
         if self.status != 'OPEN':
             return
 
+        # Trailing Stop Logic
         if self.side == 'BUY':
+            # If price moves up by 2 points, move SL up by 1 point
+            potential_new_sl = current_price - 4 # Maintain a 4 point buffer once trailing
+            if current_price > self.entry_price + 2:
+                self.stop_loss = max(self.stop_loss, potential_new_sl)
+
             if current_price <= self.stop_loss:
                 self.close(self.stop_loss, 'SL')
             elif current_price >= self.take_profit:
                 self.close(self.take_profit, 'TP')
         else: # SELL
+            potential_new_sl = current_price + 4
+            if current_price < self.entry_price - 2:
+                self.stop_loss = min(self.stop_loss, potential_new_sl)
+
             if current_price >= self.stop_loss:
                 self.close(self.stop_loss, 'SL')
             elif current_price <= self.take_profit:

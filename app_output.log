@@ -2,10 +2,11 @@ Dash is running on http://127.0.0.1:8050/
 
  * Serving Flask app 'app'
  * Debug mode: on
+Address already in use
+Port 8050 is in use by another program. Either identify and stop that program, or start the server with a different port.
 DEBUG: update_chart called. n=1, active_instrument={'key': None, 'label': 'No Instrument Selected'}
 DEBUG: update_chart called. n=2, active_instrument={'key': None, 'label': 'No Instrument Selected'}
 DEBUG: update_chart called. n=3, active_instrument={'key': None, 'label': 'No Instrument Selected'}
-DEBUG: update_chart called. n=4, active_instrument={'key': None, 'label': 'No Instrument Selected'}
 STARTING MOCK FEED...
 DEBUG: update_chart called. n=5, active_instrument={'key': 'NSE_FO|54805', 'label': 'NIFTY 23800 PE (2026-04-13)'}
 DEBUG: update_chart called. n=5, instrument=NSE_FO|54805, candles=1
