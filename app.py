@@ -40,6 +40,15 @@ app.layout = html.Div([
             ], style={'display': 'inline-block', 'padding': '10px'}),
 
             html.Div([
+                html.Label("TF:", style={'color': 'white'}),
+                dcc.Dropdown(id='timeframe-selector',
+                             options=[{'label': '1m', 'value': '1min'},
+                                      {'label': '5m', 'value': '5min'},
+                                      {'label': '15m', 'value': '15min'}],
+                             value='1min', style={'width': '80px', 'color': 'black'})
+            ], style={'display': 'inline-block', 'padding': '10px'}),
+
+            html.Div([
                 html.Label("Terminal Mode:", style={'color': 'white'}),
                 dcc.RadioItems(id='terminal-mode',
                                options=[{'label': 'Order Flow', 'value': 'OF'},
@@ -169,13 +178,14 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
      Output('stat-pnl', 'children'),
      Output('stat-winrate', 'children')],
     [Input('update-interval', 'n_intervals'),
-     Input('active-instrument-store', 'data')],
+     Input('active-instrument-store', 'data'),
+     Input('timeframe-selector', 'value')],
     [State('terminal-mode', 'value'),
      State('signal-history', 'data'),
      State('monitor-tabs', 'value')],
     prevent_initial_call=True
 )
-def update_chart(n, active_instrument, mode, history, tab):
+def update_chart(n, active_instrument, timeframe, mode, history, tab):
     # Common stats
     refresh_count = str(n)
     heartbeat_style = {'color': 'red' if n % 2 == 0 else 'lime'}
@@ -193,8 +203,8 @@ def update_chart(n, active_instrument, mode, history, tab):
         return go.Figure().update_layout(title="Please select an instrument and click Connect.", template="plotly_dark"), "STATUS: READY", monitor_content, "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
 
     # 1. Prepare Data
-    df_opt = get_opt_df_with_indicators(instrument_key)
-    print(f"DEBUG: update_chart called. n={n}, instrument={instrument_key}, candles={len(df_opt)}", flush=True)
+    df_opt = get_opt_df_with_indicators(instrument_key, timeframe)
+    print(f"DEBUG: update_chart called. n={n}, instrument={instrument_key}, tf={timeframe}, candles={len(df_opt)}", flush=True)
 
     if df_opt.empty:
         msg = f"Waiting for ticks for {instrument_label}..."
@@ -203,14 +213,14 @@ def update_chart(n, active_instrument, mode, history, tab):
 
     # Utilize pre-calculated analysis from storage, appending current incomplete candle analysis
     from data_manager import analysis_storage, engines
-    inst_analysis = list(analysis_storage.get(instrument_key, []))
+    inst_analysis = list(analysis_storage.get((instrument_key, timeframe), []))
     inst_engine = engines.get(instrument_key, engine)
 
-    all_opt_candles = get_all_opt_candles(instrument_key)
+    all_opt_candles = get_all_opt_candles(instrument_key, timeframe)
     if not df_opt.empty and all_opt_candles:
         last_c = all_opt_candles[-1]
         # Ensure we have some base analysis to start from
-        prev_cum_delta = inst_analysis[-1]['cum_delta'] if inst_analysis else 0
+        prev_cum_delta = inst_analysis[-1].get('cum_delta', 0) if inst_analysis else 0
         current_c_analysis = inst_engine.analyze_candle(last_c, prev_cum_delta)
         # Deep copy to avoid modifying the analysis_storage
         display_analysis = inst_analysis + [current_c_analysis]
@@ -242,7 +252,7 @@ def update_chart(n, active_instrument, mode, history, tab):
         fig.add_trace(go.Scatter(x=df_merged['time'], y=df_merged['vwap_lower1'], name='VWAP L1', line=dict(color='rgba(255,255,0,0.3)', width=1, dash='dash')), row=1, col=1)
 
     # Volume Profile (Horizontal Bars)
-    vp = get_volume_profile(instrument_key)
+    vp = get_volume_profile(instrument_key, timeframe)
     if vp:
         prices = list(vp.keys())
         vols = list(vp.values())
@@ -317,10 +327,13 @@ def update_chart(n, active_instrument, mode, history, tab):
     fig.update_layout(title=f"LIVE: {instrument_label} | UI Last Update: {now_str}", template="plotly_dark",
                       margin=dict(l=10, r=10, t=50, b=10), xaxis_rangeslider_visible=False, showlegend=False)
 
-    # Auto-scale Y-axis and set X-axis range to last 30 mins for better visibility if data is dense
+    # Auto-scale Y-axis and set X-axis range to last 30 units for better visibility if data is dense
     if not df_opt.empty:
         last_time = df_opt['time'].iloc[-1]
-        start_view = last_time - pd.Timedelta(minutes=30)
+        lookback = 30
+        if timeframe == '5min': lookback = 30 * 5
+        elif timeframe == '15min': lookback = 30 * 15
+        start_view = last_time - pd.Timedelta(minutes=lookback)
         # Add a 2-minute buffer on the right so the live candle isn't cut off
         fig.update_xaxes(range=[start_view, last_time + pd.Timedelta(minutes=2)])
 

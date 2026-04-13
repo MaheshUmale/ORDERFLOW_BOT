@@ -47,8 +47,12 @@ class Trade:
             self.pnl = self.entry_price - self.exit_price
 
 class TradeManager:
-    def __init__(self):
+    def __init__(self, daily_loss_limit=50, max_active_trades=3, helper=None):
         self.trades = []
+        self.daily_loss_limit = daily_loss_limit
+        self.max_active_trades = max_active_trades
+        self.helper = helper # UpstoxHelper
+        self.live_mode = False # Safety toggle
         self.stats = {
             'total_trades': 0,
             'wins': 0,
@@ -58,6 +62,16 @@ class TradeManager:
         }
 
     def add_trade(self, instrument_key, side, entry_price, confidence=0.5):
+        # Risk Guardrails
+        if self.stats['realized_pnl'] <= -self.daily_loss_limit:
+            print(f"GUARDRAIL: Daily loss limit reached ({self.stats['realized_pnl']:.2f})", flush=True)
+            return None
+
+        active_trades = [t for t in self.trades if t.status == 'OPEN']
+        if len(active_trades) >= self.max_active_trades:
+            print(f"GUARDRAIL: Max active trades reached ({len(active_trades)})", flush=True)
+            return None
+
         # Default RR 1:2
         risk = 5 # Fixed risk points for now
         reward = risk * 2
@@ -71,6 +85,12 @@ class TradeManager:
 
         new_trade = Trade(instrument_key, side, entry_price, sl, tp, confidence)
         self.trades.append(new_trade)
+
+        if self.live_mode and self.helper:
+            print(f"LIVE ORDER: Sending {side} for {instrument_key}", flush=True)
+            res = self.helper.place_order(instrument_key, side, quantity=25) # Fixed qty for now
+            print(f"UPSTOX RESPONSE: {res}", flush=True)
+
         return new_trade
 
     def update_trades(self, instrument_key, current_price):

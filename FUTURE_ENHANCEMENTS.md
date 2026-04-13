@@ -6,19 +6,20 @@ This document outlines the roadmap for the Order Flow & RS Trading Terminal.
 - [x] **Simulated Trade Manager**: Implement `trade_manager.py` to handle virtual entry/exit, TP/SL, and PnL tracking.
 - [x] **Expected Value (EV) Module**: Calculate EV for signals based on historical win rates and average payouts.
 - [x] **Confidence Scoring**: Assign weights to Order Flow signals based on imbalance clusters and delta magnitude.
-- [x] **UI Trade Panel**: Add a dedicated UI section to monitor active trades and total session PnL. (Next step)
+- [x] **UI Trade Panel**: Add a dedicated UI section to monitor active trades and total session PnL.
 
 ## Phase 2: Performance & Latency (IN PROGRESS)
-- [/] **Lock Optimization**: Refactor `data_manager.py` to use `ReadWriteLock` or lock-free structures for high-frequency updates. (Basic optimization done)
-- [/] **Pre-calculated Analytics**: Move more computation from the UI callback to the `DM TICK` processing stage. (Basic pre-calc done)
-- [ ] **C++ Extensions**: Port `footprint_candle.py` aggregation logic to Cython or C++ for extreme performance.
+- [x] **Lock Optimization**: Refactor `data_manager.py` to use `RLock` for safe multi-threaded updates.
+- [x] **Pre-calculated Analytics**: Analysis is now computed on candle completion in `data_manager.py`.
+- [ ] **High-Performance Aggregation**: Optimize `footprint_candle.py` with NumPy or specialized structures.
 
-## Phase 3: Advanced Strategies (NEXT)
-- [ ] **Volume Profile (VPVR)**: Implement Volume Profile Visible Range on the Y-axis.
-- [ ] **VWAP & Standard Deviation Bands**: Add VWAP as a core structural reference.
+## Phase 3: Advanced Strategies (COMPLETED)
+- [x] **Volume Profile (VPVR)**: Implemented price-level volume distribution on the main chart.
+- [x] **VWAP & Standard Deviation Bands**: Integrated anchored VWAP with volatility bands.
 - [ ] **Multi-Timeframe Analysis**: Support 1m, 5m, and 15m views simultaneously.
 
-## Phase 4: Live Order Execution
+## Phase 4: Live Order Execution (NEXT)
+- [x] **Automated Trailing Stop**: Implemented dynamic SL adjustment in `TradeManager`.
 - [ ] **Upstox API Integration**: Connect the Trade Manager to the Upstox Order Management System (OMS).
 - [ ] **Risk Guardrails**: Implement daily loss limits and maximum position size checks.
-- [ ] **Automated Trailing Stop**: Logic to move SL to breakeven after a certain profit threshold.
+- [ ] **Backtest Engine**: (EXTRA) Added a historical simulation engine for strategy validation.

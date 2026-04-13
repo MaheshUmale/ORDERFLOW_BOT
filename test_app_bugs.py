@@ -9,13 +9,15 @@ def test_app_logic_simulation():
     # Mock some data
     ts = datetime.datetime.now()
     c = FootprintCandle(100, ts)
+    c.add_tick(100, 50, False)
     c.add_tick(101, 100, True)
     c.close = 101
 
     # 1. Prepare Data (simulating what app.py does)
     # We need to manually populate storage since we're not running the full app
     from data_manager import candles_storage
-    candles_storage[instrument_key] = [c]
+    timeframe = '1min'
+    candles_storage[(instrument_key, timeframe)] = [c]
     engines[instrument_key] = OrderFlowEngine()
 
     df_opt = get_opt_df_with_indicators(instrument_key)
