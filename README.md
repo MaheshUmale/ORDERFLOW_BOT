@@ -5,10 +5,13 @@ A high-performance real-time trading terminal built with Plotly Dash and Upstox 
 ## Key Features
 
 - **Real-Time Order Flow**: Live Footprint charts with delta, absorption zones, aggression (imbalances), and exhaustion detection.
-- **Relative Strength Strategy**: Detects structural divergence between the Spot Index (NIFTY/BANKNIFTY) and Option contracts.
-- **Multi-Tab Support**: Browser-based terminal allows independent instrument tracking across multiple tabs.
-- **Automatic Trend Levels**: Integrated Support and Resistance levels based on real-time price action.
-- **Upstox V3 Integration**: Robust WebSocket implementation for low-latency market data.
+- **Relative Strength Strategy**: Detects structural divergence between the Spot Index and Option contracts.
+- **Multi-Timeframe Support**: Toggle between 1m, 5m, and 15m views with optimized aggregation.
+- **Automated Trade Manager**: Virtual trade execution with dynamic Trailing Stops and PnL tracking.
+- **Expected Value (EV) Logic**: Signal prioritization based on statistical mathematical expectancy.
+- **Institutional Indicators**: Built-in Anchored VWAP with SD bands and Volume Profile (VPVR).
+- **Backtesting Framework**: Evaluate strategies on historical data before going live.
+- **Risk Guardrails**: Automated daily loss limits and max concurrent trade controls.
 
 ## Architecture Overview
 
@@ -37,6 +40,13 @@ A high-performance real-time trading terminal built with Plotly Dash and Upstox 
 - **RS BUY**: Relative Strength bullish divergence signals (Index makes a lower low while Option holds).
 - **Absorption**: Highlights price levels with high volume concentration.
 - **Exhaustion**: Detects fading momentum at candle extremes.
+
+## Backtesting
+
+Run the historical simulation to evaluate strategy performance:
+```bash
+python3 backtest_engine.py
+```
 
 ---
 *Developed for professional traders seeking institutional-grade order flow insights.*

@@ -1,0 +1,39 @@
+Dash is running on http://127.0.0.1:8050/
+
+ * Serving Flask app 'app'
+ * Debug mode: on
+DEBUG: update_chart called. n=1, active_instrument={'key': None, 'label': 'No Instrument Selected'}
+DEBUG: update_chart called. n=2, active_instrument={'key': None, 'label': 'No Instrument Selected'}
+DEBUG: update_chart called. n=3, active_instrument={'key': None, 'label': 'No Instrument Selected'}
+DEBUG: update_chart called. n=4, active_instrument={'key': 'NSE_FO|54805', 'label': 'NIFTY 23800 PE (2026-04-13)'}
+DEBUG: update_chart called. n=4, instrument=NSE_FO|54805, tf=1min, candles=46
+DEBUG: update_chart called. n=5, active_instrument={'key': 'NSE_FO|54805', 'label': 'NIFTY 23800 PE (2026-04-13)'}
+DEBUG: update_chart called. n=5, instrument=NSE_FO|54805, tf=1min, candles=46
+Connected to Upstox WSS
+Subscribing to pending keys: ['NSE_INDEX|Nifty 50', 'NSE_FO|54805']
+Subscribing to: ['NSE_INDEX|Nifty 50', 'NSE_FO|54805']
+WSS TICK: NSE_FO|54805 LTP=173.05 Vol=65 Buy=False
+WSS TICK: NSE_INDEX|Nifty 50 LTP=23657.55 Vol=0 Buy=True
+WSS TICK: NSE_FO|54805 LTP=172.85 Vol=65 Buy=False
+DEBUG: update_chart called. n=6, active_instrument={'key': 'NSE_FO|54805', 'label': 'NIFTY 23800 PE (2026-04-13)'}
+DEBUG: update_chart called. n=6, instrument=NSE_FO|54805, tf=1min, candles=47
+WSS TICK: NSE_FO|54805 LTP=173.0 Vol=195 Buy=True
+WSS TICK: NSE_INDEX|Nifty 50 LTP=23658.35 Vol=0 Buy=True
+WSS TICK: NSE_INDEX|Nifty 50 LTP=23657.85 Vol=0 Buy=True
+DEBUG: update_chart called. n=7, active_instrument={'key': 'NSE_FO|54805', 'label': 'NIFTY 23800 PE (2026-04-13)'}
+DEBUG: update_chart called. n=7, instrument=NSE_FO|54805, tf=1min, candles=47
+WSS TICK: NSE_FO|54805 LTP=173.2 Vol=65 Buy=True
+WSS TICK: NSE_INDEX|Nifty 50 LTP=23659.35 Vol=0 Buy=True
+WSS TICK: NSE_FO|54805 LTP=173.75 Vol=130 Buy=False
+WSS TICK: NSE_INDEX|Nifty 50 LTP=23657.75 Vol=0 Buy=True
+DEBUG: update_chart called. n=8, active_instrument={'key': 'NSE_FO|54805', 'label': 'NIFTY 23800 PE (2026-04-13)'}
+DEBUG: update_chart called. n=8, instrument=NSE_FO|54805, tf=1min, candles=47
+WSS TICK: NSE_FO|54805 LTP=174.0 Vol=130 Buy=True
+WSS TICK: NSE_INDEX|Nifty 50 LTP=23657.9 Vol=0 Buy=True
+WSS TICK: NSE_INDEX|Nifty 50 LTP=23658.1 Vol=0 Buy=True
+DEBUG: update_chart called. n=9, active_instrument={'key': 'NSE_FO|54805', 'label': 'NIFTY 23800 PE (2026-04-13)'}
+DEBUG: update_chart called. n=9, instrument=NSE_FO|54805, tf=1min, candles=47
+WSS TICK: NSE_FO|54805 LTP=174.0 Vol=130 Buy=True
+WSS TICK: NSE_FO|54805 LTP=173.4 Vol=130 Buy=False
+WSS TICK: NSE_INDEX|Nifty 50 LTP=23657.65 Vol=0 Buy=True
+WSS TICK: NSE_INDEX|Nifty 50 LTP=23657.75 Vol=0 Buy=True

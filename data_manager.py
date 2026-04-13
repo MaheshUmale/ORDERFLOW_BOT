@@ -229,6 +229,20 @@ def change_instrument(opt_key, idx_name='NIFTY'):
                     engine.cumulative_delta += f_candle.delta
                     analysis_storage[(opt_key, '1min')].append(engine.analyze_candle(f_candle, engine.cumulative_delta - f_candle.delta))
 
+                # Aggregate MTF bootstrapping
+                df_hist = pd.DataFrame(hist_opt, columns=['time', 'open', 'high', 'low', 'close', 'volume', 'oi'])
+                df_hist['time'] = pd.to_datetime(df_hist['time']).dt.tz_localize(None)
+                for tf in ['5min', '15min']:
+                    df_resampled = df_hist.set_index('time').resample(tf).agg({
+                        'open': 'first', 'high': 'max', 'low': 'min', 'close': 'last', 'volume': 'sum'
+                    }).dropna()
+                    for ts, r in df_resampled.iterrows():
+                        mtf_candle = FootprintCandle(r['open'], ts)
+                        mtf_candle.high, mtf_candle.low, mtf_candle.close, mtf_candle.volume = r['high'], r['low'], r['close'], r['volume']
+                        mtf_candle.delta = (r['close'] - r['open']) * (r['volume'] / (max(0.1, r['high'] - r['low'])))
+                        candles_storage[(opt_key, tf)].append(mtf_candle)
+                        analysis_storage[(opt_key, tf)].append({'time': ts, 'delta': mtf_candle.delta})
+
             except Exception as e:
                 print(f"Error bootstrapping {opt_key}: {e}", flush=True)
 
