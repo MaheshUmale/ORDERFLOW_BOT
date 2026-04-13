@@ -19,8 +19,8 @@ MAX_CANDLES = 100
 # Dictionaries keyed by (instrument_key, timeframe)
 candles_storage = {}  # {(key, tf): deque(FootprintCandle)}
 analysis_storage = {} # {(key, tf): deque(analysis_dict)}
-current_candles = {}  # {key: FootprintCandle}
-engines = {}         # {key: OrderFlowEngine}
+current_candles = {}  # {(key, tf): FootprintCandle}
+engines = {}         # {(key, tf): OrderFlowEngine}
 aggregated_ohlc = {'idx': {}, 'opt': {}} # Keep this for RS, but might need keying too if multi-index
 
 data_lock = threading.RLock()
@@ -58,22 +58,18 @@ def on_tick_received(instrument_key, price, volume, is_buy):
                         old_candle = current_candles[curr_key]
                         candles_storage[storage_key].append(old_candle)
 
-                        # Only do signal analysis on 1m for now to avoid redundant trades
-                        if tf == '1min':
-                            engine = engines.get(instrument_key)
-                            if engine:
-                                engine.cumulative_delta += old_candle.delta
-                                analysis = engine.analyze_candle(old_candle, engine.cumulative_delta - old_candle.delta)
-                                analysis_storage[storage_key].append(analysis)
+                        engine = engines.get(curr_key)
+                        if engine:
+                            engine.cumulative_delta += old_candle.delta
+                            analysis = engine.analyze_candle(old_candle, engine.cumulative_delta - old_candle.delta)
+                            analysis_storage[storage_key].append(analysis)
 
-                                if analysis.get('signal') and analysis.get('confidence', 0) > 0.6:
-                                    ev = trade_manager.get_ev(analysis['confidence'])
-                                    if ev > 0:
-                                        print(f"AUTO-TRADE: {analysis['signal']} on {instrument_key} @ {old_candle.close} (EV: {ev:.1f})", flush=True)
-                                        trade_manager.add_trade(instrument_key, analysis['signal'], old_candle.close, analysis['confidence'])
-                        else:
-                            # Just store for MTF view
-                            analysis_storage[storage_key].append({'time': old_candle.start_time, 'delta': old_candle.delta})
+                            # Only execute trades from 1m TF to avoid duplicates
+                            if tf == '1min' and analysis.get('signal') and analysis.get('confidence', 0) > 0.6:
+                                ev = trade_manager.get_ev(analysis['confidence'])
+                                if ev > 0:
+                                    print(f"AUTO-TRADE: {analysis['signal']} on {instrument_key} @ {old_candle.close} (EV: {ev:.1f})", flush=True)
+                                    trade_manager.add_trade(instrument_key, analysis['signal'], old_candle.close, analysis['confidence'])
 
                     if candles_storage[storage_key] and candles_storage[storage_key][-1].start_time == ts_floor:
                         candles_storage[storage_key].pop()
@@ -199,52 +195,55 @@ def change_instrument(opt_key, idx_name='NIFTY'):
             if key not in candles_storage:
                 candles_storage[key] = deque(maxlen=MAX_CANDLES)
                 analysis_storage[key] = deque(maxlen=MAX_CANDLES)
+            if key not in engines:
+                engines[key] = OrderFlowEngine()
 
-        if opt_key not in engines:
-            engines[opt_key] = OrderFlowEngine()
-            opt_to_idx_map[opt_key] = idx_key
+        opt_to_idx_map[opt_key] = idx_key
 
-            # Bootstrap historical
-            try:
-                hist_opt = helper.get_historical_candles(opt_key)
-                hist_idx = helper.get_historical_candles(idx_key)
-                hist_opt.reverse()
-                hist_idx.reverse()
+        # Bootstrap historical
+        try:
+            hist_opt = helper.get_historical_candles(opt_key)
+            hist_idx = helper.get_historical_candles(idx_key)
+            hist_opt.reverse()
+            hist_idx.reverse()
 
-                for c in hist_idx:
-                    ts = pd.to_datetime(c[0]).replace(tzinfo=None)
-                    update_ohlc('idx', idx_key, ts, c[1], c[5], high=c[2], low=c[3], close=c[4])
+            for c in hist_idx:
+                ts = pd.to_datetime(c[0]).replace(tzinfo=None)
+                update_ohlc('idx', idx_key, ts, c[1], c[5], high=c[2], low=c[3], close=c[4])
 
-                engine = engines[opt_key]
-                for c in hist_opt:
-                    ts = pd.to_datetime(c[0]).replace(tzinfo=None)
-                    update_ohlc('opt', opt_key, ts, c[1], c[5], high=c[2], low=c[3], close=c[4])
+            engine_1m = engines[(opt_key, '1min')]
+            for c in hist_opt:
+                ts = pd.to_datetime(c[0]).replace(tzinfo=None)
+                update_ohlc('opt', opt_key, ts, c[1], c[5], high=c[2], low=c[3], close=c[4])
 
-                    f_candle = FootprintCandle(c[1], ts)
-                    f_candle.high, f_candle.low, f_candle.close, f_candle.volume = c[2], c[3], c[4], c[5]
-                    # Estimate delta
-                    f_candle.delta = (c[4] - c[1]) * (c[5] / (max(0.1, c[2] - c[3])))
+                f_candle = FootprintCandle(c[1], ts)
+                f_candle.high, f_candle.low, f_candle.close, f_candle.volume = c[2], c[3], c[4], c[5]
+                # Estimate delta
+                f_candle.delta = (c[4] - c[1]) * (c[5] / (max(0.1, c[2] - c[3])))
 
-                    candles_storage[(opt_key, '1min')].append(f_candle)
-                    engine.cumulative_delta += f_candle.delta
-                    analysis_storage[(opt_key, '1min')].append(engine.analyze_candle(f_candle, engine.cumulative_delta - f_candle.delta))
+                candles_storage[(opt_key, '1min')].append(f_candle)
+                engine_1m.cumulative_delta += f_candle.delta
+                analysis_storage[(opt_key, '1min')].append(engine_1m.analyze_candle(f_candle, engine_1m.cumulative_delta - f_candle.delta))
 
-                # Aggregate MTF bootstrapping
-                df_hist = pd.DataFrame(hist_opt, columns=['time', 'open', 'high', 'low', 'close', 'volume', 'oi'])
-                df_hist['time'] = pd.to_datetime(df_hist['time']).dt.tz_localize(None)
-                for tf in ['5min', '15min']:
-                    df_resampled = df_hist.set_index('time').resample(tf).agg({
-                        'open': 'first', 'high': 'max', 'low': 'min', 'close': 'last', 'volume': 'sum'
-                    }).dropna()
-                    for ts, r in df_resampled.iterrows():
-                        mtf_candle = FootprintCandle(r['open'], ts)
-                        mtf_candle.high, mtf_candle.low, mtf_candle.close, mtf_candle.volume = r['high'], r['low'], r['close'], r['volume']
-                        mtf_candle.delta = (r['close'] - r['open']) * (r['volume'] / (max(0.1, r['high'] - r['low'])))
-                        candles_storage[(opt_key, tf)].append(mtf_candle)
-                        analysis_storage[(opt_key, tf)].append({'time': ts, 'delta': mtf_candle.delta})
+            # Aggregate MTF bootstrapping
+            df_hist = pd.DataFrame(hist_opt, columns=['time', 'open', 'high', 'low', 'close', 'volume', 'oi'])
+            df_hist['time'] = pd.to_datetime(df_hist['time']).dt.tz_localize(None)
+            for tf in ['5min', '15min']:
+                df_resampled = df_hist.set_index('time').resample(tf).agg({
+                    'open': 'first', 'high': 'max', 'low': 'min', 'close': 'last', 'volume': 'sum'
+                }).dropna()
+                engine_tf = engines[(opt_key, tf)]
+                for ts, r in df_resampled.iterrows():
+                    mtf_candle = FootprintCandle(r['open'], ts)
+                    mtf_candle.high, mtf_candle.low, mtf_candle.close, mtf_candle.volume = r['high'], r['low'], r['close'], r['volume']
+                    mtf_candle.delta = (r['close'] - r['open']) * (r['volume'] / (max(0.1, r['high'] - r['low'])))
+                    candles_storage[(opt_key, tf)].append(mtf_candle)
 
-            except Exception as e:
-                print(f"Error bootstrapping {opt_key}: {e}", flush=True)
+                    engine_tf.cumulative_delta += mtf_candle.delta
+                    analysis_storage[(opt_key, tf)].append(engine_tf.analyze_candle(mtf_candle, engine_tf.cumulative_delta - mtf_candle.delta))
+
+        except Exception as e:
+            print(f"Error bootstrapping {opt_key}: {e}", flush=True)
 
     subscribed_instruments.add(opt_key)
     subscribed_instruments.add(idx_key)

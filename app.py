@@ -223,7 +223,7 @@ def update_chart(n, active_instrument, timeframe, mode, history, tab):
     # Utilize pre-calculated analysis from storage, appending current incomplete candle analysis
     from data_manager import analysis_storage, engines
     inst_analysis = list(analysis_storage.get((instrument_key, timeframe), []))
-    inst_engine = engines.get(instrument_key, engine)
+    inst_engine = engines.get((instrument_key, timeframe), engine)
 
     all_opt_candles = get_all_opt_candles(instrument_key, timeframe)
     if not df_opt.empty and all_opt_candles:
@@ -236,11 +236,27 @@ def update_chart(n, active_instrument, timeframe, mode, history, tab):
     else:
         display_analysis = inst_analysis
 
-    analysis_df = pd.DataFrame(display_analysis).drop_duplicates(subset='time', keep='last')
+    if display_analysis:
+        analysis_df = pd.DataFrame(display_analysis).drop_duplicates(subset='time', keep='last')
+    else:
+        analysis_df = pd.DataFrame()
 
     # Merge data to ensure perfect alignment and avoid index errors
     # Indicators df_opt has 'time' from get_opt_df_with_indicators
-    df_merged = pd.merge(df_opt, analysis_df, on='time', how='inner', suffixes=('', '_an'))
+    if not analysis_df.empty and 'time' in analysis_df.columns:
+        df_merged = pd.merge(df_opt, analysis_df, on='time', how='left', suffixes=('', '_an'))
+    else:
+        df_merged = df_opt.copy()
+
+    # Fill missing columns with defaults to prevent crashes on non-1m timeframes
+    for col in ['signal', 'confidence', 'cum_delta', 'delta', 'absorption_zones', 'exhaustion']:
+        if col not in df_merged.columns:
+            df_merged[col] = 0 if col in ['cum_delta', 'delta', 'confidence'] else None
+
+    if df_merged.empty:
+        msg = f"Data sync in progress for {instrument_label}..."
+        monitor_content = [html.Div(e) for e in reversed(history)] if tab == 'signals' else "No Trades"
+        return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, monitor_content, "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
 
     df_sync = get_synced_df(instrument_key)
     if not df_sync.empty:
@@ -272,10 +288,11 @@ def update_chart(n, active_instrument, timeframe, mode, history, tab):
         fig.add_trace(go.Bar(y=prices, x=norm_vols, orientation='h', name='VPVR', marker_color='rgba(100,100,100,0.2)', base=last_time - pd.Timedelta(minutes=5)), row=1, col=1)
 
     # Current Price Line (Confirmation of real-time update)
-    last_price = df_merged['close'].iloc[-1]
-    fig.add_shape(type="line", x0=df_merged['time'].iloc[0], y0=last_price, x1=df_merged['time'].iloc[-1] + pd.Timedelta(minutes=2), y1=last_price,
-                  line=dict(color="white", width=1, dash="dot"), row=1, col=1)
-    fig.add_annotation(x=df_merged['time'].iloc[-1] + pd.Timedelta(minutes=1), y=last_price, text=f"LTP: {last_price}", showarrow=False, bgcolor="rgba(0,0,0,0.5)", font=dict(color="white"), row=1, col=1)
+    if not df_merged.empty:
+        last_price = df_merged['close'].iloc[-1]
+        fig.add_shape(type="line", x0=df_merged['time'].iloc[0], y0=last_price, x1=df_merged['time'].iloc[-1] + pd.Timedelta(minutes=2), y1=last_price,
+                      line=dict(color="white", width=1, dash="dot"), row=1, col=1)
+        fig.add_annotation(x=df_merged['time'].iloc[-1] + pd.Timedelta(minutes=1), y=last_price, text=f"LTP: {last_price}", showarrow=False, bgcolor="rgba(0,0,0,0.5)", font=dict(color="white"), row=1, col=1)
 
     if mode == 'RS' and not df_sync.empty:
         # Overlay Index on secondary Y-axis
@@ -329,7 +346,7 @@ def update_chart(n, active_instrument, timeframe, mode, history, tab):
         color = "lime" if delta_val > 0 else "red"
         fig.add_annotation(x=row['time'], y=row['low'], text=str(int(delta_val)), showarrow=False, yshift=-15, font=dict(color=color, size=10), row=1, col=1)
 
-    if not df_merged.empty:
+    if not df_merged.empty and 'cum_delta' in df_merged.columns:
         fig.add_trace(go.Scatter(x=df_merged['time'], y=df_merged['cum_delta'], fill='tozeroy', name='Cumulative Delta', line=dict(color='cyan', width=2)), row=2, col=1)
 
     now_str = datetime.datetime.now().strftime("%H:%M:%S")
