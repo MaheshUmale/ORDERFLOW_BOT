@@ -339,11 +339,19 @@ def update_chart(n, active_instrument, timeframe, mode, history, tab):
         fig.update_layout(title=f"LIVE: {instrument_label} | {now_str}", template="plotly_dark", margin=dict(l=10, r=10, t=50, b=10), xaxis_rangeslider_visible=False, showlegend=False)
 
         last_time = df_opt['time'].iloc[-1]
-        lookback = 30
-        if timeframe == '5min': lookback = 150
-        elif timeframe == '15min': lookback = 450
-        start_view = (last_time - pd.Timedelta(minutes=lookback)).strftime('%Y-%m-%d %H:%M:%S')
-        end_view = (last_time + pd.Timedelta(minutes=2)).strftime('%Y-%m-%d %H:%M:%S')
+
+        # Dynamic lookback: Show from start of day (9:15 AM)
+        start_of_day = last_time.replace(hour=9, minute=15, second=0, microsecond=0)
+
+        # If it's before 9:15 AM today, show from 9:15 AM yesterday or just use a 6-hour lookback
+        if last_time < start_of_day:
+            start_view_dt = last_time - pd.Timedelta(hours=6)
+        else:
+            # Buffer of 15 mins before 9:15 for perspective
+            start_view_dt = start_of_day - pd.Timedelta(minutes=15)
+
+        start_view = start_view_dt.strftime('%Y-%m-%d %H:%M:%S')
+        end_view = (last_time + pd.Timedelta(minutes=5)).strftime('%Y-%m-%d %H:%M:%S')
         fig.update_xaxes(range=[start_view, end_view])
 
         # Access tick time from data_manager shared state

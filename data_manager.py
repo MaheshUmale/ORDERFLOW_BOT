@@ -18,7 +18,8 @@ state = {
 }
 
 # Global Storage for Multiple Instruments
-MAX_CANDLES = 100
+# Increased to 500 to show full day of 1m candles (9:15 AM to 3:30 PM is ~375 candles)
+MAX_CANDLES = 500
 
 # Dictionaries keyed by (instrument_key, timeframe)
 candles_storage = {}  # {(key, tf): deque(FootprintCandle)}
