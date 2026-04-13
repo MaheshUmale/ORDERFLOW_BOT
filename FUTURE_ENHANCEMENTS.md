@@ -18,7 +18,7 @@ This document outlines the roadmap for the Order Flow & RS Trading Terminal.
 - [x] **VWAP & Standard Deviation Bands**: Integrated anchored VWAP with volatility bands.
 - [x] **Multi-Timeframe Analysis**: Support 1m, 5m, and 15m views simultaneously.
 
-## Phase 4: Live Order Execution (IN PROGRESS)
+## Phase 4: Live Order Execution (COMPLETED)
 - [x] **Automated Trailing Stop**: Implemented dynamic SL adjustment in `TradeManager`.
 - [x] **Upstox API Integration**: Implemented `place_order` in `UpstoxHelper` and linked to `TradeManager`.
 - [x] **Risk Guardrails**: Implemented daily loss limits and maximum position size checks.

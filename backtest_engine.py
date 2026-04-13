@@ -14,29 +14,47 @@ class BacktestEngine:
         self.engine = OrderFlowEngine()
         self.tm = TradeManager()
 
-    def run(self):
+    def run(self, idx_key='NSE_INDEX|Nifty 50'):
         to_date = datetime.datetime.now().strftime('%Y-%m-%d')
         from_date = (datetime.datetime.now() - datetime.timedelta(days=self.days)).strftime('%Y-%m-%d')
 
-        print(f"Fetching historical data for {self.instrument_key} from {from_date} to {to_date}...")
-        candles = self.helper.get_historical_candles_range(self.instrument_key, from_date, to_date)
+        print(f"Fetching historical data for {self.instrument_key} and {idx_key} from {from_date} to {to_date}...")
+        opt_candles = self.helper.get_historical_candles_range(self.instrument_key, from_date, to_date)
+        idx_candles = self.helper.get_historical_candles_range(idx_key, from_date, to_date)
 
-        if not candles:
-            print("No data found for backtest.")
+        if not opt_candles or not idx_candles:
+            print("Missing data for backtest.")
             return
 
-        # Upstox returns oldest first in range API usually, but let's check and sort
-        df = pd.DataFrame(candles, columns=['time', 'open', 'high', 'low', 'close', 'volume', 'oi'])
-        df['time'] = pd.to_datetime(df['time']).dt.tz_localize(None)
-        df = df.sort_values('time')
+        df_opt = pd.DataFrame(opt_candles, columns=['time', 'open', 'high', 'low', 'close', 'volume', 'oi'])
+        df_idx = pd.DataFrame(idx_candles, columns=['time', 'open', 'high', 'low', 'close', 'volume', 'oi'])
 
-        print(f"Running backtest on {len(df)} candles...")
+        for df in [df_opt, df_idx]:
+            df['time'] = pd.to_datetime(df['time']).dt.tz_localize(None)
+            df.set_index('time', inplace=True)
+            df.sort_index(inplace=True)
+
+        # Merge for RS Strategy
+        df_merged = df_idx.join(df_opt, how='inner', lsuffix='_idx', rsuffix='_opt').dropna()
+
+        # Detect RS Signals
+        rs_strategy = RelativeStrengthStrategy()
+
+        new_cols = {
+            'open_idx': 'idx_open', 'high_idx': 'idx_high', 'low_idx': 'idx_low', 'close_idx': 'idx_close', 'volume_idx': 'idx_volume',
+            'open_opt': 'opt_open', 'high_opt': 'opt_high', 'low_opt': 'opt_low', 'close_opt': 'opt_close', 'volume_opt': 'opt_volume'
+        }
+        df_merged.rename(columns=new_cols, inplace=True)
+
+        df_rs = rs_strategy.detect_signals(df_merged)
+
+        print(f"Running backtest on {len(df_rs)} synchronized candles...")
 
         cum_delta = 0
-        self.engine.imbalance_ratio = 1.2 # Aggressive for backtest
-        for _, row in df.iterrows():
-            f_candle = FootprintCandle(row['open'], row['time'])
-            f_candle.high, f_candle.low, f_candle.close, f_candle.volume = row['high'], row['low'], row['close'], row['volume']
+        self.engine.imbalance_ratio = 1.2
+        for ts, row in df_rs.iterrows():
+            f_candle = FootprintCandle(row['opt_open'], ts)
+            f_candle.high, f_candle.low, f_candle.close, f_candle.volume = row['opt_high'], row['opt_low'], row['opt_close'], row['opt_volume']
 
             # Generate multiple price levels to trigger imbalances
             ticks = 5
@@ -59,16 +77,20 @@ class BacktestEngine:
 
             # Update Trade Manager with current candle "ticks" (high/low/close)
             # To simulate SL/TP being hit within a bar
-            self.tm.update_trades(self.instrument_key, row['low'])
-            self.tm.update_trades(self.instrument_key, row['high'])
-            self.tm.update_trades(self.instrument_key, row['close'])
+            self.tm.update_trades(self.instrument_key, row['opt_low'])
+            self.tm.update_trades(self.instrument_key, row['opt_high'])
+            self.tm.update_trades(self.instrument_key, row['opt_close'])
 
-            # Signal check
-            if analysis['signal'] and analysis['confidence'] >= 0.6: # Lowered for backtest visibility
+            # 1. Order Flow Signals
+            if analysis['signal'] and analysis['confidence'] >= 0.6:
                 ev = self.tm.get_ev(analysis['confidence'])
-                if ev >= -5: # Lowered for backtest visibility
-                    print(f"DEBUG: Found signal {analysis['signal']} at {row['time']} @ {row['close']} EV: {ev}")
-                    self.tm.add_trade(self.instrument_key, analysis['signal'], row['close'], analysis['confidence'])
+                if ev > 0:
+                    self.tm.add_trade(self.instrument_key, analysis['signal'], row['opt_close'], analysis['confidence'])
+
+            # 2. RS Signals
+            if row.get('rs_bullish_signal'):
+                print(f"DEBUG: Found RS BUY at {ts} @ {row['opt_close']}")
+                self.tm.add_trade(self.instrument_key, 'BUY', row['opt_close'], 0.8)
 
         self.show_results()
 
