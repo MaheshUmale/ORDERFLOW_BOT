@@ -346,13 +346,16 @@ def update_chart(n, active_instrument, timeframe, mode, history, tab):
         # Add a 2-minute buffer on the right so the live candle isn't cut off
         fig.update_xaxes(range=[start_view, last_time + pd.Timedelta(minutes=2)])
 
-    from data_manager import last_wss_tick_time
+    import data_manager
     import time
-    time_since_tick = time.time() - last_wss_tick_time
-    last_tick_str = datetime.datetime.fromtimestamp(last_wss_tick_time).strftime("%H:%M:%S") if last_wss_tick_time > 0 else "--:--:--"
+    last_tick = data_manager.last_wss_tick_time
+    time_since_tick = time.time() - last_tick if last_tick > 0 else 0
+    last_tick_str = datetime.datetime.fromtimestamp(last_tick).strftime("%H:%M:%S") if last_tick > 0 else "--:--:--"
 
     alert_text = "STATUS: MONITORING"
-    if time_since_tick > 10:
+    if last_tick == 0:
+        alert_text = "STATUS: WAITING FOR FIRST TICK..."
+    elif time_since_tick > 10:
         alert_text = f"⚠️ NO DATA ({int(time_since_tick)}s)"
     elif not analysis_df.empty:
         if analysis_df.iloc[-1]['absorption_zones']: alert_text = "⚠️ ABSORPTION ZONE"
