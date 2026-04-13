@@ -93,6 +93,33 @@ class UpstoxHelper:
             print(f"Historical API Error {response.status_code}: {response.text}")
         return []
 
+    def place_order(self, instrument_key, side, quantity, price=0, order_type='MARKET'):
+        """Place an order using Upstox V2 API."""
+        url = f"{self.base_url}/order/place"
+        headers = {
+            'Authorization': f"Bearer {self.access_token}",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+        data = {
+            "quantity": quantity,
+            "product": "I", # Intraday
+            "validity": "DAY",
+            "price": price,
+            "tag": "OF_BOT",
+            "instrument_token": instrument_key,
+            "order_type": order_type,
+            "transaction_type": "BUY" if side == 'BUY' else "SELL",
+            "disclosed_quantity": 0,
+            "trigger_price": 0,
+            "is_amo": False
+        }
+        try:
+            response = requests.post(url, headers=headers, json=data)
+            return response.json()
+        except Exception as e:
+            return {"status": "error", "message": str(e)}
+
     def get_historical_candles_range(self, instrument_key, from_date, to_date, interval='1minute'):
         """Fetch historical candles for a specific range."""
         url = f"{self.base_url}/historical-candle/{instrument_key}/{interval}/{to_date}/{from_date}"

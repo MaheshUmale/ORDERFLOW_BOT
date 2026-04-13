@@ -16,9 +16,9 @@ last_wss_tick_time = 0
 # Global Storage for Multiple Instruments
 MAX_CANDLES = 100
 
-# Dictionaries keyed by instrument_key
-candles_storage = {}  # {key: deque(FootprintCandle)}
-analysis_storage = {} # {key: deque(analysis_dict)}
+# Dictionaries keyed by (instrument_key, timeframe)
+candles_storage = {}  # {(key, tf): deque(FootprintCandle)}
+analysis_storage = {} # {(key, tf): deque(analysis_dict)}
 current_candles = {}  # {key: FootprintCandle}
 engines = {}         # {key: OrderFlowEngine}
 aggregated_ohlc = {'idx': {}, 'opt': {}} # Keep this for RS, but might need keying too if multi-index
@@ -29,7 +29,7 @@ opt_to_idx_map = {}
 
 helper = UpstoxHelper()
 rs_strategy = RelativeStrengthStrategy()
-trade_manager = TradeManager()
+trade_manager = TradeManager(helper=helper)
 
 # Active set of keys to subscribe to
 subscribed_instruments = set()
@@ -38,52 +38,56 @@ def on_tick_received(instrument_key, price, volume, is_buy):
     global last_wss_tick_time
     last_wss_tick_time = time.time()
     now = pd.Timestamp.now(tz='Asia/Kolkata').replace(tzinfo=None)
-    ts_min = now.floor('1min')
 
-    # Fast path: check if instrument is even tracked without lock first
+    # Fast path
     if instrument_key not in subscribed_instruments:
         return
 
     with data_lock:
-        # 0. Update Trade Manager
         trade_manager.update_trades(instrument_key, price)
 
-        # 1. Footprint Aggregation
-        if instrument_key in candles_storage:
-            if instrument_key not in current_candles or current_candles[instrument_key] is None or current_candles[instrument_key].start_time != ts_min:
-                if instrument_key in current_candles and current_candles[instrument_key] is not None:
-                    old_candle = current_candles[instrument_key]
-                    candles_storage[instrument_key].append(old_candle)
+        # Process multiple timeframes: 1m, 5m, 15m
+        for tf in ['1min', '5min', '15min']:
+            ts_floor = now.floor(tf)
+            storage_key = (instrument_key, tf)
+            curr_key = (instrument_key, tf)
 
-                    engine = engines.get(instrument_key)
-                    if engine:
-                        engine.cumulative_delta += old_candle.delta
-                        analysis = engine.analyze_candle(old_candle, engine.cumulative_delta - old_candle.delta)
-                        analysis_storage[instrument_key].append(analysis)
+            if storage_key in candles_storage:
+                if curr_key not in current_candles or current_candles[curr_key] is None or current_candles[curr_key].start_time != ts_floor:
+                    if curr_key in current_candles and current_candles[curr_key] is not None:
+                        old_candle = current_candles[curr_key]
+                        candles_storage[storage_key].append(old_candle)
 
-                        # Auto-trade on completed candle
-                        if analysis.get('signal') and analysis.get('confidence', 0) > 0.6:
-                            ev = trade_manager.get_ev(analysis['confidence'])
-                            if ev > 0:
-                                print(f"AUTO-TRADE: {analysis['signal']} on {instrument_key} @ {old_candle.close} (EV: {ev:.1f})", flush=True)
-                                trade_manager.add_trade(instrument_key, analysis['signal'], old_candle.close, analysis['confidence'])
+                        # Only do signal analysis on 1m for now to avoid redundant trades
+                        if tf == '1min':
+                            engine = engines.get(instrument_key)
+                            if engine:
+                                engine.cumulative_delta += old_candle.delta
+                                analysis = engine.analyze_candle(old_candle, engine.cumulative_delta - old_candle.delta)
+                                analysis_storage[storage_key].append(analysis)
 
-                # Check if candles_storage already has this timestamp (e.g. from bootstrap)
-                # If so, remove it to favor the live one
-                if candles_storage[instrument_key] and candles_storage[instrument_key][-1].start_time == ts_min:
-                    candles_storage[instrument_key].pop()
-                    if analysis_storage[instrument_key]:
-                        analysis_storage[instrument_key].pop()
+                                if analysis.get('signal') and analysis.get('confidence', 0) > 0.6:
+                                    ev = trade_manager.get_ev(analysis['confidence'])
+                                    if ev > 0:
+                                        print(f"AUTO-TRADE: {analysis['signal']} on {instrument_key} @ {old_candle.close} (EV: {ev:.1f})", flush=True)
+                                        trade_manager.add_trade(instrument_key, analysis['signal'], old_candle.close, analysis['confidence'])
+                        else:
+                            # Just store for MTF view
+                            analysis_storage[storage_key].append({'time': old_candle.start_time, 'delta': old_candle.delta})
 
-                current_candles[instrument_key] = FootprintCandle(price, ts_min)
+                    if candles_storage[storage_key] and candles_storage[storage_key][-1].start_time == ts_floor:
+                        candles_storage[storage_key].pop()
 
-            current_candles[instrument_key].add_tick(price, volume, is_buy)
-            update_ohlc('opt', instrument_key, ts_min, price, volume)
+                    current_candles[curr_key] = FootprintCandle(price, ts_floor)
 
-        # 2. Index OHLC Aggregation (if it's an index being tracked)
+                current_candles[curr_key].add_tick(price, volume, is_buy)
+
+        # Update synced OHLC (1m base)
+        ts_1m = now.floor('1min')
+        update_ohlc('opt', instrument_key, ts_1m, price, volume)
         spot_keys = helper.get_spot_keys().values()
         if instrument_key in spot_keys:
-            update_ohlc('idx', instrument_key, ts_min, price, 0)
+            update_ohlc('idx', instrument_key, ts_1m, price, 0)
 
 def update_ohlc(type_key, instrument_key, ts, price, vol, high=None, low=None, close=None):
     if instrument_key not in aggregated_ohlc[type_key]:
@@ -109,18 +113,19 @@ def update_ohlc(type_key, instrument_key, ts, price, vol, high=None, low=None, c
         oldest = min(storage.keys())
         del storage[oldest]
 
-def get_all_opt_candles(instrument_key):
+def get_all_opt_candles(instrument_key, tf='1min'):
     with data_lock:
-        if instrument_key not in candles_storage: return []
-        all_c = list(candles_storage[instrument_key])
-        if instrument_key in current_candles and current_candles[instrument_key]:
+        key = (instrument_key, tf)
+        if key not in candles_storage: return []
+        all_c = list(candles_storage[key])
+        if key in current_candles and current_candles[key]:
             # Ensure no double timestamp
-            if not all_c or all_c[-1].start_time != current_candles[instrument_key].start_time:
-                all_c.append(current_candles[instrument_key])
+            if not all_c or all_c[-1].start_time != current_candles[key].start_time:
+                all_c.append(current_candles[key])
         return all_c
 
-def get_opt_df_with_indicators(instrument_key):
-    candles = get_all_opt_candles(instrument_key)
+def get_opt_df_with_indicators(instrument_key, tf='1min'):
+    candles = get_all_opt_candles(instrument_key, tf)
     if not candles: return pd.DataFrame()
 
     df = pd.DataFrame([{
@@ -130,8 +135,8 @@ def get_opt_df_with_indicators(instrument_key):
     df = Indicators.calculate_vwap(df)
     return df
 
-def get_volume_profile(instrument_key):
-    candles = get_all_opt_candles(instrument_key)
+def get_volume_profile(instrument_key, tf='1min'):
+    candles = get_all_opt_candles(instrument_key, tf)
     if not candles: return {}
 
     profile = {}
@@ -188,9 +193,14 @@ def change_instrument(opt_key, idx_name='NIFTY'):
     idx_key = helper.get_spot_keys().get(idx_name)
 
     with data_lock:
-        if opt_key not in candles_storage:
-            candles_storage[opt_key] = deque(maxlen=MAX_CANDLES)
-            analysis_storage[opt_key] = deque(maxlen=MAX_CANDLES)
+        # Bootstrap all timeframes
+        for tf in ['1min', '5min', '15min']:
+            key = (opt_key, tf)
+            if key not in candles_storage:
+                candles_storage[key] = deque(maxlen=MAX_CANDLES)
+                analysis_storage[key] = deque(maxlen=MAX_CANDLES)
+
+        if opt_key not in engines:
             engines[opt_key] = OrderFlowEngine()
             opt_to_idx_map[opt_key] = idx_key
 
@@ -212,12 +222,12 @@ def change_instrument(opt_key, idx_name='NIFTY'):
 
                     f_candle = FootprintCandle(c[1], ts)
                     f_candle.high, f_candle.low, f_candle.close, f_candle.volume = c[2], c[3], c[4], c[5]
-                    # Estimate delta for historical candles since we don't have per-tick for them
+                    # Estimate delta
                     f_candle.delta = (c[4] - c[1]) * (c[5] / (max(0.1, c[2] - c[3])))
 
-                    candles_storage[opt_key].append(f_candle)
+                    candles_storage[(opt_key, '1min')].append(f_candle)
                     engine.cumulative_delta += f_candle.delta
-                    analysis_storage[opt_key].append(engine.analyze_candle(f_candle, engine.cumulative_delta - f_candle.delta))
+                    analysis_storage[(opt_key, '1min')].append(engine.analyze_candle(f_candle, engine.cumulative_delta - f_candle.delta))
 
             except Exception as e:
                 print(f"Error bootstrapping {opt_key}: {e}", flush=True)
