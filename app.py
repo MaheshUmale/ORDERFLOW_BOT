@@ -4,11 +4,17 @@ from dash.dependencies import Input, Output, State
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import pandas as pd
+import json
+import datetime
+import time
+import traceback
+
+# Import shared state
+import data_manager
 from data_manager import (get_all_opt_candles, get_synced_df, get_opt_df_with_indicators, get_volume_profile,
-                          start_live_feed, change_instrument, rs_strategy, engine, trade_manager)
+                          start_live_feed, change_instrument, rs_strategy, trade_manager)
 from pivot_algorithm import AutoTrendSupportResistance
 from upstox_helper import UpstoxHelper
-import datetime
 
 helper = UpstoxHelper()
 app = dash.Dash(__name__, suppress_callback_exceptions=True)
@@ -151,6 +157,7 @@ def update_instrument_options(index):
     prevent_initial_call=True
 )
 def handle_connect(n_clicks, instrument_key, options, index, history, live_toggle):
+    print(f"DEBUG: handle_connect clicks={n_clicks}, key={instrument_key}", flush=True)
     if n_clicks > 0 and instrument_key:
         label = "Unknown"
         if options:
@@ -165,10 +172,8 @@ def handle_connect(n_clicks, instrument_key, options, index, history, live_toggl
         start_live_feed()
 
         status = f"CONNECTED: {label} [{'LIVE' if trade_manager.live_mode else 'VIRTUAL'}]"
-        # Reset history on new connection to avoid confusion between instruments
         return [], {'key': instrument_key, 'label': label}, status
 
-    # On initialization or if no key, keep current state
     if not instrument_key and n_clicks == 0:
         return dash.no_update, dash.no_update, dash.no_update
     return history, {'key': None, 'label': 'No Instrument Selected'}, "STATUS: READY"
@@ -195,209 +200,186 @@ def handle_connect(n_clicks, instrument_key, options, index, history, live_toggl
     prevent_initial_call=True
 )
 def update_chart(n, active_instrument, timeframe, mode, history, tab):
-    # Common stats
-    refresh_count = str(n)
-    heartbeat_style = {'color': 'red' if n % 2 == 0 else 'lime'}
+    try:
+        refresh_count = str(n)
+        heartbeat_style = {'color': 'red' if n % 2 == 0 else 'lime'}
 
-    print(f"DEBUG: update_chart called. n={n}, active_instrument={active_instrument}", flush=True)
+        def clean_fig(f):
+            # to_json handles NumPy arrays and other non-standard types robustly
+            return json.loads(f.to_json())
 
-    if not active_instrument or not isinstance(active_instrument, dict):
-        return go.Figure().update_layout(template="plotly_dark"), "STATUS: INITIALIZING", [], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
+        def to_py_list(series):
+            if series is None or len(series) == 0: return []
+            return [float(v) if (pd.notna(v) and hasattr(v, '__float__')) else (float(v) if pd.notna(v) else None) for v in series]
 
-    instrument_label = active_instrument.get('label', 'Unknown')
-    instrument_key = active_instrument.get('key')
+        if not active_instrument or not isinstance(active_instrument, dict) or not active_instrument.get('key'):
+            return clean_fig(go.Figure().update_layout(template="plotly_dark")), "STATUS: INITIALIZING", [], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
 
-    if not instrument_key:
-        monitor_content = [html.Div(e) for e in reversed(history)] if tab == 'signals' else "No Trades"
-        return go.Figure().update_layout(title="Please select an instrument and click Connect.", template="plotly_dark"), "STATUS: READY", monitor_content, "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
+        instrument_label = str(active_instrument.get('label', 'Unknown'))
+        instrument_key = active_instrument.get('key')
 
-    # 1. Prepare Data
-    df_opt = get_opt_df_with_indicators(instrument_key, timeframe)
-    print(f"DEBUG: update_chart called. n={n}, instrument={instrument_key}, tf={timeframe}, candles={len(df_opt)}", flush=True)
+        # 1. Prepare Data
+        df_opt = get_opt_df_with_indicators(instrument_key, timeframe)
 
-    if df_opt.empty:
-        msg = f"Waiting for ticks for {instrument_label}..."
-        monitor_content = [html.Div(e) for e in reversed(history)] if tab == 'signals' else "No Trades"
-        return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, monitor_content, "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
+        if df_opt.empty:
+            msg = f"Waiting for data for {instrument_label}..."
+            return clean_fig(go.Figure().update_layout(title=msg, template="plotly_dark")), msg, [], "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
 
-    # Utilize pre-calculated analysis from storage, appending current incomplete candle analysis
-    from data_manager import analysis_storage, engines
-    inst_analysis = list(analysis_storage.get((instrument_key, timeframe), []))
-    inst_engine = engines.get((instrument_key, timeframe), engine)
+        # Analysis data
+        inst_analysis = list(data_manager.analysis_storage.get((instrument_key, timeframe), []))
+        inst_engine = data_manager.engines.get((instrument_key, timeframe), data_manager.engine)
 
-    all_opt_candles = get_all_opt_candles(instrument_key, timeframe)
-    if not df_opt.empty and all_opt_candles:
-        last_c = all_opt_candles[-1]
-        # Ensure we have some base analysis to start from
-        prev_cum_delta = inst_analysis[-1].get('cum_delta', 0) if inst_analysis else 0
-        current_c_analysis = inst_engine.analyze_candle(last_c, prev_cum_delta)
-        # Deep copy to avoid modifying the analysis_storage
-        display_analysis = inst_analysis + [current_c_analysis]
-    else:
-        display_analysis = inst_analysis
+        all_opt_candles = get_all_opt_candles(instrument_key, timeframe)
+        if not df_opt.empty and all_opt_candles:
+            last_c = all_opt_candles[-1]
+            prev_cum_delta = inst_analysis[-1].get('cum_delta', 0) if inst_analysis else 0
+            current_c_analysis = inst_engine.analyze_candle(last_c, prev_cum_delta)
+            display_analysis = inst_analysis + [current_c_analysis]
+        else:
+            display_analysis = inst_analysis
 
-    if display_analysis:
-        analysis_df = pd.DataFrame(display_analysis).drop_duplicates(subset='time', keep='last')
-    else:
-        analysis_df = pd.DataFrame()
+        if display_analysis:
+            analysis_df = pd.DataFrame(display_analysis).drop_duplicates(subset='time', keep='last')
+        else:
+            analysis_df = pd.DataFrame()
 
-    # Merge data to ensure perfect alignment and avoid index errors
-    # Indicators df_opt has 'time' from get_opt_df_with_indicators
-    if not analysis_df.empty and 'time' in analysis_df.columns:
-        df_merged = pd.merge(df_opt, analysis_df, on='time', how='left', suffixes=('', '_an'))
-    else:
-        df_merged = df_opt.copy()
+        if not analysis_df.empty and 'time' in analysis_df.columns:
+            df_merged = pd.merge(df_opt, analysis_df, on='time', how='left', suffixes=('', '_an'))
+        else:
+            df_merged = df_opt.copy()
 
-    # Fill missing columns with defaults to prevent crashes on non-1m timeframes
-    for col in ['signal', 'confidence', 'cum_delta', 'delta', 'absorption_zones', 'exhaustion']:
-        if col not in df_merged.columns:
-            df_merged[col] = 0 if col in ['cum_delta', 'delta', 'confidence'] else None
+        for col in ['signal', 'confidence', 'cum_delta', 'delta', 'absorption_zones', 'exhaustion']:
+            if col not in df_merged.columns:
+                df_merged[col] = 0 if col in ['cum_delta', 'delta', 'confidence'] else None
 
-    if df_merged.empty:
-        msg = f"Data sync in progress for {instrument_label}..."
-        monitor_content = [html.Div(e) for e in reversed(history)] if tab == 'signals' else "No Trades"
-        return go.Figure().update_layout(title=msg, template="plotly_dark"), msg, monitor_content, "", history, "0.00", "0", "--:--:--", refresh_count, heartbeat_style, "0.00", "0%"
+        df_sync = get_synced_df(instrument_key)
+        if not df_sync.empty:
+            df_sync = rs_strategy.detect_signals(df_sync)
 
-    df_sync = get_synced_df(instrument_key)
-    if not df_sync.empty:
-        df_sync = rs_strategy.detect_signals(df_sync)
+        # 2. Figure Setup
+        fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.05,
+                            row_heights=[0.7, 0.3],
+                            specs=[[{"secondary_y": True}], [{"secondary_y": False}]])
 
-    # 2. Figure Setup
-    fig = make_subplots(rows=2, cols=1, shared_xaxes=True, vertical_spacing=0.05,
-                        row_heights=[0.7, 0.3],
-                        specs=[[{"secondary_y": True}], [{"secondary_y": False}]])
+        # Determine max volume for scaling xaxis2
+        vols_for_scale = sorted_vols if 'sorted_vols' in locals() else [1]
+        fig.update_layout(xaxis2=dict(overlaying='x', side='top', showticklabels=False, range=[0, max(vols_for_scale)*5]))
 
-    # 3. Main Plot
-    fig.add_trace(go.Candlestick(x=df_merged['time'], open=df_merged['open'], high=df_merged['high'], low=df_merged['low'], close=df_merged['close'], name=instrument_label), row=1, col=1, secondary_y=False)
+        # 3. Main Plot
+        x_times = [str(t) for t in df_merged['time'].dt.strftime('%Y-%m-%d %H:%M:%S')]
+        fig.add_trace(go.Candlestick(x=x_times,
+                                     open=to_py_list(df_merged['open']),
+                                     high=to_py_list(df_merged['high']),
+                                     low=to_py_list(df_merged['low']),
+                                     close=to_py_list(df_merged['close']),
+                                     name=instrument_label), row=1, col=1, secondary_y=False)
 
-    # VWAP & Bands
-    if 'vwap' in df_merged.columns:
-        fig.add_trace(go.Scatter(x=df_merged['time'], y=df_merged['vwap'], name='VWAP', line=dict(color='yellow', width=2)), row=1, col=1)
-        fig.add_trace(go.Scatter(x=df_merged['time'], y=df_merged['vwap_upper1'], name='VWAP U1', line=dict(color='rgba(255,255,0,0.3)', width=1, dash='dash')), row=1, col=1)
-        fig.add_trace(go.Scatter(x=df_merged['time'], y=df_merged['vwap_lower1'], name='VWAP L1', line=dict(color='rgba(255,255,0,0.3)', width=1, dash='dash')), row=1, col=1)
+        if 'vwap' in df_merged.columns:
+            fig.add_trace(go.Scatter(x=x_times, y=to_py_list(df_merged['vwap']), name='VWAP', line=dict(color='yellow', width=2)), row=1, col=1)
+            fig.add_trace(go.Scatter(x=x_times, y=to_py_list(df_merged['vwap_upper1']), name='VWAP U1', line=dict(color='rgba(255,255,0,0.3)', width=1, dash='dash')), row=1, col=1)
+            fig.add_trace(go.Scatter(x=x_times, y=to_py_list(df_merged['vwap_lower1']), name='VWAP L1', line=dict(color='rgba(255,255,0,0.3)', width=1, dash='dash')), row=1, col=1)
 
-    # Volume Profile (Horizontal Bars)
-    vp = get_volume_profile(instrument_key, timeframe)
-    if vp:
-        prices = list(vp.keys())
-        vols = list(vp.values())
-        max_v = max(vols) if vols else 1
-        # Normalize for display on time axis (hacky but works for overlay)
-        last_time = df_merged['time'].iloc[-1]
-        norm_vols = [(v / max_v) * pd.Timedelta(minutes=5) for v in vols]
-        fig.add_trace(go.Bar(y=prices, x=norm_vols, orientation='h', name='VPVR', marker_color='rgba(100,100,100,0.2)', base=last_time - pd.Timedelta(minutes=5)), row=1, col=1)
+        # Volume Profile (VPVR) Visualization
+        vp = get_volume_profile(instrument_key, timeframe)
+        if vp and not df_merged.empty:
+            sorted_prices = sorted([float(p) for p in vp.keys()])
+            sorted_vols = [float(vp[p]) for p in sorted_prices]
+            fig.add_trace(go.Bar(y=sorted_prices, x=sorted_vols, orientation='h', name='VPVR',
+                                 marker_color='rgba(150,150,150,0.1)', xaxis='x2'), row=1, col=1)
 
-    # Current Price Line (Confirmation of real-time update)
-    if not df_merged.empty:
-        last_price = df_merged['close'].iloc[-1]
-        fig.add_shape(type="line", x0=df_merged['time'].iloc[0], y0=last_price, x1=df_merged['time'].iloc[-1] + pd.Timedelta(minutes=2), y1=last_price,
-                      line=dict(color="white", width=1, dash="dot"), row=1, col=1)
-        fig.add_annotation(x=df_merged['time'].iloc[-1] + pd.Timedelta(minutes=1), y=last_price, text=f"LTP: {last_price}", showarrow=False, bgcolor="rgba(0,0,0,0.5)", font=dict(color="white"), row=1, col=1)
+        if not df_merged.empty:
+            last_price = float(df_merged['close'].iloc[-1])
+            t0 = df_merged['time'].iloc[0].strftime('%Y-%m-%d %H:%M:%S')
+            t1 = (df_merged['time'].iloc[-1] + pd.Timedelta(minutes=2)).strftime('%Y-%m-%d %H:%M:%S')
+            fig.add_shape(type="line", x0=t0, y0=last_price, x1=t1, y1=last_price, line=dict(color="white", width=1, dash="dot"), row=1, col=1)
+            fig.add_annotation(x=t1, y=last_price, text=f"LTP: {last_price}", showarrow=False, bgcolor="rgba(0,0,0,0.5)", font=dict(color="white"), row=1, col=1)
 
-    if mode == 'RS' and not df_sync.empty:
-        # Overlay Index on secondary Y-axis
-        fig.add_trace(go.Scatter(x=df_sync.index, y=df_sync['idx_close'], name='NIFTY Index', line=dict(color='orange', width=1, dash='dot')), row=1, col=1, secondary_y=True)
-        fig.update_yaxes(title_text="Index Price", secondary_y=True, row=1, col=1)
+        if mode == 'RS' and not df_sync.empty:
+            idx_times = [str(t) for t in df_sync.index.strftime('%Y-%m-%d %H:%M:%S')]
+            fig.add_trace(go.Scatter(x=idx_times, y=to_py_list(df_sync['idx_close']), name='Index', line=dict(color='orange', width=1, dash='dot')), row=1, col=1, secondary_y=True)
 
-    # 4. Technical Levels
-    indicator = AutoTrendSupportResistance(required_ticks_for_broken=4, tick_size=1)
-    for i in range(1, len(df_merged)):
-        indicator.update(i, df_merged['open'].iloc[i-1], df_merged['high'].iloc[i-1], df_merged['low'].iloc[i-1], df_merged['close'].iloc[i-1])
+        indicator = AutoTrendSupportResistance(required_ticks_for_broken=4, tick_size=1)
+        for i in range(1, len(df_merged)):
+            indicator.update(i, df_merged['open'].iloc[i-1], df_merged['high'].iloc[i-1], df_merged['low'].iloc[i-1], df_merged['close'].iloc[i-1])
 
-    for pivot in indicator.pivots:
-        if not pivot.display_level: continue
-        color = "gold" if pivot.is_level_tested else "cyan"
-        fig.add_shape(type="line", x0=df_merged['time'].iloc[pivot.bar_number], y0=pivot.price, x1=df_merged['time'].iloc[-1], y1=pivot.price,
-                      line=dict(color=color, width=1, dash="dash"), row=1, col=1)
+        for pivot in indicator.pivots:
+            if not pivot.display_level: continue
+            color = "gold" if pivot.is_level_tested else "cyan"
+            px0 = df_merged['time'].iloc[pivot.bar_number].strftime('%Y-%m-%d %H:%M:%S')
+            px1 = df_merged['time'].iloc[-1].strftime('%Y-%m-%d %H:%M:%S')
+            fig.add_shape(type="line", x0=px0, y0=float(pivot.price), x1=px1, y1=float(pivot.price), line=dict(color=color, width=1, dash="dash"), row=1, col=1)
 
-    # 5. Signal Detection & Display
-    signal_alert_div = None
+        signal_alert_div = None
+        for i, row in df_merged.iterrows():
+            if row['signal'] and pd.notna(row['signal']):
+                color = 'lime' if row['signal'] == 'BUY' else 'red'
+                ev = float(trade_manager.get_ev(row['confidence']))
+                row_time_str = row['time'].strftime('%Y-%m-%d %H:%M:%S')
+                fig.add_trace(go.Scatter(x=[row_time_str], y=[float(row['low'] if row['signal'] == 'BUY' else row['high'])],
+                                         mode="markers+text", marker=dict(symbol="triangle-up" if row['signal'] == 'BUY' else "triangle-down", size=15, color=color),
+                                         text=[f"{row['signal']} (EV:{ev:.1f})"], textposition="bottom center"), row=1, col=1)
+                sig_msg = f"{row['time'].strftime('%H:%M:%S')} - OF {row['signal']} (EV:{ev:.1f}) detected"
+                if sig_msg not in history:
+                    history.append(sig_msg)
+                    if i == len(df_merged) - 1:
+                        signal_alert_div = html.Div(f"🚀 {row['signal']} SIGNAL!", style={'backgroundColor': color, 'color': 'white', 'padding': '10px'})
 
-    for i, row in df_merged.iterrows():
-        if row['signal'] and pd.notna(row['signal']):
-            color = 'lime' if row['signal'] == 'BUY' else 'red'
-            ev = trade_manager.get_ev(row['confidence'])
-            fig.add_trace(go.Scatter(x=[row['time']], y=[row['low'] if row['signal'] == 'BUY' else row['high']],
-                                     mode="markers+text", marker=dict(symbol="triangle-up" if row['signal'] == 'BUY' else "triangle-down", size=15, color=color),
-                                     text=[f"{row['signal']} (EV:{ev:.1f})"], textposition="bottom center", name="OF SIGNAL"), row=1, col=1)
+        start_idx = max(0, len(df_merged) - 10)
+        for i in range(start_idx, len(df_merged)):
+            row = df_merged.iloc[i]
+            delta_val = row['delta']
+            if pd.isna(delta_val): continue
+            row_time_str = row['time'].strftime('%Y-%m-%d %H:%M:%S')
+            fig.add_annotation(x=row_time_str, y=float(row['low']), text=str(int(delta_val)), showarrow=False, yshift=-15, font=dict(color="lime" if delta_val > 0 else "red", size=10), row=1, col=1)
 
-            sig_msg = f"{row['time'].strftime('%H:%M:%S')} - OF {row['signal']} (EV:{ev:.1f}) detected"
-            if sig_msg not in history:
-                history.append(sig_msg)
-                if i == len(df_merged) - 1:
-                    signal_alert_div = html.Div(f"🚀 {row['signal']} SIGNAL (EV: {ev:.1f}) DETECTED!",
-                                               style={'backgroundColor': 'green' if row['signal']=='BUY' else 'red', 'color': 'white', 'padding': '15px', 'borderRadius':'5px', 'fontSize':'20px', 'textAlign':'center'})
+        if not df_merged.empty and 'cum_delta' in df_merged.columns:
+            fig.add_trace(go.Scatter(x=x_times, y=to_py_list(df_merged['cum_delta']), fill='tozeroy', name='Cum Delta', line=dict(color='cyan', width=2)), row=2, col=1)
 
-    if mode == 'RS' and not df_sync.empty:
-        rs_sigs = df_sync[df_sync['rs_bullish_signal']]
-        for ts, row in rs_sigs.iterrows():
-            fig.add_trace(go.Scatter(x=[ts], y=[row['opt_low'] - 2], mode="markers", marker=dict(symbol="star", size=15, color='cyan'), name="RS BUY"), row=1, col=1)
-            sig_msg = f"{ts.strftime('%H:%M:%S')} - RS BULLISH Divergence"
-            if sig_msg not in history:
-                history.append(sig_msg)
-                signal_alert_div = html.Div("🌟 RS BULLISH SIGNAL DETECTED!", style={'backgroundColor': 'cyan', 'color': 'black', 'padding': '15px', 'borderRadius':'5px', 'fontSize':'20px', 'textAlign':'center'})
+        now_str = datetime.datetime.now().strftime("%H:%M:%S")
+        fig.update_layout(title=f"LIVE: {instrument_label} | {now_str}", template="plotly_dark", margin=dict(l=10, r=10, t=50, b=10), xaxis_rangeslider_visible=False, showlegend=False)
 
-    # 6. Footprint & Delta (Limit to last 10 candles for performance)
-    start_idx = max(0, len(df_merged) - 10)
-    for i in range(start_idx, len(df_merged)):
-        row = df_merged.iloc[i]
-        delta_val = row['delta']
-        if pd.isna(delta_val): continue
-        color = "lime" if delta_val > 0 else "red"
-        fig.add_annotation(x=row['time'], y=row['low'], text=str(int(delta_val)), showarrow=False, yshift=-15, font=dict(color=color, size=10), row=1, col=1)
-
-    if not df_merged.empty and 'cum_delta' in df_merged.columns:
-        fig.add_trace(go.Scatter(x=df_merged['time'], y=df_merged['cum_delta'], fill='tozeroy', name='Cumulative Delta', line=dict(color='cyan', width=2)), row=2, col=1)
-
-    now_str = datetime.datetime.now().strftime("%H:%M:%S")
-    fig.update_layout(title=f"LIVE: {instrument_label} | UI Last Update: {now_str}", template="plotly_dark",
-                      margin=dict(l=10, r=10, t=50, b=10), xaxis_rangeslider_visible=False, showlegend=False)
-
-    # Auto-scale Y-axis and set X-axis range to last 30 units for better visibility if data is dense
-    if not df_opt.empty:
         last_time = df_opt['time'].iloc[-1]
         lookback = 30
-        if timeframe == '5min': lookback = 30 * 5
-        elif timeframe == '15min': lookback = 30 * 15
-        start_view = last_time - pd.Timedelta(minutes=lookback)
-        # Add a 2-minute buffer on the right so the live candle isn't cut off
-        fig.update_xaxes(range=[start_view, last_time + pd.Timedelta(minutes=2)])
+        if timeframe == '5min': lookback = 150
+        elif timeframe == '15min': lookback = 450
+        start_view = (last_time - pd.Timedelta(minutes=lookback)).strftime('%Y-%m-%d %H:%M:%S')
+        end_view = (last_time + pd.Timedelta(minutes=2)).strftime('%Y-%m-%d %H:%M:%S')
+        fig.update_xaxes(range=[start_view, end_view])
 
-    import data_manager
-    import time
-    last_tick = data_manager.last_wss_tick_time
-    time_since_tick = time.time() - last_tick if last_tick > 0 else 0
-    last_tick_str = datetime.datetime.fromtimestamp(last_tick).strftime("%H:%M:%S") if last_tick > 0 else "--:--:--"
+        # Access tick time from data_manager shared state
+        last_tick = float(data_manager.state['last_wss_tick_time'])
+        time_since_tick = time.time() - last_tick if last_tick > 0 else 0
+        last_tick_str = datetime.datetime.fromtimestamp(last_tick).strftime("%H:%M:%S") if last_tick > 0 else "--:--:--"
 
-    alert_text = "STATUS: MONITORING"
-    if last_tick == 0:
-        alert_text = "STATUS: WAITING FOR FIRST TICK..."
-    elif time_since_tick > 10:
-        alert_text = f"⚠️ NO DATA ({int(time_since_tick)}s)"
-    elif not analysis_df.empty:
-        if analysis_df.iloc[-1]['absorption_zones']: alert_text = "⚠️ ABSORPTION ZONE"
-        if analysis_df.iloc[-1]['exhaustion']: alert_text += " | 💨 EXHAUSTION"
+        alert_text = "STATUS: MONITORING"
+        if last_tick == 0:
+            alert_text = "STATUS: WAITING FOR FIRST TICK..."
+        elif time_since_tick > 10:
+            alert_text = f"⚠️ NO DATA ({int(time_since_tick)}s)"
+        elif not analysis_df.empty:
+            if analysis_df.iloc[-1].get('absorption_zones'): alert_text = "⚠️ ABSORPTION ZONE"
 
-    current_ltp = f"{df_opt['close'].iloc[-1]:.2f}"
-    candles_count = str(len(df_opt))
-    pnl_str = f"{trade_manager.stats['realized_pnl']:.2f}"
-    winrate_str = f"{trade_manager.stats['win_rate']:.1f}%"
+        current_ltp = f"{df_opt['close'].iloc[-1]:.2f}"
+        candles_count = str(len(df_opt))
+        pnl_str = f"{trade_manager.stats['realized_pnl']:.2f}"
+        winrate_str = f"{trade_manager.stats['win_rate']:.1f}%"
 
-    if tab == 'signals':
-        monitor_content = [html.Div(e) for e in reversed(history)]
-    else:
-        # Trades tab
-        trade_items = []
-        for t in reversed(trade_manager.trades):
-            color = 'cyan' if t.status == 'OPEN' else ('lime' if t.pnl > 0 else 'red')
-            text = f"[{t.status}] {t.side} @ {t.entry_price:.2f}"
-            if t.status == 'CLOSED':
-                text += f" | Exit: {t.exit_price:.2f} PnL: {t.pnl:.2f}"
-            trade_items.append(html.Div(text, style={'color': color, 'marginBottom': '5px', 'borderBottom': '1px solid #333'}))
-        monitor_content = trade_items if trade_items else "No Trades"
+        if tab == 'signals':
+            monitor_content = [html.Div(e) for e in reversed(history)]
+        else:
+            trade_items = []
+            for t in reversed(trade_manager.trades):
+                color = 'cyan' if t.status == 'OPEN' else ('lime' if t.pnl > 0 else 'red')
+                text = f"[{t.status}] {t.side} @ {t.entry_price:.2f}"
+                if t.status == 'CLOSED': text += f" | Exit: {t.exit_price:.2f} PnL: {t.pnl:.2f}"
+                trade_items.append(html.Div(text, style={'color': color, 'marginBottom': '5px'}))
+            monitor_content = trade_items if trade_items else "No Trades"
 
-    return fig, alert_text, monitor_content, signal_alert_div, history, current_ltp, candles_count, last_tick_str, refresh_count, heartbeat_style, pnl_str, winrate_str
+        return clean_fig(fig), alert_text, monitor_content, signal_alert_div, history, current_ltp, candles_count, last_tick_str, refresh_count, heartbeat_style, pnl_str, winrate_str
+
+    except Exception as e:
+        print(f"CRITICAL UI ERROR: {e}\n{traceback.format_exc()}", flush=True)
+        return dash.no_update, f"ERROR: {str(e)}", dash.no_update, dash.no_update, history, "0.00", "0", "--:--:--", str(n), {'color': 'orange'}, "0.00", "0%"
 
 if __name__ == '__main__':
-    # Initialize with no active instrument as requested (no simulation by default)
     app.run(debug=True, port=8050)

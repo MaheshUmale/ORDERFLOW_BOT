@@ -4,6 +4,7 @@ from upstox_client.feeder.proto import MarketDataFeedV3_pb2 as pb
 from google.protobuf.json_format import MessageToDict
 import threading
 import json
+import time
 from upstox_helper import UpstoxHelper
 
 class UpstoxWSS:
@@ -11,50 +12,63 @@ class UpstoxWSS:
         self.callback = callback
         self.helper = UpstoxHelper()
         self.websocket = None
-        self.last_volumes = {} # Store last cumulative volume per instrument
         self.loop = None
         self.pending_subscriptions = set()
         self.subscribed_keys = set()
         self._thread = None
 
     async def connect(self):
-        auth_response = self.helper.get_market_data_feed_authorize()
-        if 'status' not in auth_response or auth_response['status'] != 'success':
-            print("Failed to authorize market data feed:", auth_response, flush=True)
-            return
+        while True:
+            try:
+                auth_response = self.helper.get_market_data_feed_authorize()
+                if 'status' not in auth_response or auth_response['status'] != 'success':
+                    print(f"FAILED WSS AUTH: {auth_response}. Retrying in 5s...", flush=True)
+                    await asyncio.sleep(5)
+                    continue
 
-        authorized_url = auth_response['data']['authorized_redirect_uri']
+                authorized_url = auth_response['data']['authorized_redirect_uri']
+                print(f"Connecting to WSS...", flush=True)
 
-        async with websockets.connect(authorized_url) as websocket:
-            self.websocket = websocket
-            print("Connected to Upstox WSS", flush=True)
+                async with websockets.connect(authorized_url) as websocket:
+                    self.websocket = websocket
+                    print("WSS CONNECTED SUCCESS", flush=True)
 
-            # Subscribe to any keys that were requested before connection
-            if self.pending_subscriptions:
-                keys_to_sub = list(self.pending_subscriptions)
-                print(f"Subscribing to pending keys: {keys_to_sub}", flush=True)
-                await self._subscribe(keys_to_sub)
-                self.pending_subscriptions.clear()
+                    # Re-subscribe to existing keys or handle pending ones
+                    keys_to_sub = list(self.pending_subscriptions | self.subscribed_keys)
+                    if keys_to_sub:
+                        print(f"Resubscribing to: {keys_to_sub}", flush=True)
+                        await self._subscribe(keys_to_sub)
+                        self.pending_subscriptions.clear()
 
-            # Also re-subscribe to already tracked keys if reconnecting
-            elif self.subscribed_keys:
-                await self._subscribe(list(self.subscribed_keys))
+                    while True:
+                        try:
+                            message = await websocket.recv()
+                            self.handle_message(message)
+                        except websockets.ConnectionClosed:
+                            print("WSS CONNECTION CLOSED. Reconnecting...", flush=True)
+                            self.websocket = None
+                            break
+                        except Exception as e:
+                            print(f"WSS RECV ERROR: {e}", flush=True)
+                            await asyncio.sleep(0.1)
 
-            while True:
-                try:
-                    message = await websocket.recv()
-                    self.handle_message(message)
-                except websockets.ConnectionClosed:
-                    print("WSS connection closed", flush=True)
-                    break
-                except Exception as e:
-                    print(f"Error in WSS loop: {e}", flush=True)
+            except Exception as e:
+                print(f"WSS CONNECT ERROR: {e}. Retrying in 5s...", flush=True)
+                self.websocket = None
+                await asyncio.sleep(5)
 
     def handle_message(self, message):
-        feed_response = pb.FeedResponse()
-        feed_response.ParseFromString(message)
-        # Using default CamelCase to match user provided format
-        data = MessageToDict(feed_response)
+        try:
+            feed_response = pb.FeedResponse()
+            feed_response.ParseFromString(message)
+            # Try both with and without preserving field names
+            data = MessageToDict(feed_response)
+        except Exception as e:
+            print(f"PROTO DECODE ERROR: {e}", flush=True)
+            return
+
+        # DEBUG RAW
+        # print(f"WSS RAW KEYS: {data.keys()}", flush=True)
 
         if 'feeds' in data:
             for instrument_key, feed in data['feeds'].items():
@@ -63,10 +77,10 @@ class UpstoxWSS:
                 bid = 0
                 ask = 0
 
-                # Robust extraction handling CamelCase keys
-                ff = feed.get('fullFeed', {})
-                iff = ff.get('indexFF') or feed.get('indexFF', {})
-                mff = ff.get('marketFF') or feed.get('marketFF', {})
+                # Navigation robust to both formats
+                ff = feed.get('fullFeed') or feed.get('full_feed', {})
+                iff = ff.get('indexFF') or ff.get('index_ff') or feed.get('indexFF') or feed.get('index_ff', {})
+                mff = ff.get('marketFF') or ff.get('market_ff') or feed.get('marketFF') or feed.get('market_ff', {})
 
                 if iff:
                     ltpc = iff.get('ltpc', {})
@@ -74,44 +88,33 @@ class UpstoxWSS:
                 elif mff:
                     ltpc = mff.get('ltpc', {})
                     ltp = ltpc.get('ltp', 0)
+                    tick_volume = int(ltpc.get('ltq', 0))
 
-                    # ltq is the last traded quantity for THIS tick (TS)
-                    ltq = ltpc.get('ltq', 0)
-                    try:
-                        tick_volume = int(ltq)
-                    except:
-                        tick_volume = 0
-
-                    ml = mff.get('marketLevel', {})
-                    baq = ml.get('bidAskQuote', [])
+                    ml = mff.get('marketLevel') or mff.get('market_level', {})
+                    baq = ml.get('bidAskQuote') or ml.get('bid_ask_quote', [])
                     if baq:
-                        bid = baq[0].get('bidP', 0)
-                        ask = baq[0].get('askP', 0)
+                        bid = baq[0].get('bidP') or baq[0].get('bid_p', 0)
+                        ask = baq[0].get('askP') or baq[0].get('ask_p', 0)
 
-                # Final fallback to top-level ltpc
-                if ltp == 0 and 'ltpc' in feed:
-                    ltpc = feed['ltpc']
+                # Fallback
+                if ltp == 0:
+                    ltpc = feed.get('ltpc', {})
                     ltp = ltpc.get('ltp', 0)
-                    ltq = ltpc.get('ltq', 0)
-                    try:
-                        tick_volume = int(ltq)
-                    except:
-                        pass
+                    tick_volume = int(ltpc.get('ltq', 0))
 
                 if ltp > 0:
                     is_buy = True
                     if ask > bid > 0:
                         is_buy = abs(ltp - ask) <= abs(ltp - bid)
 
-                    # REQUIRED LOGS FOR THE USER
                     print(f"WSS TICK: {instrument_key} LTP={ltp} Vol={tick_volume} Buy={is_buy}", flush=True)
                     self.callback(instrument_key, ltp, tick_volume, is_buy)
 
     async def _subscribe(self, instrument_keys):
         if self.websocket:
-            print(f"Subscribing to: {instrument_keys}", flush=True)
+            print(f"WSS SUB: {instrument_keys}", flush=True)
             data = {
-                "guid": "someguid",
+                "guid": "of_bot",
                 "method": "sub",
                 "data": {
                     "mode": "full",
@@ -124,7 +127,7 @@ class UpstoxWSS:
     async def _unsubscribe(self, instrument_keys):
         if self.websocket:
             data = {
-                "guid": "someguid",
+                "guid": "of_bot",
                 "method": "unsub",
                 "data": {
                     "instrumentKeys": instrument_keys
@@ -145,7 +148,7 @@ class UpstoxWSS:
         try:
             self.loop.run_until_complete(self.connect())
         except Exception as e:
-            print(f"WSS Thread Error: {e}", flush=True)
+            print(f"WSS LOOP ERROR: {e}", flush=True)
 
     def update_subscriptions(self, instrument_keys):
         if not self.loop:
