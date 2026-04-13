@@ -49,6 +49,13 @@ app.layout = html.Div([
             ], style={'display': 'inline-block', 'padding': '10px'}),
 
             html.Div([
+                html.Label("Live Trading:", style={'color': 'white'}),
+                dcc.Checklist(id='live-trading-toggle',
+                              options=[{'label': ' Enabled', 'value': 'LIVE'}],
+                              value=[], style={'color': 'white', 'marginTop': '5px'})
+            ], style={'display': 'inline-block', 'padding': '10px'}),
+
+            html.Div([
                 html.Label("Terminal Mode:", style={'color': 'white'}),
                 dcc.RadioItems(id='terminal-mode',
                                options=[{'label': 'Order Flow', 'value': 'OF'},
@@ -139,10 +146,11 @@ def update_instrument_options(index):
     [State('instrument-selector', 'value'),
      State('instrument-selector', 'options'),
      State('base-index', 'value'),
-     State('signal-history', 'data')],
+     State('signal-history', 'data'),
+     State('live-trading-toggle', 'value')],
     prevent_initial_call=True
 )
-def handle_connect(n_clicks, instrument_key, options, index, history):
+def handle_connect(n_clicks, instrument_key, options, index, history, live_toggle):
     if n_clicks > 0 and instrument_key:
         label = "Unknown"
         if options:
@@ -152,10 +160,11 @@ def handle_connect(n_clicks, instrument_key, options, index, history):
                     break
 
         # Start backend processes
+        trade_manager.live_mode = ('LIVE' in live_toggle)
         change_instrument(instrument_key, index)
         start_live_feed()
 
-        status = f"CONNECTED: {label}"
+        status = f"CONNECTED: {label} [{'LIVE' if trade_manager.live_mode else 'VIRTUAL'}]"
         # Reset history on new connection to avoid confusion between instruments
         return [], {'key': instrument_key, 'label': label}, status
 
